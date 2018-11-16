@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800');
+
+/* Color del tema */
+$--color-primary: #4E568F;
+
+/* Ubicación de la fuente, obligatoria */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+$font-family-sans-serif: "Raleway", sans-serif;
+
+@import "~element-ui/packages/theme-chalk/src/index";
