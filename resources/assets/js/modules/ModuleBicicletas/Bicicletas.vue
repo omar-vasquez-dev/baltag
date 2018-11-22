@@ -50,7 +50,7 @@
 <el-row :gutter="10">
 
     <el-col :span="6">
-        <el-select v-model="value" placeholder="Select" size="large">
+        <el-select v-model="value" placeholder="Select">
             <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -160,4 +160,7 @@
       margin-bottom: 0;
     }
   }
+.el-select{
+    size:"large"
+}
 </style>

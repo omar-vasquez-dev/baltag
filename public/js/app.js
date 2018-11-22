@@ -92732,7 +92732,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: center;\r\n    font-size: 2em;\r\n    color: white;\r\n    background: #99a9bf;\n}\n.el-main[data-v-897bf68e]{\r\n    background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n    margin-bottom: 10px;\n&:last-child {\r\n      margin-bottom: 0;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: center;\r\n    font-size: 2em;\r\n    color: white;\r\n    background: #99a9bf;\n}\n.el-main[data-v-897bf68e]{\r\n    background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n    margin-bottom: 10px;\n&:last-child {\r\n      margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e]{\r\n    size:\"large\"\n}\r\n", ""]);
 
 // exports
 
@@ -93119,7 +93119,7 @@ var render = function() {
                       _c(
                         "el-select",
                         {
-                          attrs: { placeholder: "Select", size: "large" },
+                          attrs: { placeholder: "Select" },
                           model: {
                             value: _vm.value,
                             callback: function($$v) {
