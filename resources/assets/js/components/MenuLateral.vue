@@ -19,7 +19,7 @@
         </template>
         <el-menu-item-group title="Opciones">
           <el-menu-item index="2-1">Lista</el-menu-item>
-          <el-menu-item index="2-2">Agregar</el-menu-item>
+          <el-menu-item index="2-2" @click="emitViewToParent('view_bicicletas')">Nueva Bicicleta</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="3">
