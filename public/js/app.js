@@ -92732,7 +92732,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: center;\r\n    font-size: 2em;\r\n    color: white;\r\n    background: #99a9bf;\n}\n.el-main[data-v-897bf68e]{\r\n    background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n    margin-bottom: 10px;\n&:last-child {\r\n      margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e]{\r\n    size:\"large\"\n}\r\n", ""]);
+exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: center;\r\n    font-size: 2em;\r\n    color: white;\r\n    background: #99a9bf;\n}\n.el-main[data-v-897bf68e]{\r\n    background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n    margin-bottom: 10px;\n&:last-child {\r\n      margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e]{\r\n    width: 100%;\n}\n.el-button[data-v-897bf68e]{\r\n    width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -92743,6 +92743,14 @@ exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: cente
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -92880,10 +92888,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
-
     methods: {
         cambiarNombre: function cambiarNombre() {
             this.nombre = "beto";
+        },
+        guardarMessage: function guardarMessage() {
+            var _this = this;
+
+            this.$confirm('¿Desea guardar los datos?', '', {
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
+                type: 'warning'
+            }).then(function () {
+                _this.$message({
+                    type: 'success',
+                    message: 'Delete completed'
+                });
+            }).catch(function () {
+                _this.$message({
+                    type: 'info',
+                    message: 'Delete canceled'
+                });
+            });
         }
     }
 });
@@ -92915,6 +92941,7 @@ var render = function() {
                     "el-col",
                     { attrs: { span: 12 } },
                     [
+                      _vm._v("\n        Modelo\n        "),
                       _c("el-input", {
                         attrs: { placeholder: "Descripcion" },
                         model: {
@@ -92933,6 +92960,7 @@ var render = function() {
                     "el-col",
                     { attrs: { span: 12 } },
                     [
+                      _vm._v("\n        Modelo\n        "),
                       _c("el-input", {
                         attrs: { placeholder: "Descripcion" },
                         model: {
@@ -92958,6 +92986,7 @@ var render = function() {
                     "el-col",
                     { attrs: { span: 24 } },
                     [
+                      _vm._v("\n        Descripción\n        "),
                       _c("el-input", {
                         attrs: {
                           type: "textarea",
@@ -93210,10 +93239,15 @@ var render = function() {
                           }
                         },
                         _vm._l(_vm.options, function(item) {
-                          return _c("el-option", {
-                            key: item.value,
-                            attrs: { label: item.label, value: item.value }
-                          })
+                          return _c(
+                            "el-option",
+                            {
+                              key: item.value,
+                              staticClass: "Pro1",
+                              attrs: { label: item.label, value: item.value }
+                            },
+                            [_vm._v(_vm._s(_vm.R1) + "\n            ")]
+                          )
                         })
                       )
                     ],
@@ -93233,13 +93267,27 @@ var render = function() {
                     [
                       _c(
                         "el-button",
-                        { attrs: { span: 8, type: "success", plain: "" } },
+                        {
+                          attrs: { type: "success", plain: "" },
+                          on: {
+                            click: function($event) {
+                              _vm.guardarMessage()
+                            }
+                          }
+                        },
                         [_vm._v("Guardar")]
-                      ),
-                      _vm._v(" "),
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { attrs: { span: 12 } },
+                    [
                       _c(
                         "el-button",
-                        { attrs: { span: 8, type: "danger", plain: "" } },
+                        { attrs: { type: "danger", plain: "" } },
                         [_vm._v("Cancelar")]
                       )
                     ],

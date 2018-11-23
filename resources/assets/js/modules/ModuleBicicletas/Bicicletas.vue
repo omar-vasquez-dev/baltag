@@ -6,15 +6,18 @@
   <el-main>
 <el-row :gutter="10">
     <el-col :span="12">
+        Modelo
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
     <el-col :span="12">
+        Modelo
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
 </el-row>
 
 <el-row :gutter="10">
     <el-col :span="24">
+        Descripción
         <el-input type="textarea" :rows="6" placeholder="Please input" v-model="textarea"></el-input>
     </el-col>    
 </el-row>
@@ -70,6 +73,7 @@
             </el-option>
         </el-select>
     </el-col>
+
     <el-col :span="6">
         <el-select v-model="value" placeholder="Select">
             <el-option
@@ -79,23 +83,27 @@
                 :value="item.value">
             </el-option>
         </el-select>
-    </el-col>
+    </el-col>   
+
     <el-col :span="6">
         <el-select v-model="value" placeholder="Select">
-            <el-option
+            <el-option class="Pro1"
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
+                :value="item.value">{{ R1 }}
             </el-option>
         </el-select>
     </el-col>
+
 </el-row>
 
 <el-row :gutter="10">
     <el-col :span="12">
-        <el-button :span="8" type="success" plain>Guardar</el-button>
-        <el-button :span="8" type="danger" plain>Cancelar</el-button>
+        <el-button type="success" plain @click="guardarMessage()">Guardar</el-button>
+    </el-col>
+    <el-col :span="12">
+        <el-button type="danger" plain>Cancelar</el-button>
     </el-col>
 </el-row>
 
@@ -134,13 +142,30 @@
 
             }
         },
-
         methods:{
             cambiarNombre(){
                 this.nombre = "beto"
+            },
+            guardarMessage(){
+                this.$confirm('¿Desea guardar los datos?', '', {
+                    confirmButtonText: 'Si',
+                    cancelButtonText: 'No',
+                    type: 'warning'
+                    }).then(() => {
+                        this.$message({
+                            type: 'success',
+                            message: 'Delete completed'
+                        });
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: 'Delete canceled'
+                        });          
+                    });
             }
         }
     }
+   
 </script>
 
 <style scoped>
@@ -161,6 +186,9 @@
     }
   }
 .el-select{
-    size:"large"
+    width: 100%;
+}
+.el-button{
+    width: 100%;  
 }
 </style>
