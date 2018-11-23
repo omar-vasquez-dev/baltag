@@ -92855,11 +92855,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Bicicletas view",
@@ -92867,7 +92862,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             nombre: "blog",
-
+            color4: '#409EFF',
             options: [{
                 value: 'Option1',
                 label: 'Option1'
@@ -92902,12 +92897,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function () {
                 _this.$message({
                     type: 'success',
-                    message: 'Delete completed'
+                    message: 'Datos guardados correctamente'
                 });
             }).catch(function () {
                 _this.$message({
                     type: 'info',
-                    message: 'Delete canceled'
+                    message: 'Los datros no se han guardado'
                 });
             });
         }
@@ -92941,7 +92936,7 @@ var render = function() {
                     "el-col",
                     { attrs: { span: 12 } },
                     [
-                      _vm._v("\n        Modelo\n        "),
+                      _vm._v("\n        Marca\n        "),
                       _c("el-input", {
                         attrs: { placeholder: "Descripcion" },
                         model: {
@@ -93016,6 +93011,7 @@ var render = function() {
                     "el-col",
                     { attrs: { span: 12 } },
                     [
+                      _vm._v("\n        Modalidad\n        "),
                       _c("el-input", {
                         attrs: { placeholder: "Descripcion" },
                         model: {
@@ -93034,6 +93030,7 @@ var render = function() {
                     "el-col",
                     { attrs: { span: 12 } },
                     [
+                      _vm._v("\n        Capacidad\n        "),
                       _c("el-input", {
                         attrs: { placeholder: "Descripcion" },
                         model: {
@@ -93226,30 +93223,15 @@ var render = function() {
                     "el-col",
                     { attrs: { span: 6 } },
                     [
-                      _c(
-                        "el-select",
-                        {
-                          attrs: { placeholder: "Select" },
-                          model: {
-                            value: _vm.value,
-                            callback: function($$v) {
-                              _vm.value = $$v
-                            },
-                            expression: "value"
-                          }
-                        },
-                        _vm._l(_vm.options, function(item) {
-                          return _c(
-                            "el-option",
-                            {
-                              key: item.value,
-                              staticClass: "Pro1",
-                              attrs: { label: item.label, value: item.value }
-                            },
-                            [_vm._v(_vm._s(_vm.R1) + "\n            ")]
-                          )
-                        })
-                      )
+                      _c("el-color-picker", {
+                        model: {
+                          value: _vm.color4,
+                          callback: function($$v) {
+                            _vm.color4 = $$v
+                          },
+                          expression: "color4"
+                        }
+                      })
                     ],
                     1
                   )

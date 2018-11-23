@@ -6,7 +6,7 @@
   <el-main>
 <el-row :gutter="10">
     <el-col :span="12">
-        Modelo
+        Marca
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
     <el-col :span="12">
@@ -25,9 +25,11 @@
 
 <el-row :gutter="10">
     <el-col :span="12">
+        Modalidad
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
     <el-col :span="12">
+        Capacidad
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
 </el-row>
@@ -86,14 +88,7 @@
     </el-col>   
 
     <el-col :span="6">
-        <el-select v-model="value" placeholder="Select">
-            <el-option class="Pro1"
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">{{ R1 }}
-            </el-option>
-        </el-select>
+        <el-color-picker v-model="color4"></el-color-picker>
     </el-col>
 
 </el-row>
@@ -122,7 +117,7 @@
         data() {
             return {
                 nombre : "blog",
-
+                color4: '#409EFF',
                 options: [{
                     value: 'Option1',
                     label: 'Option1'
@@ -154,12 +149,12 @@
                     }).then(() => {
                         this.$message({
                             type: 'success',
-                            message: 'Delete completed'
+                            message: 'Datos guardados correctamente'
                         });
                     }).catch(() => {
                         this.$message({
                             type: 'info',
-                            message: 'Delete canceled'
+                            message: 'Los datros no se han guardado'
                         });          
                     });
             }
