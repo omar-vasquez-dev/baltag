@@ -1,5 +1,4 @@
 <template>
-    <div>
 
 <el-container>
   <el-header>Nueva Bicicleta</el-header>
@@ -36,23 +35,36 @@
 
 <el-row :gutter="10">
     <el-col :span="12">
+        Material
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
     <el-col :span="12">
+        Rodada
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
 </el-row>
 
 <el-row :gutter="10">
-    <el-col :span="12">
+    <el-col :span="8">
+        Modelaje
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
-    <el-col :span="12">
+    <el-col :span="8">
+        Género
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
+    <el-col :span="8">
+        Velocidad
+        <el-input placeholder="Descripcion" v-model="input"></el-input>
+    </el-col>    
 </el-row>
 
 <el-row :gutter="10">
+
+    <el-col :span="6">
+        Color
+        <el-color-picker v-model="color4"></el-color-picker>
+    </el-col>
 
     <el-col :span="6">
         <el-select v-model="value" placeholder="Select">
@@ -86,19 +98,14 @@
             </el-option>
         </el-select>
     </el-col>   
-
-    <el-col :span="6">
-        <el-color-picker v-model="color4"></el-color-picker>
-    </el-col>
-
 </el-row>
 
 <el-row :gutter="10">
     <el-col :span="12">
-        <el-button type="success" plain @click="guardarMessage()">Guardar</el-button>
+        <el-button type="success" plain @click="guardarMessage(1)">Guardar</el-button>
     </el-col>
     <el-col :span="12">
-        <el-button type="danger" plain>Cancelar</el-button>
+        <el-button type="danger" plain @click="guardarMessage(0)">Cancelar</el-button>
     </el-col>
 </el-row>
 
@@ -107,10 +114,10 @@
   </el-main>
 </el-container>
 
-    </div>  
 </template>
 
 <script>
+
     export default {
         name:"Bicicletas view",
 
@@ -141,7 +148,10 @@
             cambiarNombre(){
                 this.nombre = "beto"
             },
-            guardarMessage(){
+            guardarMessage(boolianParameter){
+               
+               if (boolianParameter == 1){
+
                 this.$confirm('¿Desea guardar los datos?', '', {
                     confirmButtonText: 'Si',
                     cancelButtonText: 'No',
@@ -157,6 +167,19 @@
                             message: 'Los datros no se han guardado'
                         });          
                     });
+
+               }
+               else{
+                this.$confirm('¿Desea salir del formulario?', '', {
+                    confirmButtonText: 'Si',
+                    cancelButtonText: 'No',
+                    type: 'warning'
+                    }).then(() => {
+
+                    }).catch(() => {
+                        this.$emit("clickItemView", "view_renta")
+                    });
+               } 
             }
         }
     }
@@ -183,7 +206,7 @@
 .el-select{
     width: 100%;
 }
-.el-button{
+.el-button,.el-color-picker{
     width: 100%;  
 }
 </style>
