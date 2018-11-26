@@ -175,7 +175,7 @@
                     cancelButtonText: 'No',
                     type: 'warning'
                     }).then(() => {
-                        this.$router.push('home')
+                        this.$router.push('home');
                     }).catch(() => {
                         this.$emit("clickItemView", "view_renta")
                     });
