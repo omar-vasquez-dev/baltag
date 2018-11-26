@@ -101,6 +101,21 @@
 </el-row>
 
 <el-row :gutter="10">
+    <el-col :span="24">
+        <el-upload
+            action="https://jsonplaceholder.typicode.com/posts/"
+            list-type="picture-card"
+            :on-preview="handlePictureCardPreview"
+            :on-remove="handleRemove">
+            <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+            <img width="100%" :src="dialogImageUrl" alt="">
+        </el-dialog>
+    </el-col>
+</el-row>
+
+<el-row :gutter="10">
     <el-col :span="12">
         <el-button type="success" plain @click="guardarMessage(1)">Guardar</el-button>
     </el-col>

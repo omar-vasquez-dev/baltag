@@ -92861,6 +92861,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -93272,6 +93287,54 @@ var render = function() {
                         attrs: { label: item.label, value: item.value }
                       })
                     })
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-row",
+            { attrs: { gutter: 10 } },
+            [
+              _c(
+                "el-col",
+                { attrs: { span: 24 } },
+                [
+                  _c(
+                    "el-upload",
+                    {
+                      attrs: {
+                        action: "https://jsonplaceholder.typicode.com/posts/",
+                        "list-type": "picture-card",
+                        "on-preview": _vm.handlePictureCardPreview,
+                        "on-remove": _vm.handleRemove
+                      }
+                    },
+                    [_c("i", { staticClass: "el-icon-plus" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-dialog",
+                    {
+                      attrs: { visible: _vm.dialogVisible },
+                      on: {
+                        "update:visible": function($event) {
+                          _vm.dialogVisible = $event
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          width: "100%",
+                          src: _vm.dialogImageUrl,
+                          alt: ""
+                        }
+                      })
+                    ]
                   )
                 ],
                 1
