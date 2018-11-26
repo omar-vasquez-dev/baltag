@@ -92919,7 +92919,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     confirmButtonText: 'Si',
                     cancelButtonText: 'No',
                     type: 'warning'
-                }).then(function () {}).catch(function () {
+                }).then(function () {
+                    _this.$router.push('home');
+                }).catch(function () {
                     _this.$emit("clickItemView", "view_renta");
                 });
             }

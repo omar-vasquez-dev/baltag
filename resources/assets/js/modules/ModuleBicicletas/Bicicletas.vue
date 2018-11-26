@@ -175,7 +175,7 @@
                     cancelButtonText: 'No',
                     type: 'warning'
                     }).then(() => {
-
+                        this.$router.push('home');
                     }).catch(() => {
                         this.$emit("clickItemView", "view_renta")
                     });
@@ -207,6 +207,6 @@
     width: 100%;
 }
 .el-button,.el-color-picker{
-    width: 100%;  
+    width: 100%; 
 }
 </style>
