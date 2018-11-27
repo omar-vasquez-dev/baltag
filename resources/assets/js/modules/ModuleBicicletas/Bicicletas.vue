@@ -177,7 +177,7 @@
                     }).then(() => {
                         this.$router.push('home');
                     }).catch(() => {
-                        this.$emit("clickItemView", "view_renta")
+                        this.$emit("clickItemView", "view-renta")
                     });
                } 
             }

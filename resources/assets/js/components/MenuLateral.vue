@@ -8,7 +8,7 @@
       text-color="#fff"
       active-text-color="#ffd04b">
       <el-menu-item index="1" 
-        @click="emitViewToParent('view_renta')">
+        @click="emitViewToParent('view-renta')">
         <i class="el-icon-date"></i>
         <span>Rentas</span>
       </el-menu-item>
@@ -19,7 +19,7 @@
         </template>
         <el-menu-item-group title="Opciones">
           <el-menu-item index="2-1">Lista</el-menu-item>
-          <el-menu-item index="2-2" @click="emitViewToParent('view_bicicletas')">Nueva Bicicleta</el-menu-item>
+          <el-menu-item index="2-2" @click="emitViewToParent('view-bicicletas')">Nueva Bicicleta</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="3">

@@ -9,9 +9,12 @@
                 logs
               </el-button>
                   <el-button plain disabled>name</el-button>
-                <el-button size="medium">
+            <el-button size="medium" @click.prevent = logoutApp>
                 salir
-              </el-button>
+            </el-button>
+            <form id="logout-form" :action = currentUrl method="POST" style="display: none;">
+               <input type='hidden' name='_token' :value= token>
+            </form>
                 <i class="el-icon-setting"></i>
         </el-col>
     </el-row>
@@ -22,9 +25,23 @@
         name: "HeaderMenu",
         data() {
             return {
-                key: "hola"
+                token: "",
+                currentUrl:""
             }
         },
+
+        methods: {
+            logoutApp() {   
+
+                this.currentUrl = window.location.host + '/logout';
+
+                document.getElementById('logout-form').submit()
+            }
+        },              
+
+        created () {
+            this.token = window.Laravel.csrfToken
+        }
     }
 </script>
 

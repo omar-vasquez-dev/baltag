@@ -21,8 +21,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $any = "home")
     {
-        return view('home');
+        $urlBase = "/dashboard/" . $any;
+        return view('home',compact('urlBase'));
     }
 }

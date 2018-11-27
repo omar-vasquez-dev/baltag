@@ -58,7 +58,7 @@ Vue.use(VueRouter)
          * con la ruta que manada el controlador.
          */
         mounted(){
-            this.$router.push('home')
+            this.$router.push(window.Laravel.route_base)
         }
     }
 </script>

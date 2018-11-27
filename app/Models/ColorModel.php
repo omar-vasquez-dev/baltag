@@ -9,8 +9,12 @@ class ColorModel extends Model
     
     protected $table = "ag_colores";
 
-
-    protected $fillable = ['']; 
-
+    /**
+     * 
+     * Model database save
+     */
+    protected $fillable = [
+        'hex_color','name_color'
+    ];
 
 }
