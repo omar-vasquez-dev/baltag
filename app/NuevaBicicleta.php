@@ -15,5 +15,5 @@ class NuevaBicicleta extends Model
     //protected $connection = '';
     protected $table = 'ag_bicicletas';
     public $timestamps = false;
-
+    
 }

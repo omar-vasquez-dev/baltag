@@ -18,7 +18,7 @@
     <el-col :span="24">
         Descripción
         <el-input type="textarea" :rows="6" placeholder="Please input" v-model="textarea"></el-input>
-    </el-col>    
+    </el-col>  
 </el-row>
 
 
