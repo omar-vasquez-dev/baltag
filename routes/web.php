@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('dashboard/{any}', 'HomeController@index')->name('home');
+
+Route::resource('/cruds','CrudsController',[
+    'except' => ['edit','show','store']
+]);
