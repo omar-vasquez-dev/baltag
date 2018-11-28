@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('dashboard/{any}', 'HomeController@index')->name('home');
 
-Route::resource('/cruds','CrudsController',[
+Route::resource('NuevaBicicleta','NuevaBicicletasController',[
     'except' => ['edit','show','store']
 ]);

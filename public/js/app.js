@@ -93109,6 +93109,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
+function Crud(_ref) {
+    var id = _ref.id,
+        color = _ref.color,
+        name = _ref.name;
+
+    this.id = id;
+    this.color = color;
+    this.name = name;
+}
+
+//import CrudComponent from './CrudComponent.vue';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Bicicletas view",
 
@@ -93153,6 +93165,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this.$message({
                         type: 'success',
                         message: 'Datos guardados correctamente'
+
                     });
                 }).catch(function () {
                     _this.$message({

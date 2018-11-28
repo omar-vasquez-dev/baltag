@@ -133,6 +133,14 @@
 
 <script>
 
+    function Crud({ id, color, name}) {
+        this.id = id;
+        this.color = color;
+        this.name = name;
+    } 
+
+    //import CrudComponent from './CrudComponent.vue';
+
     export default {
         name:"Bicicletas view",
 
@@ -174,7 +182,8 @@
                     }).then(() => {
                         this.$message({
                             type: 'success',
-                            message: 'Datos guardados correctamente'
+                            message: 'Datos guardados correctamente',
+
                         });
                     }).catch(() => {
                         this.$message({
