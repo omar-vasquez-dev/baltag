@@ -91966,6 +91966,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MenuLateral",
@@ -92029,8 +92037,25 @@ var render = function() {
       ),
       _vm._v(" "),
       _c(
+        "el-menu-item",
+        {
+          attrs: { index: "2" },
+          on: {
+            click: function($event) {
+              _vm.emitViewToParent("view-catalogo")
+            }
+          }
+        },
+        [
+          _c("i", { staticClass: "el-icon-menu" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Cátalogo")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
         "el-submenu",
-        { attrs: { index: "2" } },
+        { attrs: { index: "3" } },
         [
           _c("template", { slot: "title" }, [
             _c("i", { staticClass: "el-icon-menu" }),
@@ -92045,7 +92070,7 @@ var render = function() {
               _c(
                 "el-menu-item",
                 {
-                  attrs: { index: "2-2" },
+                  attrs: { index: "3-2" },
                   on: {
                     click: function($event) {
                       _vm.emitViewToParent("view-bicicletas")
@@ -92063,7 +92088,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "el-submenu",
-        { attrs: { index: "3" } },
+        { attrs: { index: "4" } },
         [
           _c("template", { slot: "title" }, [
             _c("i", { staticClass: "el-icon-goods" }),
@@ -92545,7 +92570,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "notfound-404" }, [
-      _c("h1", [_vm._v("444")])
+      _c("h1", [_vm._v("404")])
     ])
   }
 ]
