@@ -40,4 +40,8 @@ class BicicletaModel extends Model
         return $this->hasMany('App\Models\BicicletaImageModel','bicicleta_id', 'id');
     }
 
+    public function color(){
+        return $this->hasone('App\Models\ColorModel','id','color_id');
+    }
+
 }
