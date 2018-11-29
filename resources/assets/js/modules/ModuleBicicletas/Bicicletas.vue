@@ -9,86 +9,26 @@
         <el-input placeholder="Descripcion" v-model="input"></el-input>
     </el-col>
     <el-col :span="12">
+        Select 1
+        <el-select v-model="value" placeholder="Select">
+            <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+            </el-option>
+        </el-select>
+
+    </el-col>
+</el-row>
+
+<el-row :gutter="10">
+    <el-col :span="12">
         Modelo
         <el-input placeholder="Descripcion" v-model="input"></el-input>
-    </el-col>
-</el-row>
-
-<el-row :gutter="10">
-    <el-col :span="24">
-        Descripción
-        <el-input type="textarea" :rows="6" placeholder="Please input" v-model="textarea"></el-input>
     </el-col>  
-</el-row>
-
-
-<el-row :gutter="10">
     <el-col :span="12">
-        Modalidad
-        <el-input placeholder="Descripcion" v-model="input"></el-input>
-    </el-col>
-    <el-col :span="12">
-        Capacidad
-        <el-input placeholder="Descripcion" v-model="input"></el-input>
-    </el-col>
-</el-row>
-
-<el-row :gutter="10">
-    <el-col :span="12">
-        Material
-        <el-input placeholder="Descripcion" v-model="input"></el-input>
-    </el-col>
-    <el-col :span="12">
-        Rodada
-        <el-input placeholder="Descripcion" v-model="input"></el-input>
-    </el-col>
-</el-row>
-
-<el-row :gutter="10">
-    <el-col :span="8">
-        Modelaje
-        <el-input placeholder="Descripcion" v-model="input"></el-input>
-    </el-col>
-    <el-col :span="8">
-        Género
-        <el-input placeholder="Descripcion" v-model="input"></el-input>
-    </el-col>
-    <el-col :span="8">
-        Velocidad
-        <el-input placeholder="Descripcion" v-model="input"></el-input>
-    </el-col>    
-</el-row>
-
-<el-row :gutter="10">
-
-    <el-col :span="6">
-        Color
-        <el-color-picker v-model="color4"></el-color-picker>
-    </el-col>
-
-    <el-col :span="6">
-        <el-select v-model="value" placeholder="Select">
-            <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-            </el-option>
-        </el-select>
-    </el-col>
-
-    <el-col :span="6">
-        <el-select v-model="value" placeholder="Select">
-            <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-            </el-option>
-        </el-select>
-    </el-col>
-
-    <el-col :span="6">
+        Select 2
         <el-select v-model="value" placeholder="Select">
             <el-option
                 v-for="item in options"
@@ -101,17 +41,102 @@
 </el-row>
 
 <el-row :gutter="10">
-    <el-col :span="24">
+    <el-col :span="12">
+        Género
+        <el-input placeholder="Descripcion" v-model="input"></el-input>
+    </el-col>
+    <el-col :span="12">
+        Select 3
+        <el-select v-model="value" placeholder="Select">
+            <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+            </el-option>
+        </el-select>
+    </el-col>
+</el-row>
+
+<el-row :gutter="10">
+    <el-col :span="12">
+        Modalidad
+        <el-input placeholder="Descripcion" v-model="input"></el-input>
+    </el-col>
+    <el-col :span="12">
+        Color
+        <el-color-picker v-model="color4"></el-color-picker>
+    </el-col>
+</el-row>
+<el-row :gutter="10">
+    <el-col :span="12">
+        Velocidad
+        <el-input placeholder="Descripcion" v-model="input"></el-input>
+    </el-col>
+    <el-col :span="12">
+
+    </el-col>  
+</el-row>
+
+<el-row :gutter="10">
+    <el-col :span="12">
+        Material
+        <el-input placeholder="Descripcion" v-model="input"></el-input>
+    </el-col>
+    <el-col :span="12">
+
+    </el-col>
+</el-row>
+
+<el-row :gutter="10">
+    <el-col :span="12">
+        Rodada
+        <el-input placeholder="Descripcion" v-model="input"></el-input>
+    </el-col>
+    <el-col :span="12">
+
+    </el-col>
+</el-row>
+
+<el-row :gutter="10">
+    <el-col :span="12">
+        Capacidad
+        <el-input placeholder="Descripcion" v-model="input"></el-input>
+    </el-col>
+    <el-col :span="12">
+
+    </el-col>
+</el-row>
+
+<el-row :gutter="10">
+    <el-col :span="12">
+        Modelaje
+        <el-input placeholder="Descripcion" v-model="input"></el-input>
+    </el-col>
+    <el-col :span="12">
+
+    </el-col>
+</el-row>
+
+<el-row :gutter="10">
+    <el-col :span="12">
+        Descripción
+        <el-input type="textarea" :rows="8" placeholder="Please input" v-model="textarea"></el-input>
+    </el-col>
+    <el-col :span="12">
+        Fotografias
         <el-upload
+            class="upload-demo"
+            drag
             action="https://jsonplaceholder.typicode.com/posts/"
-            list-type="picture-card"
-            :on-preview="handlePictureCardPreview"
-            :on-remove="handleRemove">
-            <i class="el-icon-plus"></i>
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :file-list="fileList"
+            multiple>
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">Suelta tu archivo aquí o <em>haz clic para cargar</em></div>
+            <div slot="tip" class="el-upload__tip">Solo archivos jpg/png con un tamaño menor de 500kb</div>
         </el-upload>
-        <el-dialog :visible.sync="dialogVisible">
-            <img width="100%" :src="dialogImageUrl" alt="">
-        </el-dialog>
     </el-col>
 </el-row>
 
@@ -123,8 +148,6 @@
         <el-button type="danger" plain @click="guardarMessage(0)">Cancelar</el-button>
     </el-col>
 </el-row>
-
-
 
   </el-main>
 </el-container>
@@ -229,6 +252,9 @@
   }
 .el-select{
     width: 100%;
+}
+.upload-demo{
+    width: 100%;     
 }
 .el-button,.el-color-picker{
     width: 100%; 

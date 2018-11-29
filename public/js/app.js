@@ -92042,10 +92042,6 @@ var render = function() {
             "el-menu-item-group",
             { attrs: { title: "Opciones" } },
             [
-              _c("el-menu-item", { attrs: { index: "2-1" } }, [
-                _vm._v("Lista")
-              ]),
-              _vm._v(" "),
               _c(
                 "el-menu-item",
                 {
@@ -92963,7 +92959,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: center;\r\n    font-size: 2em;\r\n    color: white;\r\n    background: #99a9bf;\n}\n.el-main[data-v-897bf68e]{\r\n    background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n    margin-bottom: 10px;\n&:last-child {\r\n      margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e]{\r\n    width: 100%;\n}\n.el-button[data-v-897bf68e],.el-color-picker[data-v-897bf68e]{\r\n    width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: center;\r\n    font-size: 2em;\r\n    color: white;\r\n    background: #99a9bf;\n}\n.el-main[data-v-897bf68e]{\r\n    background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n    margin-bottom: 10px;\n&:last-child {\r\n      margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e]{\r\n    width: 100%;\n}\n.upload-demo[data-v-897bf68e]{\r\n    width: 100%;\n}\n.el-button[data-v-897bf68e],.el-color-picker[data-v-897bf68e]{\r\n    width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -92974,6 +92970,29 @@ exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: cente
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -93231,17 +93250,26 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Modelo\r\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.input,
-                      callback: function($$v) {
-                        _vm.input = $$v
-                      },
-                      expression: "input"
-                    }
-                  })
+                  _vm._v("\r\n        Select 1\r\n        "),
+                  _c(
+                    "el-select",
+                    {
+                      attrs: { placeholder: "Select" },
+                      model: {
+                        value: _vm.value,
+                        callback: function($$v) {
+                          _vm.value = $$v
+                        },
+                        expression: "value"
+                      }
+                    },
+                    _vm._l(_vm.options, function(item) {
+                      return _c("el-option", {
+                        key: item.value,
+                        attrs: { label: item.label, value: item.value }
+                      })
+                    })
+                  )
                 ],
                 1
               )
@@ -93255,23 +93283,101 @@ var render = function() {
             [
               _c(
                 "el-col",
-                { attrs: { span: 24 } },
+                { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Descripción\r\n        "),
+                  _vm._v("\r\n        Modelo\r\n        "),
                   _c("el-input", {
-                    attrs: {
-                      type: "textarea",
-                      rows: 6,
-                      placeholder: "Please input"
-                    },
+                    attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.textarea,
+                      value: _vm.input,
                       callback: function($$v) {
-                        _vm.textarea = $$v
+                        _vm.input = $$v
                       },
-                      expression: "textarea"
+                      expression: "input"
                     }
                   })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("\r\n        Select 2\r\n        "),
+                  _c(
+                    "el-select",
+                    {
+                      attrs: { placeholder: "Select" },
+                      model: {
+                        value: _vm.value,
+                        callback: function($$v) {
+                          _vm.value = $$v
+                        },
+                        expression: "value"
+                      }
+                    },
+                    _vm._l(_vm.options, function(item) {
+                      return _c("el-option", {
+                        key: item.value,
+                        attrs: { label: item.label, value: item.value }
+                      })
+                    })
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-row",
+            { attrs: { gutter: 10 } },
+            [
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("\r\n        Género\r\n        "),
+                  _c("el-input", {
+                    attrs: { placeholder: "Descripcion" },
+                    model: {
+                      value: _vm.input,
+                      callback: function($$v) {
+                        _vm.input = $$v
+                      },
+                      expression: "input"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("\r\n        Select 3\r\n        "),
+                  _c(
+                    "el-select",
+                    {
+                      attrs: { placeholder: "Select" },
+                      model: {
+                        value: _vm.value,
+                        callback: function($$v) {
+                          _vm.value = $$v
+                        },
+                        expression: "value"
+                      }
+                    },
+                    _vm._l(_vm.options, function(item) {
+                      return _c("el-option", {
+                        key: item.value,
+                        attrs: { label: item.label, value: item.value }
+                      })
+                    })
+                  )
                 ],
                 1
               )
@@ -93306,7 +93412,32 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Capacidad\r\n        "),
+                  _vm._v("\r\n        Color\r\n        "),
+                  _c("el-color-picker", {
+                    model: {
+                      value: _vm.color4,
+                      callback: function($$v) {
+                        _vm.color4 = $$v
+                      },
+                      expression: "color4"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-row",
+            { attrs: { gutter: 10 } },
+            [
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("\r\n        Velocidad\r\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93319,7 +93450,9 @@ var render = function() {
                   })
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("el-col", { attrs: { span: 12 } })
             ],
             1
           ),
@@ -93347,6 +93480,15 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
+              _c("el-col", { attrs: { span: 12 } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-row",
+            { attrs: { gutter: 10 } },
+            [
               _c(
                 "el-col",
                 { attrs: { span: 12 } },
@@ -93364,7 +93506,9 @@ var render = function() {
                   })
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("el-col", { attrs: { span: 12 } })
             ],
             1
           ),
@@ -93375,7 +93519,35 @@ var render = function() {
             [
               _c(
                 "el-col",
-                { attrs: { span: 8 } },
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("\r\n        Capacidad\r\n        "),
+                  _c("el-input", {
+                    attrs: { placeholder: "Descripcion" },
+                    model: {
+                      value: _vm.input,
+                      callback: function($$v) {
+                        _vm.input = $$v
+                      },
+                      expression: "input"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("el-col", { attrs: { span: 12 } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-row",
+            { attrs: { gutter: 10 } },
+            [
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
                 [
                   _vm._v("\r\n        Modelaje\r\n        "),
                   _c("el-input", {
@@ -93392,43 +93564,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 8 } },
-                [
-                  _vm._v("\r\n        Género\r\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.input,
-                      callback: function($$v) {
-                        _vm.input = $$v
-                      },
-                      expression: "input"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 8 } },
-                [
-                  _vm._v("\r\n        Velocidad\r\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.input,
-                      callback: function($$v) {
-                        _vm.input = $$v
-                      },
-                      expression: "input"
-                    }
-                  })
-                ],
-                1
-              )
+              _c("el-col", { attrs: { span: 12 } })
             ],
             1
           ),
@@ -93439,16 +93575,21 @@ var render = function() {
             [
               _c(
                 "el-col",
-                { attrs: { span: 6 } },
+                { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Color\r\n        "),
-                  _c("el-color-picker", {
+                  _vm._v("\r\n        Descripción\r\n        "),
+                  _c("el-input", {
+                    attrs: {
+                      type: "textarea",
+                      rows: 8,
+                      placeholder: "Please input"
+                    },
                     model: {
-                      value: _vm.color4,
+                      value: _vm.textarea,
                       callback: function($$v) {
-                        _vm.color4 = $$v
+                        _vm.textarea = $$v
                       },
-                      expression: "color4"
+                      expression: "textarea"
                     }
                   })
                 ],
@@ -93457,127 +93598,43 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "el-col",
-                { attrs: { span: 6 } },
+                { attrs: { span: 12 } },
                 [
-                  _c(
-                    "el-select",
-                    {
-                      attrs: { placeholder: "Select" },
-                      model: {
-                        value: _vm.value,
-                        callback: function($$v) {
-                          _vm.value = $$v
-                        },
-                        expression: "value"
-                      }
-                    },
-                    _vm._l(_vm.options, function(item) {
-                      return _c("el-option", {
-                        key: item.value,
-                        attrs: { label: item.label, value: item.value }
-                      })
-                    })
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 6 } },
-                [
-                  _c(
-                    "el-select",
-                    {
-                      attrs: { placeholder: "Select" },
-                      model: {
-                        value: _vm.value,
-                        callback: function($$v) {
-                          _vm.value = $$v
-                        },
-                        expression: "value"
-                      }
-                    },
-                    _vm._l(_vm.options, function(item) {
-                      return _c("el-option", {
-                        key: item.value,
-                        attrs: { label: item.label, value: item.value }
-                      })
-                    })
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 6 } },
-                [
-                  _c(
-                    "el-select",
-                    {
-                      attrs: { placeholder: "Select" },
-                      model: {
-                        value: _vm.value,
-                        callback: function($$v) {
-                          _vm.value = $$v
-                        },
-                        expression: "value"
-                      }
-                    },
-                    _vm._l(_vm.options, function(item) {
-                      return _c("el-option", {
-                        key: item.value,
-                        attrs: { label: item.label, value: item.value }
-                      })
-                    })
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 24 } },
-                [
+                  _vm._v("\r\n        Fotografias\r\n        "),
                   _c(
                     "el-upload",
                     {
+                      staticClass: "upload-demo",
                       attrs: {
+                        drag: "",
                         action: "https://jsonplaceholder.typicode.com/posts/",
-                        "list-type": "picture-card",
-                        "on-preview": _vm.handlePictureCardPreview,
-                        "on-remove": _vm.handleRemove
-                      }
-                    },
-                    [_c("i", { staticClass: "el-icon-plus" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "el-dialog",
-                    {
-                      attrs: { visible: _vm.dialogVisible },
-                      on: {
-                        "update:visible": function($event) {
-                          _vm.dialogVisible = $event
-                        }
+                        "on-preview": _vm.handlePreview,
+                        "on-remove": _vm.handleRemove,
+                        "file-list": _vm.fileList,
+                        multiple: ""
                       }
                     },
                     [
-                      _c("img", {
-                        attrs: {
-                          width: "100%",
-                          src: _vm.dialogImageUrl,
-                          alt: ""
-                        }
-                      })
+                      _c("i", { staticClass: "el-icon-upload" }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "el-upload__text" }, [
+                        _vm._v("Suelta tu archivo aquí o "),
+                        _c("em", [_vm._v("haz clic para cargar")])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "el-upload__tip",
+                          attrs: { slot: "tip" },
+                          slot: "tip"
+                        },
+                        [
+                          _vm._v(
+                            "Solo archivos jpg/png con un tamaño menor de 500kb"
+                          )
+                        ]
+                      )
                     ]
                   )
                 ],

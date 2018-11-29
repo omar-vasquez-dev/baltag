@@ -16,5 +16,4 @@ class ColorModel extends Model
     protected $fillable = [
         'hex_color','name_color'
     ];
-
 }
