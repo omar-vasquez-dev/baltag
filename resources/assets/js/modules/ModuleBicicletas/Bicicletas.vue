@@ -127,6 +127,7 @@
         Fotografias
         <el-upload
             class="upload-demo"
+            style="width: 100%;"
             drag
             action="https://jsonplaceholder.typicode.com/posts/"
             :on-preview="handlePreview"
@@ -141,11 +142,20 @@
 </el-row>
 
 <el-row :gutter="10">
-    <el-col :span="12">
-        <el-button type="success" plain @click="guardarMessage(1)">Guardar</el-button>
+    <el-col :span="6">
+    &nbsp
+    </el-col>    
+    <el-col :span="6">
+    &nbsp
     </el-col>
-    <el-col :span="12">
-        <el-button type="danger" plain @click="guardarMessage(0)">Cancelar</el-button>
+    <el-col :span="6">
+        <!-- el-button type="text" @click="guardarMessage(0)">Cancelar</el-button  -->
+        <el-button type="text" @click="guardarMessage(0)" style="color:red;">Cancelar</el-button> 
+        <div></div>
+    </el-col>
+    <el-col :span="6">
+        <!-- el-button type="danger" plain @click="guardarMessage(0)">Cancelar</el-button  -->       
+        <el-button type="success" plain @click="guardarMessage(1)">Guardar</el-button>
     </el-col>
 </el-row>
 
@@ -243,7 +253,6 @@
 .el-main{
     background: #d3dce6;
 }
-
 .el-row {
     margin-bottom: 10px;
     &:last-child {
@@ -253,10 +262,10 @@
 .el-select{
     width: 100%;
 }
-.upload-demo{
+.el-upload{
     width: 100%;     
 }
 .el-button,.el-color-picker{
-    width: 100%; 
+    width: 100%;
 }
 </style>

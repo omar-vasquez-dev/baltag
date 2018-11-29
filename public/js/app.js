@@ -92959,7 +92959,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: center;\r\n    font-size: 2em;\r\n    color: white;\r\n    background: #99a9bf;\n}\n.el-main[data-v-897bf68e]{\r\n    background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n    margin-bottom: 10px;\n&:last-child {\r\n      margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e]{\r\n    width: 100%;\n}\n.upload-demo[data-v-897bf68e]{\r\n    width: 100%;\n}\n.el-button[data-v-897bf68e],.el-color-picker[data-v-897bf68e]{\r\n    width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: center;\r\n    font-size: 2em;\r\n    color: white;\r\n    background: #99a9bf;\n}\n.el-main[data-v-897bf68e]{\r\n    background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n    margin-bottom: 10px;\n&:last-child {\r\n      margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e]{\r\n    width: 100%;\n}\n.el-upload[data-v-897bf68e]{\r\n    width: 100%;\n}\n.el-button[data-v-897bf68e],.el-color-picker[data-v-897bf68e]{\r\n    width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -92970,6 +92970,16 @@ exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: cente
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -93605,6 +93615,7 @@ var render = function() {
                     "el-upload",
                     {
                       staticClass: "upload-demo",
+                      staticStyle: { width: "100%" },
                       attrs: {
                         drag: "",
                         action: "https://jsonplaceholder.typicode.com/posts/",
@@ -93648,9 +93659,40 @@ var render = function() {
             "el-row",
             { attrs: { gutter: 10 } },
             [
+              _c("el-col", { attrs: { span: 6 } }, [
+                _vm._v("\r\n     \r\n    ")
+              ]),
+              _vm._v(" "),
+              _c("el-col", { attrs: { span: 6 } }, [
+                _vm._v("\r\n     \r\n    ")
+              ]),
+              _vm._v(" "),
               _c(
                 "el-col",
-                { attrs: { span: 12 } },
+                { attrs: { span: 6 } },
+                [
+                  _c(
+                    "el-button",
+                    {
+                      staticStyle: { color: "red" },
+                      attrs: { type: "text" },
+                      on: {
+                        click: function($event) {
+                          _vm.guardarMessage(0)
+                        }
+                      }
+                    },
+                    [_vm._v("Cancelar")]
+                  ),
+                  _vm._v(" "),
+                  _c("div")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-col",
+                { attrs: { span: 6 } },
                 [
                   _c(
                     "el-button",
@@ -93663,26 +93705,6 @@ var render = function() {
                       }
                     },
                     [_vm._v("Guardar")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _c(
-                    "el-button",
-                    {
-                      attrs: { type: "danger", plain: "" },
-                      on: {
-                        click: function($event) {
-                          _vm.guardarMessage(0)
-                        }
-                      }
-                    },
-                    [_vm._v("Cancelar")]
                   )
                 ],
                 1
