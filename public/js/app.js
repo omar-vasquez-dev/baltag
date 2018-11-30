@@ -93848,7 +93848,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\n}\n[row=\"titulo\"][data-v-eea51ace] {\r\n  background-color: #f4f4f4;\r\n  text-align: center;\r\n  height: 45px;\r\n  line-height: 45px;\r\n  color: #282828;\r\n  margin-bottom: 0px;\n}\n.container[data-v-eea51ace] :last-child {\r\n  margin-bottom: 0;\n}\n.el-col[data-v-eea51ace] {\r\n  border-radius: 4px;\n}\r\n\r\n/* -----botones----- */\n.time[data-v-eea51ace] {\r\n  font-size: 13px;\r\n  color: #999;\n}\n.bottom[data-v-eea51ace] {\r\n  margin-top: 0px;\r\n  line-height: 12px;\n}\n.button[data-v-eea51ace] {\r\n  padding: 0;\r\n  width: 100%;\n}\n.el-button[data-v-eea51ace] {\r\n  width: 100%;\r\n  border-radius: 0px 0px 0px 0px;\n}\n.image[data-v-eea51ace] {\r\n  width: 100%;\r\n  display: block;\n}\n.image[data-v-eea51ace] {\r\n  margin-bottom: 25px;\n}\n.el-input[data-v-eea51ace]{\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\n}\n[row=\"titulo\"][data-v-eea51ace] {\r\n  background-color: #f4f4f4;\r\n  text-align: center;\r\n  height: 45px;\r\n  line-height: 45px;\r\n  color: #282828;\r\n  margin-bottom: 0px;\n}\n.container[data-v-eea51ace] :last-child {\r\n  margin-bottom: 0;\n}\n.el-col[data-v-eea51ace] {\r\n  border-radius: 4px;\n}\r\n\r\n/* -----botones----- */\n.time[data-v-eea51ace] {\r\n  font-size: 13px;\r\n  color: #999;\n}\n.bottom[data-v-eea51ace] {\r\n  margin-top: 0px;\r\n  line-height: 12px;\n}\n.button[data-v-eea51ace] {\r\n  padding: 0;\r\n  width: 100%;\n}\n.el-button[data-v-eea51ace] {\r\n  width: 100%;\r\n  /*border-radius: 0px 0px 0px 0px;*/\n}\n.image[data-v-eea51ace] {\r\n  width: 100%;\r\n  display: block;\r\n  margin-bottom: 25px;\n}\n.el-input[data-v-eea51ace] {\r\n  width: 100%;\n}\n.el-dropdown[data-v-eea51ace]{\n}\r\n", ""]);
 
 // exports
 
@@ -93857,6 +93857,13 @@ exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\
 /* 233 */
 /***/ (function(module, exports) {
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -94145,7 +94152,7 @@ var render = function() {
         "el-row",
         { attrs: { gutter: 5 } },
         [
-          _c("el-col", { attrs: { span: 16 } }),
+          _c("el-col", { attrs: { span: 16 } }, [_vm._v(" ")]),
           _vm._v(" "),
           _c(
             "el-col",
@@ -94168,14 +94175,53 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("el-col", { attrs: { span: 4 } })
+          _c(
+            "el-col",
+            { attrs: { span: 2 } },
+            [
+              _c(
+                "el-dropdown",
+                { attrs: { "split-button": "", type: "primary" } },
+                [
+                  _vm._v("Filtro\n        "),
+                  _c(
+                    "el-dropdown-menu",
+                    { attrs: { slot: "dropdown" }, slot: "dropdown" },
+                    [
+                      _c("el-dropdown-item", [_vm._v("Action 1")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 2")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 3")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 4")])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 2 } },
+            [
+              _c("el-button", {
+                attrs: { type: "warning", icon: "el-icon-circle-plus" }
+              })
+            ],
+            1
+          )
         ],
         1
       ),
       _vm._v(" "),
       _c(
         "el-row",
-        { attrs: { gutter: 5 } },
+        { attrs: { gutter: 16 } },
         [
           _c(
             "el-col",
@@ -94506,7 +94552,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "el-row",
-        { attrs: { gutter: 5 } },
+        { attrs: { gutter: 16 } },
         [
           _c(
             "el-col",

@@ -1,18 +1,25 @@
 <template>
   <div class="container">
     <el-row :gutter="5">
-      <el-col :span="16"></el-col>
+      <el-col :span="16">&nbsp</el-col>
       <el-col :span="4">
-        <el-input
-          placeholder="buscar"
-          prefix-icon="el-icon-search"
-          v-model="input21">
-        </el-input>        
+        <el-input placeholder="buscar" prefix-icon="el-icon-search" v-model="input21"></el-input>
       </el-col>
-      <el-col :span="4"></el-col>           
-    </el-row
-    >
-    <el-row :gutter="5">
+      <el-col :span="2">
+        <el-dropdown split-button type="primary">Filtro
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>Action 1</el-dropdown-item>
+            <el-dropdown-item>Action 2</el-dropdown-item>
+            <el-dropdown-item>Action 3</el-dropdown-item>
+            <el-dropdown-item>Action 4</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </el-col>
+      <el-col :span="2">
+        <el-button type="warning" icon="el-icon-circle-plus"></el-button>        
+      </el-col>              
+    </el-row>
+    <el-row :gutter="16">
       <el-col :span="6">
         <el-card :body-style="{ padding: '0px' }">
           <img
@@ -106,7 +113,7 @@
       </el-col>
     </el-row>
 
-    <el-row :gutter="5">
+    <el-row :gutter="16">
       <el-col :span="6">
         <el-card :body-style="{ padding: '0px' }">
           <img
@@ -227,7 +234,7 @@ export default {
   height: 45px;
   line-height: 45px;
   color: #282828;
-  margin-bottom: 0px;  
+  margin-bottom: 0px;
 }
 .container :last-child {
   margin-bottom: 0;
@@ -254,18 +261,18 @@ export default {
 }
 .el-button {
   width: 100%;
-  border-radius: 0px 0px 0px 0px;
+  /*border-radius: 0px 0px 0px 0px;*/
 }
 .image {
   width: 100%;
   display: block;
+  margin-bottom: 25px; 
 }
-
-.image {
-  margin-bottom: 25px;
-}
-.el-input{
+.el-input {
   width: 100%;
+}
+.el-dropdown{
+
 }
 </style>
 
