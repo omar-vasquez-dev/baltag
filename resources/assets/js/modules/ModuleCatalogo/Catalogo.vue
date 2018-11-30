@@ -1,6 +1,6 @@
-<template>
+<template> 
   <div class="container">
-    <el-row :gutter="5">
+    <el-row :gutter="5" style="sticky;  top: 0;">
       <el-col :span="16">&nbsp</el-col>
       <el-col :span="4">
         <el-input placeholder="buscar" prefix-icon="el-icon-search" v-model="input21"></el-input>
@@ -16,7 +16,7 @@
         </el-dropdown>
       </el-col>
       <el-col :span="2">
-        <el-button type="warning" icon="el-icon-circle-plus"></el-button>        
+        <el-button type="success" icon="el-icon-circle-plus"></el-button>        
       </el-col>              
     </el-row>
     <el-row :gutter="16">
@@ -50,7 +50,7 @@
             class="image"
           >
           <el-row :span="24" row="titulo">
-            <span>Bicicleta 1</span>
+            <span>Bicicleta 2</span>
           </el-row>
           <el-row :span="24" row="botones">
             <el-col :span="8">
@@ -73,7 +73,7 @@
             class="image"
           >
           <el-row :span="24" row="titulo">
-            <span>Bicicleta 1</span>
+            <span>Bicicleta 3</span>
           </el-row>
           <el-row :span="24" row="botones">
             <el-col :span="8">
@@ -96,7 +96,7 @@
             class="image"
           >
           <el-row :span="24" row="titulo">
-            <span>Bicicleta 1</span>
+            <span>Bicicleta 4</span>
           </el-row>
           <el-row :span="24" row="botones">
             <el-col :span="8">
@@ -121,7 +121,7 @@
             class="image"
           >
           <el-row :span="24" row="titulo">
-            <span>Bicicleta 1</span>
+            <span>Bicicleta 5</span>
           </el-row>
           <el-row :span="24" row="botones">
             <el-col :span="8">
@@ -143,7 +143,7 @@
             class="image"
           >
           <el-row :span="24" row="titulo">
-            <span>Bicicleta 1</span>
+            <span>Bicicleta 6</span>
           </el-row>
           <el-row :span="24" row="botones">
             <el-col :span="8">
@@ -165,7 +165,7 @@
             class="image"
           >
           <el-row :span="24" row="titulo">
-            <span>Bicicleta 1</span>
+            <span>Bicicleta 7</span>
           </el-row>
           <el-row :span="24" row="botones">
             <el-col :span="8">
@@ -187,7 +187,7 @@
             class="image"
           >
           <el-row :span="24" row="titulo">
-            <span>Bicicleta 1</span>
+            <span>Bicicleta 8</span>
           </el-row>
           <el-row :span="24" row="botones">
             <el-col :span="8">
@@ -203,6 +203,189 @@
         </el-card>
       </el-col>
     </el-row>
+
+    <el-row :gutter="16">
+      <el-col :span="6">
+        <el-card :body-style="{ padding: '0px' }">
+          <img
+            src="https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+            class="image"
+          >
+          <el-row :span="24" row="titulo">
+            <span>Bicicleta 5</span>
+          </el-row>
+          <el-row :span="24" row="botones">
+            <el-col :span="8">
+              <el-button type="warning" icon="el-icon-star-on">Stats</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="success" icon="el-icon-edit">Editar</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="danger" icon="el-icon-delete">Eliminar</el-button>
+            </el-col>
+          </el-row>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card :body-style="{ padding: '0px' }">
+          <img
+            src="https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+            class="image"
+          >
+          <el-row :span="24" row="titulo">
+            <span>Bicicleta 6</span>
+          </el-row>
+          <el-row :span="24" row="botones">
+            <el-col :span="8">
+              <el-button type="warning" icon="el-icon-star-on">Stats</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="success" icon="el-icon-edit">Editar</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="danger" icon="el-icon-delete">Eliminar</el-button>
+            </el-col>
+          </el-row>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card :body-style="{ padding: '0px' }">
+          <img
+            src="https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+            class="image"
+          >
+          <el-row :span="24" row="titulo">
+            <span>Bicicleta 7</span>
+          </el-row>
+          <el-row :span="24" row="botones">
+            <el-col :span="8">
+              <el-button type="warning" icon="el-icon-star-on">Stats</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="success" icon="el-icon-edit">Editar</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="danger" icon="el-icon-delete">Eliminar</el-button>
+            </el-col>
+          </el-row>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card :body-style="{ padding: '0px' }">
+          <img
+            src="https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+            class="image"
+          >
+          <el-row :span="24" row="titulo">
+            <span>Bicicleta 8</span>
+          </el-row>
+          <el-row :span="24" row="botones">
+            <el-col :span="8">
+              <el-button type="warning" icon="el-icon-star-on">Stats</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="success" icon="el-icon-edit">Editar</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="danger" icon="el-icon-delete">Eliminar</el-button>
+            </el-col>
+          </el-row>
+        </el-card>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="16">
+      <el-col :span="6">
+        <el-card :body-style="{ padding: '0px' }">
+          <img
+            src="https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+            class="image"
+          >
+          <el-row :span="24" row="titulo">
+            <span>Bicicleta 5</span>
+          </el-row>
+          <el-row :span="24" row="botones">
+            <el-col :span="8">
+              <el-button type="warning" icon="el-icon-star-on">Stats</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="success" icon="el-icon-edit">Editar</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="danger" icon="el-icon-delete">Eliminar</el-button>
+            </el-col>
+          </el-row>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card :body-style="{ padding: '0px' }">
+          <img
+            src="https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+            class="image"
+          >
+          <el-row :span="24" row="titulo">
+            <span>Bicicleta 6</span>
+          </el-row>
+          <el-row :span="24" row="botones">
+            <el-col :span="8">
+              <el-button type="warning" icon="el-icon-star-on">Stats</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="success" icon="el-icon-edit">Editar</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="danger" icon="el-icon-delete">Eliminar</el-button>
+            </el-col>
+          </el-row>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card :body-style="{ padding: '0px' }">
+          <img
+            src="https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+            class="image"
+          >
+          <el-row :span="24" row="titulo">
+            <span>Bicicleta 7</span>
+          </el-row>
+          <el-row :span="24" row="botones">
+            <el-col :span="8">
+              <el-button type="warning" icon="el-icon-star-on">Stats</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="success" icon="el-icon-edit">Editar</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="danger" icon="el-icon-delete">Eliminar</el-button>
+            </el-col>
+          </el-row>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card :body-style="{ padding: '0px' }">
+          <img
+            src="https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+            class="image"
+          >
+          <el-row :span="24" row="titulo">
+            <span>Bicicleta 8</span>
+          </el-row>
+          <el-row :span="24" row="botones">
+            <el-col :span="8">
+              <el-button type="warning" icon="el-icon-star-on">Stats</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="success" icon="el-icon-edit">Editar</el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="danger" icon="el-icon-delete">Eliminar</el-button>
+            </el-col>
+          </el-row>
+        </el-card>
+      </el-col>
+    </el-row>
+
   </div>
 </template>
 
@@ -271,8 +454,8 @@ export default {
 .el-input {
   width: 100%;
 }
-.el-dropdown{
-
+.el-dropdown, .el-dropdown-menu, .el-dropdown-item{
+  width: 100%;
 }
 </style>
 

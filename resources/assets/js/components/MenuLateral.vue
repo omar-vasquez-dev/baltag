@@ -17,10 +17,16 @@
       <el-menu-item index="2" 
         @click="emitViewToParent('view-catalogo')">
         <i class="el-icon-menu"></i>
-        <span>Cátalogo</span>
+        <span>Catálogo</span>
       </el-menu-item>
 
-      <el-submenu index="3">
+      <el-menu-item index="3" 
+        @click="emitViewToParent('view-producto')">
+        <i class="el-icon-menu"></i>
+        <span>Productos</span>
+      </el-menu-item>
+
+      <el-submenu index="4">
          <template slot="title">
           <i class="el-icon-menu"></i>
           <span>Bicicletas</span>
@@ -30,7 +36,8 @@
           <el-menu-item index="3-2" @click="emitViewToParent('view-bicicletas')">Nueva Bicicleta</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-      <el-submenu index="4">
+
+      <el-submenu index="5">
          <template slot="title">
           <i class="el-icon-goods"></i>
           <span>Productos</span>
@@ -40,6 +47,7 @@
           <el-menu-item index="3-2">Agregar</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
+
     </el-menu>
 
 </template>

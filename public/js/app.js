@@ -91974,6 +91974,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MenuLateral",
@@ -92049,13 +92057,30 @@ var render = function() {
         [
           _c("i", { staticClass: "el-icon-menu" }),
           _vm._v(" "),
-          _c("span", [_vm._v("Cátalogo")])
+          _c("span", [_vm._v("Catálogo")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "el-menu-item",
+        {
+          attrs: { index: "3" },
+          on: {
+            click: function($event) {
+              _vm.emitViewToParent("view-producto")
+            }
+          }
+        },
+        [
+          _c("i", { staticClass: "el-icon-menu" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Productos")])
         ]
       ),
       _vm._v(" "),
       _c(
         "el-submenu",
-        { attrs: { index: "3" } },
+        { attrs: { index: "4" } },
         [
           _c("template", { slot: "title" }, [
             _c("i", { staticClass: "el-icon-menu" }),
@@ -92088,7 +92113,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "el-submenu",
-        { attrs: { index: "4" } },
+        { attrs: { index: "5" } },
         [
           _c("template", { slot: "title" }, [
             _c("i", { staticClass: "el-icon-goods" }),
@@ -92383,6 +92408,9 @@ var prefix = "/";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_ModuleBicicletas_Bicicletas_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__modules_ModuleBicicletas_Bicicletas_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_ModuleCatalogo_Catalogo_vue__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_ModuleCatalogo_Catalogo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__modules_ModuleCatalogo_Catalogo_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_ModuleProducto_Producto_vue__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_ModuleProducto_Producto_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__modules_ModuleProducto_Producto_vue__);
+
 
 
 
@@ -92415,6 +92443,10 @@ var prefix = "/dashboard/";
     path: prefix + "catalogo",
     name: "view-catalogo",
     component: __WEBPACK_IMPORTED_MODULE_4__modules_ModuleCatalogo_Catalogo_vue___default.a
+}, {
+    path: prefix + "producto",
+    name: "view-producto",
+    component: __WEBPACK_IMPORTED_MODULE_5__modules_ModuleProducto_Producto_vue___default.a
 }]);
 
 /***/ }),
@@ -93848,7 +93880,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\n}\n[row=\"titulo\"][data-v-eea51ace] {\r\n  background-color: #f4f4f4;\r\n  text-align: center;\r\n  height: 45px;\r\n  line-height: 45px;\r\n  color: #282828;\r\n  margin-bottom: 0px;\n}\n.container[data-v-eea51ace] :last-child {\r\n  margin-bottom: 0;\n}\n.el-col[data-v-eea51ace] {\r\n  border-radius: 4px;\n}\r\n\r\n/* -----botones----- */\n.time[data-v-eea51ace] {\r\n  font-size: 13px;\r\n  color: #999;\n}\n.bottom[data-v-eea51ace] {\r\n  margin-top: 0px;\r\n  line-height: 12px;\n}\n.button[data-v-eea51ace] {\r\n  padding: 0;\r\n  width: 100%;\n}\n.el-button[data-v-eea51ace] {\r\n  width: 100%;\r\n  /*border-radius: 0px 0px 0px 0px;*/\n}\n.image[data-v-eea51ace] {\r\n  width: 100%;\r\n  display: block;\r\n  margin-bottom: 25px;\n}\n.el-input[data-v-eea51ace] {\r\n  width: 100%;\n}\n.el-dropdown[data-v-eea51ace]{\n}\r\n", ""]);
+exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\n}\n[row=\"titulo\"][data-v-eea51ace] {\r\n  background-color: #f4f4f4;\r\n  text-align: center;\r\n  height: 45px;\r\n  line-height: 45px;\r\n  color: #282828;\r\n  margin-bottom: 0px;\n}\n.container[data-v-eea51ace] :last-child {\r\n  margin-bottom: 0;\n}\n.el-col[data-v-eea51ace] {\r\n  border-radius: 4px;\n}\r\n\r\n/* -----botones----- */\n.time[data-v-eea51ace] {\r\n  font-size: 13px;\r\n  color: #999;\n}\n.bottom[data-v-eea51ace] {\r\n  margin-top: 0px;\r\n  line-height: 12px;\n}\n.button[data-v-eea51ace] {\r\n  padding: 0;\r\n  width: 100%;\n}\n.el-button[data-v-eea51ace] {\r\n  width: 100%;\r\n  /*border-radius: 0px 0px 0px 0px;*/\n}\n.image[data-v-eea51ace] {\r\n  width: 100%;\r\n  display: block;\r\n  margin-bottom: 25px;\n}\n.el-input[data-v-eea51ace] {\r\n  width: 100%;\n}\n.el-dropdown[data-v-eea51ace], .el-dropdown-menu[data-v-eea51ace], .el-dropdown-item[data-v-eea51ace]{\r\n  width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -93857,6 +93889,189 @@ exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\
 /* 233 */
 /***/ (function(module, exports) {
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -94150,7 +94365,7 @@ var render = function() {
     [
       _c(
         "el-row",
-        { attrs: { gutter: 5 } },
+        { staticStyle: { top: "0" }, attrs: { gutter: 5 } },
         [
           _c("el-col", { attrs: { span: 16 } }, [_vm._v(" ")]),
           _vm._v(" "),
@@ -94210,7 +94425,7 @@ var render = function() {
             { attrs: { span: 2 } },
             [
               _c("el-button", {
-                attrs: { type: "warning", icon: "el-icon-circle-plus" }
+                attrs: { type: "success", icon: "el-icon-circle-plus" }
               })
             ],
             1
@@ -94321,7 +94536,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 1")])
+                    _c("span", [_vm._v("Bicicleta 2")])
                   ]),
                   _vm._v(" "),
                   _c(
@@ -94402,7 +94617,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 1")])
+                    _c("span", [_vm._v("Bicicleta 3")])
                   ]),
                   _vm._v(" "),
                   _c(
@@ -94483,7 +94698,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 1")])
+                    _c("span", [_vm._v("Bicicleta 4")])
                   ]),
                   _vm._v(" "),
                   _c(
@@ -94571,7 +94786,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 1")])
+                    _c("span", [_vm._v("Bicicleta 5")])
                   ]),
                   _vm._v(" "),
                   _c(
@@ -94652,7 +94867,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 1")])
+                    _c("span", [_vm._v("Bicicleta 6")])
                   ]),
                   _vm._v(" "),
                   _c(
@@ -94733,7 +94948,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 1")])
+                    _c("span", [_vm._v("Bicicleta 7")])
                   ]),
                   _vm._v(" "),
                   _c(
@@ -94814,7 +95029,669 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 1")])
+                    _c("span", [_vm._v("Bicicleta 8")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-row",
+        { attrs: { gutter: 16 } },
+        [
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 5")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 6")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 7")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 8")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-row",
+        { attrs: { gutter: 16 } },
+        [
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 5")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 6")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 7")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 8")])
                   ]),
                   _vm._v(" "),
                   _c(
@@ -95122,6 +95999,164 @@ module.exports = VueRepo;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 239 */,
+/* 240 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(241)
+}
+var normalizeComponent = __webpack_require__(8)
+/* script */
+var __vue_script__ = __webpack_require__(243)
+/* template */
+var __vue_template__ = __webpack_require__(244)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-2bbbd9d9"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/modules/ModuleProducto/Producto.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2bbbd9d9", Component.options)
+  } else {
+    hotAPI.reload("data-v-2bbbd9d9", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 241 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(242);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(7)("c2349414", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2bbbd9d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Producto.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2bbbd9d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Producto.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 242 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 243 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "Renta view",
+
+    data: function data() {
+        return {
+            nombre: "blog"
+        };
+    },
+
+
+    methods: {
+        cambiarNombre: function cambiarNombre() {
+            this.nombre = "beto";
+        }
+    }
+});
+
+/***/ }),
+/* 244 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._v("\n    Modulo Producto " + _vm._s(_vm.nombre) + "\n    "),
+    _c(
+      "button",
+      {
+        on: {
+          click: function($event) {
+            _vm.cambiarNombre()
+          }
+        }
+      },
+      [_vm._v("\n        Cambiar nombre\n    ")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2bbbd9d9", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

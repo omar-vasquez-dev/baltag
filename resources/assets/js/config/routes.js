@@ -3,6 +3,7 @@ import Home  from '../modules/ModuleHome/Home.vue'
 import Renta  from '../modules/ModuleRenta/Renta.vue'
 import Bicicletas  from '../modules/ModuleBicicletas/Bicicletas.vue'
 import Catalogo from '../modules/ModuleCatalogo/Catalogo.vue'
+import Producto from '../modules/ModuleProducto/Producto.vue'
 
 const prefix = "/dashboard/";
 
@@ -35,5 +36,10 @@ export default
             path : prefix + "catalogo",
             name : "view-catalogo",
             component : Catalogo
-        },       
+        },
+        {
+            path : prefix + "producto",
+            name : "view-producto",
+            component : Producto
+        },  
 ];
