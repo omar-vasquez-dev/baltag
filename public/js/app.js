@@ -93848,7 +93848,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 20px;\n&:last-child {\r\n    margin-bottom: 0;\n}\n}\n.el-col[data-v-eea51ace] {\r\n  border-radius: 4px;\n}\n.bg-purple-dark[data-v-eea51ace] {\r\n  background: #99a9bf;\n}\n.bg-purple[data-v-eea51ace] {\r\n  background: #fff;\n}\n.bg-purple-light[data-v-eea51ace] {\r\n  background: #e5e9f2;\n}\n.grid-content[data-v-eea51ace] {\r\n  border-radius: 4px;\r\n  min-height: 36px;\n}\n.row-bg[data-v-eea51ace] {\r\n  padding: 10px 0;\r\n  background-color: #f9fafc;\n}\n.el-header[data-v-eea51ace],\r\n.el-footer[data-v-eea51ace] {\r\n  background-color: #b3c0d1;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 60px;\n}\n.el-aside[data-v-eea51ace] {\r\n  background-color: #d3dce6;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 200px;\n}\n.el-main[data-v-eea51ace] {\r\n  background-color: #e9eef3;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 160px;\n}\nbody > .el-container[data-v-eea51ace] {\r\n  margin-bottom: 40px;\n}\n.el-container:nth-child(5) .el-aside[data-v-eea51ace],\r\n.el-container:nth-child(6) .el-aside[data-v-eea51ace] {\r\n  line-height: 260px;\n}\n.el-container:nth-child(7) .el-aside[data-v-eea51ace] {\r\n  line-height: 320px;\n}\n.time[data-v-eea51ace] {\r\n  font-size: 13px;\r\n  color: #999;\n}\n.bottom[data-v-eea51ace] {\r\n  margin-top: 13px;\r\n  line-height: 12px;\n}\n.button[data-v-eea51ace] {\r\n  padding: 0;\r\n  float: right;\n}\n.image[data-v-eea51ace] {\r\n  width: 100%;\r\n  display: block;\n}\n.clearfix[data-v-eea51ace]:before,\r\n.clearfix[data-v-eea51ace]:after {\r\n  display: table;\r\n  content: \"\";\n}\n.clearfix[data-v-eea51ace]:after {\r\n  clear: both;\n}\n.demo-input-label[data-v-eea51ace] {\r\n  display: inline-block;\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\n}\n[row=\"titulo\"][data-v-eea51ace] {\r\n  background-color: #f4f4f4;\r\n  text-align: center;\r\n  height: 45px;\r\n  line-height: 45px;\r\n  color: #282828;\r\n  margin-bottom: 0px;\n}\n.container[data-v-eea51ace] :last-child {\r\n  margin-bottom: 0;\n}\n.el-col[data-v-eea51ace] {\r\n  border-radius: 4px;\n}\r\n\r\n/* -----botones----- */\n.time[data-v-eea51ace] {\r\n  font-size: 13px;\r\n  color: #999;\n}\n.bottom[data-v-eea51ace] {\r\n  margin-top: 0px;\r\n  line-height: 12px;\n}\n.button[data-v-eea51ace] {\r\n  padding: 0;\r\n  width: 100%;\n}\n.el-button[data-v-eea51ace] {\r\n  width: 100%;\r\n  border-radius: 0px 0px 0px 0px;\n}\n.image[data-v-eea51ace] {\r\n  width: 100%;\r\n  display: block;\n}\n.image[data-v-eea51ace] {\r\n  margin-bottom: 25px;\n}\n.el-input[data-v-eea51ace]{\r\n  width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -93857,6 +93857,9 @@ exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 20px;\
 /* 233 */
 /***/ (function(module, exports) {
 
+//
+//
+//
 //
 //
 //
@@ -94135,218 +94138,118 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "el-container",
+    "div",
+    { staticClass: "container" },
     [
       _c(
-        "el-main",
+        "el-row",
+        { attrs: { gutter: 5 } },
+        [
+          _c("el-col", { attrs: { span: 16 } }),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 4 } },
+            [
+              _c("el-input", {
+                attrs: {
+                  placeholder: "buscar",
+                  "prefix-icon": "el-icon-search"
+                },
+                model: {
+                  value: _vm.input21,
+                  callback: function($$v) {
+                    _vm.input21 = $$v
+                  },
+                  expression: "input21"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("el-col", { attrs: { span: 4 } })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-row",
+        { attrs: { gutter: 5 } },
         [
           _c(
-            "el-row",
-            { attrs: { gutter: 3 } },
+            "el-col",
+            { attrs: { span: 6 } },
             [
               _c(
-                "el-col",
-                { attrs: { span: 6 } },
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
                 [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 1")])
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "el-card",
-                    { attrs: { "body-style": { padding: "0px" } } },
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
                     [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: {
-                          src:
-                            "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                        }
-                      }),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("div", { staticStyle: { padding: "14px" } }, [
-                        _c("span", [_vm._v("Bicicleta 1")]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "bottom clearfix" },
-                          [
-                            _c(
-                              "el-row",
-                              [
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "success",
-                                    icon: "el-icon-edit"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "danger",
-                                    icon: "el-icon-delete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 6 } },
-                [
-                  _c(
-                    "el-card",
-                    { attrs: { "body-style": { padding: "0px" } } },
-                    [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: {
-                          src:
-                            "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                        }
-                      }),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("div", { staticStyle: { padding: "14px" } }, [
-                        _c("span", [_vm._v("Bicicleta 2")]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "bottom clearfix" },
-                          [
-                            _c(
-                              "el-row",
-                              [
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "success",
-                                    icon: "el-icon-edit"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "danger",
-                                    icon: "el-icon-delete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 6 } },
-                [
-                  _c(
-                    "el-card",
-                    { attrs: { "body-style": { padding: "0px" } } },
-                    [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: {
-                          src:
-                            "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticStyle: { padding: "14px" } }, [
-                        _c("span", [_vm._v("Bicicleta 3")]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "bottom clearfix" },
-                          [
-                            _c(
-                              "el-row",
-                              [
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "success",
-                                    icon: "el-icon-edit"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "danger",
-                                    icon: "el-icon-delete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 6 } },
-                [
-                  _c(
-                    "el-card",
-                    { attrs: { "body-style": { padding: "0px" } } },
-                    [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: {
-                          src:
-                            "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticStyle: { padding: "14px" } }, [
-                        _c("span", [_vm._v("Bicicleta 4")]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "bottom clearfix" },
-                          [
-                            _c(
-                              "el-row",
-                              [
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "success",
-                                    icon: "el-icon-edit"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "danger",
-                                    icon: "el-icon-delete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -94356,212 +94259,571 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-            "el-row",
-            { attrs: { gutter: 3 } },
+            "el-col",
+            { attrs: { span: 6 } },
             [
               _c(
-                "el-col",
-                { attrs: { span: 6 } },
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
                 [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 1")])
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "el-card",
-                    { attrs: { "body-style": { padding: "0px" } } },
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
                     [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: {
-                          src:
-                            "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                        }
-                      }),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("div", { staticStyle: { padding: "14px" } }, [
-                        _c("span", [_vm._v("Bicicleta 5")]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "bottom clearfix" },
-                          [
-                            _c(
-                              "el-row",
-                              [
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "success",
-                                    icon: "el-icon-edit"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "danger",
-                                    icon: "el-icon-delete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
-              ),
-              _vm._v(" "),
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
               _c(
-                "el-col",
-                { attrs: { span: 6 } },
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
                 [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 1")])
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "el-card",
-                    { attrs: { "body-style": { padding: "0px" } } },
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
                     [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: {
-                          src:
-                            "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                        }
-                      }),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("div", { staticStyle: { padding: "14px" } }, [
-                        _c("span", [_vm._v("Bicicleta 6")]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "bottom clearfix" },
-                          [
-                            _c(
-                              "el-row",
-                              [
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "success",
-                                    icon: "el-icon-edit"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "danger",
-                                    icon: "el-icon-delete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
-              ),
-              _vm._v(" "),
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
               _c(
-                "el-col",
-                { attrs: { span: 6 } },
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
                 [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 1")])
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "el-card",
-                    { attrs: { "body-style": { padding: "0px" } } },
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
                     [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: {
-                          src:
-                            "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                        }
-                      }),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("div", { staticStyle: { padding: "14px" } }, [
-                        _c("span", [_vm._v("Bicicleta 7")]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "bottom clearfix" },
-                          [
-                            _c(
-                              "el-row",
-                              [
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "success",
-                                    icon: "el-icon-edit"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "danger",
-                                    icon: "el-icon-delete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
-              ),
-              _vm._v(" "),
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-row",
+        { attrs: { gutter: 5 } },
+        [
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
               _c(
-                "el-col",
-                { attrs: { span: 6 } },
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
                 [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 1")])
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "el-card",
-                    { attrs: { "body-style": { padding: "0px" } } },
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
                     [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: {
-                          src:
-                            "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                        }
-                      }),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("div", { staticStyle: { padding: "14px" } }, [
-                        _c("span", [_vm._v("Bicicleta 8")]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "bottom clearfix" },
-                          [
-                            _c(
-                              "el-row",
-                              [
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "success",
-                                    icon: "el-icon-edit"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("el-button", {
-                                  attrs: {
-                                    type: "danger",
-                                    icon: "el-icon-delete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 1")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 1")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 6 } },
+            [
+              _c(
+                "el-card",
+                { attrs: { "body-style": { padding: "0px" } } },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: {
+                      src:
+                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
+                    _c("span", [_vm._v("Bicicleta 1")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "el-row",
+                    { attrs: { span: 24, row: "botones" } },
+                    [
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: {
+                                type: "warning",
+                                icon: "el-icon-star-on"
+                              }
+                            },
+                            [_vm._v("Stats")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "success", icon: "el-icon-edit" }
+                            },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-col",
+                        { attrs: { span: 8 } },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "danger", icon: "el-icon-delete" }
+                            },
+                            [_vm._v("Eliminar")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
