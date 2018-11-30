@@ -11657,212 +11657,6 @@ function toComment(sourceMap) {
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-exports.__esModule = true;
-exports.getStyle = exports.once = exports.off = exports.on = undefined;
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /* istanbul ignore next */
-
-exports.hasClass = hasClass;
-exports.addClass = addClass;
-exports.removeClass = removeClass;
-exports.setStyle = setStyle;
-
-var _vue = __webpack_require__(1);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var isServer = _vue2.default.prototype.$isServer;
-var SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
-var MOZ_HACK_REGEXP = /^moz([A-Z])/;
-var ieVersion = isServer ? 0 : Number(document.documentMode);
-
-/* istanbul ignore next */
-var trim = function trim(string) {
-  return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
-};
-/* istanbul ignore next */
-var camelCase = function camelCase(name) {
-  return name.replace(SPECIAL_CHARS_REGEXP, function (_, separator, letter, offset) {
-    return offset ? letter.toUpperCase() : letter;
-  }).replace(MOZ_HACK_REGEXP, 'Moz$1');
-};
-
-/* istanbul ignore next */
-var on = exports.on = function () {
-  if (!isServer && document.addEventListener) {
-    return function (element, event, handler) {
-      if (element && event && handler) {
-        element.addEventListener(event, handler, false);
-      }
-    };
-  } else {
-    return function (element, event, handler) {
-      if (element && event && handler) {
-        element.attachEvent('on' + event, handler);
-      }
-    };
-  }
-}();
-
-/* istanbul ignore next */
-var off = exports.off = function () {
-  if (!isServer && document.removeEventListener) {
-    return function (element, event, handler) {
-      if (element && event) {
-        element.removeEventListener(event, handler, false);
-      }
-    };
-  } else {
-    return function (element, event, handler) {
-      if (element && event) {
-        element.detachEvent('on' + event, handler);
-      }
-    };
-  }
-}();
-
-/* istanbul ignore next */
-var once = exports.once = function once(el, event, fn) {
-  var listener = function listener() {
-    if (fn) {
-      fn.apply(this, arguments);
-    }
-    off(el, event, listener);
-  };
-  on(el, event, listener);
-};
-
-/* istanbul ignore next */
-function hasClass(el, cls) {
-  if (!el || !cls) return false;
-  if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.');
-  if (el.classList) {
-    return el.classList.contains(cls);
-  } else {
-    return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
-  }
-};
-
-/* istanbul ignore next */
-function addClass(el, cls) {
-  if (!el) return;
-  var curClass = el.className;
-  var classes = (cls || '').split(' ');
-
-  for (var i = 0, j = classes.length; i < j; i++) {
-    var clsName = classes[i];
-    if (!clsName) continue;
-
-    if (el.classList) {
-      el.classList.add(clsName);
-    } else if (!hasClass(el, clsName)) {
-      curClass += ' ' + clsName;
-    }
-  }
-  if (!el.classList) {
-    el.className = curClass;
-  }
-};
-
-/* istanbul ignore next */
-function removeClass(el, cls) {
-  if (!el || !cls) return;
-  var classes = cls.split(' ');
-  var curClass = ' ' + el.className + ' ';
-
-  for (var i = 0, j = classes.length; i < j; i++) {
-    var clsName = classes[i];
-    if (!clsName) continue;
-
-    if (el.classList) {
-      el.classList.remove(clsName);
-    } else if (hasClass(el, clsName)) {
-      curClass = curClass.replace(' ' + clsName + ' ', ' ');
-    }
-  }
-  if (!el.classList) {
-    el.className = trim(curClass);
-  }
-};
-
-/* istanbul ignore next */
-var getStyle = exports.getStyle = ieVersion < 9 ? function (element, styleName) {
-  if (isServer) return;
-  if (!element || !styleName) return null;
-  styleName = camelCase(styleName);
-  if (styleName === 'float') {
-    styleName = 'styleFloat';
-  }
-  try {
-    switch (styleName) {
-      case 'opacity':
-        try {
-          return element.filters.item('alpha').opacity / 100;
-        } catch (e) {
-          return 1.0;
-        }
-      default:
-        return element.style[styleName] || element.currentStyle ? element.currentStyle[styleName] : null;
-    }
-  } catch (e) {
-    return element.style[styleName];
-  }
-} : function (element, styleName) {
-  if (isServer) return;
-  if (!element || !styleName) return null;
-  styleName = camelCase(styleName);
-  if (styleName === 'float') {
-    styleName = 'cssFloat';
-  }
-  try {
-    var computed = document.defaultView.getComputedStyle(element, '');
-    return element.style[styleName] || computed ? computed[styleName] : null;
-  } catch (e) {
-    return element.style[styleName];
-  }
-};
-
-/* istanbul ignore next */
-function setStyle(element, styleName, value) {
-  if (!element || !styleName) return;
-
-  if ((typeof styleName === 'undefined' ? 'undefined' : _typeof(styleName)) === 'object') {
-    for (var prop in styleName) {
-      if (styleName.hasOwnProperty(prop)) {
-        setStyle(element, prop, styleName[prop]);
-      }
-    }
-  } else {
-    styleName = camelCase(styleName);
-    if (styleName === 'opacity' && ieVersion < 9) {
-      element.style.filter = isNaN(value) ? '' : 'alpha(opacity=' + value * 100 + ')';
-    } else {
-      element.style[styleName] = value;
-    }
-  }
-};
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-var global = module.exports = typeof window != 'undefined' && window.Math == Math
-  ? window : typeof self != 'undefined' && self.Math == Math ? self
-  // eslint-disable-next-line no-new-func
-  : Function('return this')();
-if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
@@ -12088,7 +11882,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -12194,6 +11988,212 @@ module.exports = function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.getStyle = exports.once = exports.off = exports.on = undefined;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /* istanbul ignore next */
+
+exports.hasClass = hasClass;
+exports.addClass = addClass;
+exports.removeClass = removeClass;
+exports.setStyle = setStyle;
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var isServer = _vue2.default.prototype.$isServer;
+var SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
+var MOZ_HACK_REGEXP = /^moz([A-Z])/;
+var ieVersion = isServer ? 0 : Number(document.documentMode);
+
+/* istanbul ignore next */
+var trim = function trim(string) {
+  return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
+};
+/* istanbul ignore next */
+var camelCase = function camelCase(name) {
+  return name.replace(SPECIAL_CHARS_REGEXP, function (_, separator, letter, offset) {
+    return offset ? letter.toUpperCase() : letter;
+  }).replace(MOZ_HACK_REGEXP, 'Moz$1');
+};
+
+/* istanbul ignore next */
+var on = exports.on = function () {
+  if (!isServer && document.addEventListener) {
+    return function (element, event, handler) {
+      if (element && event && handler) {
+        element.addEventListener(event, handler, false);
+      }
+    };
+  } else {
+    return function (element, event, handler) {
+      if (element && event && handler) {
+        element.attachEvent('on' + event, handler);
+      }
+    };
+  }
+}();
+
+/* istanbul ignore next */
+var off = exports.off = function () {
+  if (!isServer && document.removeEventListener) {
+    return function (element, event, handler) {
+      if (element && event) {
+        element.removeEventListener(event, handler, false);
+      }
+    };
+  } else {
+    return function (element, event, handler) {
+      if (element && event) {
+        element.detachEvent('on' + event, handler);
+      }
+    };
+  }
+}();
+
+/* istanbul ignore next */
+var once = exports.once = function once(el, event, fn) {
+  var listener = function listener() {
+    if (fn) {
+      fn.apply(this, arguments);
+    }
+    off(el, event, listener);
+  };
+  on(el, event, listener);
+};
+
+/* istanbul ignore next */
+function hasClass(el, cls) {
+  if (!el || !cls) return false;
+  if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.');
+  if (el.classList) {
+    return el.classList.contains(cls);
+  } else {
+    return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
+  }
+};
+
+/* istanbul ignore next */
+function addClass(el, cls) {
+  if (!el) return;
+  var curClass = el.className;
+  var classes = (cls || '').split(' ');
+
+  for (var i = 0, j = classes.length; i < j; i++) {
+    var clsName = classes[i];
+    if (!clsName) continue;
+
+    if (el.classList) {
+      el.classList.add(clsName);
+    } else if (!hasClass(el, clsName)) {
+      curClass += ' ' + clsName;
+    }
+  }
+  if (!el.classList) {
+    el.className = curClass;
+  }
+};
+
+/* istanbul ignore next */
+function removeClass(el, cls) {
+  if (!el || !cls) return;
+  var classes = cls.split(' ');
+  var curClass = ' ' + el.className + ' ';
+
+  for (var i = 0, j = classes.length; i < j; i++) {
+    var clsName = classes[i];
+    if (!clsName) continue;
+
+    if (el.classList) {
+      el.classList.remove(clsName);
+    } else if (hasClass(el, clsName)) {
+      curClass = curClass.replace(' ' + clsName + ' ', ' ');
+    }
+  }
+  if (!el.classList) {
+    el.className = trim(curClass);
+  }
+};
+
+/* istanbul ignore next */
+var getStyle = exports.getStyle = ieVersion < 9 ? function (element, styleName) {
+  if (isServer) return;
+  if (!element || !styleName) return null;
+  styleName = camelCase(styleName);
+  if (styleName === 'float') {
+    styleName = 'styleFloat';
+  }
+  try {
+    switch (styleName) {
+      case 'opacity':
+        try {
+          return element.filters.item('alpha').opacity / 100;
+        } catch (e) {
+          return 1.0;
+        }
+      default:
+        return element.style[styleName] || element.currentStyle ? element.currentStyle[styleName] : null;
+    }
+  } catch (e) {
+    return element.style[styleName];
+  }
+} : function (element, styleName) {
+  if (isServer) return;
+  if (!element || !styleName) return null;
+  styleName = camelCase(styleName);
+  if (styleName === 'float') {
+    styleName = 'cssFloat';
+  }
+  try {
+    var computed = document.defaultView.getComputedStyle(element, '');
+    return element.style[styleName] || computed ? computed[styleName] : null;
+  } catch (e) {
+    return element.style[styleName];
+  }
+};
+
+/* istanbul ignore next */
+function setStyle(element, styleName, value) {
+  if (!element || !styleName) return;
+
+  if ((typeof styleName === 'undefined' ? 'undefined' : _typeof(styleName)) === 'object') {
+    for (var prop in styleName) {
+      if (styleName.hasOwnProperty(prop)) {
+        setStyle(element, prop, styleName[prop]);
+      }
+    }
+  } else {
+    styleName = camelCase(styleName);
+    if (styleName === 'opacity' && ieVersion < 9) {
+      element.style.filter = isNaN(value) ? '' : 'alpha(opacity=' + value * 100 + ')';
+    } else {
+      element.style[styleName] = value;
+    }
+  }
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 
 
 /***/ }),
@@ -12456,7 +12456,7 @@ module.exports = function (it) {
 
 var store = __webpack_require__(43)('wks');
 var uid = __webpack_require__(26);
-var Symbol = __webpack_require__(6).Symbol;
+var Symbol = __webpack_require__(8).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
 
 var $exports = module.exports = function (name) {
@@ -13939,7 +13939,7 @@ exports.default = function (ref) {
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(6);
+var global = __webpack_require__(8);
 var core = __webpack_require__(18);
 var ctx = __webpack_require__(134);
 var hide = __webpack_require__(12);
@@ -14060,7 +14060,7 @@ module.exports = function (key) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var core = __webpack_require__(18);
-var global = __webpack_require__(6);
+var global = __webpack_require__(8);
 var SHARED = '__core-js_shared__';
 var store = global[SHARED] || (global[SHARED] = {});
 
@@ -14121,7 +14121,7 @@ exports.f = __webpack_require__(16);
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(6);
+var global = __webpack_require__(8);
 var core = __webpack_require__(18);
 var LIBRARY = __webpack_require__(25);
 var wksExt = __webpack_require__(48);
@@ -14709,7 +14709,7 @@ var _scrollbarWidth = __webpack_require__(34);
 
 var _scrollbarWidth2 = _interopRequireDefault(_scrollbarWidth);
 
-var _dom = __webpack_require__(5);
+var _dom = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14943,7 +14943,7 @@ var _vue = __webpack_require__(1);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _dom = __webpack_require__(5);
+var _dom = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15201,7 +15201,7 @@ module.exports = __webpack_require__(9);
 /***/ 3:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(5);
+module.exports = __webpack_require__(7);
 
 /***/ }),
 
@@ -15968,7 +15968,7 @@ module.exports = !__webpack_require__(14) && !__webpack_require__(20)(function (
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(19);
-var document = __webpack_require__(6).document;
+var document = __webpack_require__(8).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
 module.exports = function (it) {
@@ -16208,7 +16208,7 @@ function required(rule, value, source, errors, options, type) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(78);
-module.exports = __webpack_require__(238);
+module.exports = __webpack_require__(243);
 
 
 /***/ }),
@@ -16225,11 +16225,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sass_variables_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sass_variables_scss__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__App_vue__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_locale_lang_es__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_locale_lang_es__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_locale_lang_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_element_ui_lib_locale_lang_es__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_locale__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_locale___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_element_ui_lib_locale__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_lang__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_lang__ = __webpack_require__(242);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_lang___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__utils_lang__);
 
 /**
@@ -45239,7 +45239,7 @@ module.exports = __webpack_require__(56);
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(5);
+module.exports = __webpack_require__(7);
 
 /***/ }),
 /* 5 */
@@ -77670,7 +77670,7 @@ var _vue = __webpack_require__(1);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _dom = __webpack_require__(5);
+var _dom = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -81013,7 +81013,7 @@ var index = (function () {
 
 exports.__esModule = true;
 
-var _dom = __webpack_require__(5);
+var _dom = __webpack_require__(7);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -81483,7 +81483,7 @@ exports.default = {
 /***/ 3:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(5);
+module.exports = __webpack_require__(7);
 
 /***/ }),
 
@@ -86471,7 +86471,7 @@ module.exports = __webpack_require__(14) ? Object.defineProperties : function de
 /* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var document = __webpack_require__(6).document;
+var document = __webpack_require__(8).document;
 module.exports = document && document.documentElement;
 
 
@@ -86499,7 +86499,7 @@ module.exports = Object.getPrototypeOf || function (O) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(149);
-var global = __webpack_require__(6);
+var global = __webpack_require__(8);
 var hide = __webpack_require__(12);
 var Iterators = __webpack_require__(46);
 var TO_STRING_TAG = __webpack_require__(16)('toStringTag');
@@ -86600,7 +86600,7 @@ module.exports = __webpack_require__(18).Symbol;
 "use strict";
 
 // ECMAScript 6 symbols shim
-var global = __webpack_require__(6);
+var global = __webpack_require__(8);
 var has = __webpack_require__(10);
 var DESCRIPTORS = __webpack_require__(14);
 var $export = __webpack_require__(38);
@@ -88452,7 +88452,7 @@ exports.default = {
 /***/ 3:
 /***/ (function(module, exports) {
 
-module.exports = __webpack_require__(5);
+module.exports = __webpack_require__(7);
 
 /***/ }),
 
@@ -89008,11 +89008,11 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(193)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(196)
 /* template */
-var __vue_template__ = __webpack_require__(235)
+var __vue_template__ = __webpack_require__(240)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -89061,7 +89061,7 @@ var content = __webpack_require__(194);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("0aef848c", content, false, {});
+var update = __webpack_require__(5)("0aef848c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -91840,7 +91840,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(199)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(201)
 /* template */
@@ -91893,7 +91893,7 @@ var content = __webpack_require__(200);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("83835f94", content, false, {});
+var update = __webpack_require__(5)("83835f94", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -92161,7 +92161,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(204)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(206)
 /* template */
@@ -92214,7 +92214,7 @@ var content = __webpack_require__(205);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("285d784a", content, false, {});
+var update = __webpack_require__(5)("285d784a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -92408,7 +92408,7 @@ var prefix = "/";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_ModuleBicicletas_Bicicletas_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__modules_ModuleBicicletas_Bicicletas_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_ModuleCatalogo_Catalogo_vue__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_ModuleCatalogo_Catalogo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__modules_ModuleCatalogo_Catalogo_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_ModuleProducto_Producto_vue__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_ModuleProducto_Producto_vue__ = __webpack_require__(235);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_ModuleProducto_Producto_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__modules_ModuleProducto_Producto_vue__);
 
 
@@ -92458,7 +92458,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(211)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(213)
 /* template */
@@ -92511,7 +92511,7 @@ var content = __webpack_require__(212);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("623e95a2", content, false, {});
+var update = __webpack_require__(5)("623e95a2", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -92632,7 +92632,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(216)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(218)
 /* template */
@@ -92685,7 +92685,7 @@ var content = __webpack_require__(217);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("d923a108", content, false, {});
+var update = __webpack_require__(5)("d923a108", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -92790,7 +92790,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(221)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(223)
 /* template */
@@ -92843,7 +92843,7 @@ var content = __webpack_require__(222);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("1eea8058", content, false, {});
+var update = __webpack_require__(5)("1eea8058", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -92947,7 +92947,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(226)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(228)
 /* template */
@@ -93000,7 +93000,7 @@ var content = __webpack_require__(227);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("0544405c", content, false, {});
+var update = __webpack_require__(5)("0544405c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -93803,7 +93803,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(231)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(233)
 /* template */
@@ -93856,7 +93856,7 @@ var content = __webpack_require__(232);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("6e13bc78", content, false, {});
+var update = __webpack_require__(5)("6e13bc78", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -93889,280 +93889,6 @@ exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\
 /* 233 */
 /***/ (function(module, exports) {
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -94763,86 +94489,169 @@ var render = function() {
           )
         ],
         1
-      ),
-      _vm._v(" "),
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-eea51ace", module.exports)
+  }
+}
+
+/***/ }),
+/* 235 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(236)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(238)
+/* template */
+var __vue_template__ = __webpack_require__(239)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-2bbbd9d9"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/modules/ModuleProducto/Producto.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2bbbd9d9", Component.options)
+  } else {
+    hotAPI.reload("data-v-2bbbd9d9", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 236 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(237);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("c2349414", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2bbbd9d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Producto.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2bbbd9d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Producto.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 237 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.el-row[data-v-2bbbd9d9] {\r\n  margin-bottom: 20px;\n}\ndiv[data-v-2bbbd9d9] :last-child {\r\n  margin-bottom: 0px;\n}\n.el-col[data-v-2bbbd9d9] {\r\n  border-radius: 4px;\n}\r\n/* -----Container----- */\n.el-aside[data-v-2bbbd9d9] {\r\n  background-color: #d3dce6;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 200px;\n}\n.el-main[data-v-2bbbd9d9] {\r\n  background-color: #e9eef3;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 160px;\n}\nbody > .el-container[data-v-2bbbd9d9] {\r\n  margin-bottom: 40px;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 238 */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+/* 239 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
       _c(
         "el-row",
-        { attrs: { gutter: 16 } },
+        { attrs: { gutter: 10 } },
         [
           _c(
             "el-col",
-            { attrs: { span: 6 } },
+            { attrs: { span: 8 } },
             [
               _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
+                "el-container",
                 [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 5")])
+                  _c("el-aside", { attrs: { width: "200px" } }, [
+                    _vm._v("Barra lateral")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
+                  _c("el-main", [_vm._v("Principal")])
                 ],
                 1
               )
@@ -94852,78 +94661,16 @@ var render = function() {
           _vm._v(" "),
           _c(
             "el-col",
-            { attrs: { span: 6 } },
+            { attrs: { span: 8 } },
             [
               _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
+                "el-container",
                 [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 6")])
+                  _c("el-aside", { attrs: { width: "200px" } }, [
+                    _vm._v("Barra lateral")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
+                  _c("el-main", [_vm._v("Principal")])
                 ],
                 1
               )
@@ -94933,821 +94680,16 @@ var render = function() {
           _vm._v(" "),
           _c(
             "el-col",
-            { attrs: { span: 6 } },
+            { attrs: { span: 8 } },
             [
               _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
+                "el-container",
                 [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 7")])
+                  _c("el-aside", { attrs: { width: "200px" } }, [
+                    _vm._v("Barra lateral")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 6 } },
-            [
-              _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
-                [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 8")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "el-row",
-        { attrs: { gutter: 16 } },
-        [
-          _c(
-            "el-col",
-            { attrs: { span: 6 } },
-            [
-              _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
-                [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 5")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 6 } },
-            [
-              _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
-                [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 6")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 6 } },
-            [
-              _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
-                [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 7")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 6 } },
-            [
-              _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
-                [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 8")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "el-row",
-        { attrs: { gutter: 16 } },
-        [
-          _c(
-            "el-col",
-            { attrs: { span: 6 } },
-            [
-              _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
-                [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 5")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 6 } },
-            [
-              _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
-                [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 6")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 6 } },
-            [
-              _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
-                [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 7")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 6 } },
-            [
-              _c(
-                "el-card",
-                { attrs: { "body-style": { padding: "0px" } } },
-                [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: {
-                      src:
-                        "https://www.mhw-bike.de/media/image/1e/8e/94/18YC1020-Ghost-Hybride-Lector-S8-7-LC-2018-0_750x750.jpg"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-row", { attrs: { span: 24, row: "titulo" } }, [
-                    _c("span", [_vm._v("Bicicleta 8")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "el-row",
-                    { attrs: { span: 24, row: "botones" } },
-                    [
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: {
-                                type: "warning",
-                                icon: "el-icon-star-on"
-                              }
-                            },
-                            [_vm._v("Stats")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "success", icon: "el-icon-edit" }
-                            },
-                            [_vm._v("Editar")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-col",
-                        { attrs: { span: 8 } },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              attrs: { type: "danger", icon: "el-icon-delete" }
-                            },
-                            [_vm._v("Eliminar")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
+                  _c("el-main", [_vm._v("Principal")])
                 ],
                 1
               )
@@ -95767,12 +94709,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-eea51ace", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-2bbbd9d9", module.exports)
   }
 }
 
 /***/ }),
-/* 235 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -95827,7 +94769,7 @@ if (false) {
 }
 
 /***/ }),
-/* 236 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -95944,7 +94886,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 237 */
+/* 242 */
 /***/ (function(module, exports) {
 
 var VueRepo = {};
@@ -95995,168 +94937,10 @@ VueRepo.install = function (Vue, config) {
 module.exports = VueRepo;
 
 /***/ }),
-/* 238 */
+/* 243 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 239 */,
-/* 240 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(241)
-}
-var normalizeComponent = __webpack_require__(8)
-/* script */
-var __vue_script__ = __webpack_require__(243)
-/* template */
-var __vue_template__ = __webpack_require__(244)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-2bbbd9d9"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/modules/ModuleProducto/Producto.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2bbbd9d9", Component.options)
-  } else {
-    hotAPI.reload("data-v-2bbbd9d9", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 241 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(242);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(7)("c2349414", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2bbbd9d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Producto.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2bbbd9d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Producto.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 243 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "Renta view",
-
-    data: function data() {
-        return {
-            nombre: "blog"
-        };
-    },
-
-
-    methods: {
-        cambiarNombre: function cambiarNombre() {
-            this.nombre = "beto";
-        }
-    }
-});
-
-/***/ }),
-/* 244 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v("\n    Modulo Producto " + _vm._s(_vm.nombre) + "\n    "),
-    _c(
-      "button",
-      {
-        on: {
-          click: function($event) {
-            _vm.cambiarNombre()
-          }
-        }
-      },
-      [_vm._v("\n        Cambiar nombre\n    ")]
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2bbbd9d9", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);

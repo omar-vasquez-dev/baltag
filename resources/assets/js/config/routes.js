@@ -6,7 +6,7 @@ import Catalogo from '../modules/ModuleCatalogo/Catalogo.vue'
 import Producto from '../modules/ModuleProducto/Producto.vue'
 
 const prefix = "/dashboard/";
-
+ 
 export default  
 [
         /**
