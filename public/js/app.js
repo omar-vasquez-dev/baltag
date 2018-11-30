@@ -94590,7 +94590,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.el-row[data-v-2bbbd9d9] {\r\n  margin-bottom: 20px;\n}\ndiv[data-v-2bbbd9d9] :last-child {\r\n  margin-bottom: 0px;\n}\n.el-col[data-v-2bbbd9d9] {\r\n  border-radius: 4px;\n}\r\n/* -----Container----- */\n.el-aside[data-v-2bbbd9d9] {\r\n  background-color: #d3dce6;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 200px;\n}\n.el-main[data-v-2bbbd9d9] {\r\n  background-color: #e9eef3;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 160px;\n}\nbody > .el-container[data-v-2bbbd9d9] {\r\n  margin-bottom: 40px;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-row[data-v-2bbbd9d9] {\r\n  margin-bottom: 20px;\n}\ndiv[data-v-2bbbd9d9] :last-child {\r\n  margin-bottom: 0px;\n}\n.el-col[data-v-2bbbd9d9] {\r\n  border-radius: 4px;\n}\r\n/* -----Container----- */\n.el-aside[data-v-2bbbd9d9] {\r\n  background-color: #d3dce6;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 200px;\n}\n.el-main[data-v-2bbbd9d9] {\r\n  background-color: #e9eef3;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 160px;\n}\nbody > .el-container[data-v-2bbbd9d9] {\r\n  margin-bottom: 40px;\n}\n.el-header[data-v-2bbbd9d9],\r\n.el-footer[data-v-2bbbd9d9] {\r\n  background-color: #b3c0d1;\r\n  color: #333;\r\n  text-align: center;\r\n  line-height: 60px;\r\n  height: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -94599,6 +94599,18 @@ exports.push([module.i, "\n.el-row[data-v-2bbbd9d9] {\r\n  margin-bottom: 20px;\
 /* 238 */
 /***/ (function(module, exports) {
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -94651,7 +94663,17 @@ var render = function() {
                     _vm._v("Barra lateral")
                   ]),
                   _vm._v(" "),
-                  _c("el-main", [_vm._v("Principal")])
+                  _c(
+                    "el-container",
+                    [
+                      _c("el-header", [_vm._v("Cabecera")]),
+                      _vm._v(" "),
+                      _c("el-main", [_vm._v("Principal")]),
+                      _vm._v(" "),
+                      _c("el-footer", [_vm._v("Pie de página")])
+                    ],
+                    1
+                  )
                 ],
                 1
               )
@@ -94670,7 +94692,17 @@ var render = function() {
                     _vm._v("Barra lateral")
                   ]),
                   _vm._v(" "),
-                  _c("el-main", [_vm._v("Principal")])
+                  _c(
+                    "el-container",
+                    [
+                      _c("el-header", [_vm._v("Cabecera")]),
+                      _vm._v(" "),
+                      _c("el-main", [_vm._v("Principal")]),
+                      _vm._v(" "),
+                      _c("el-footer", [_vm._v("Pie de página")])
+                    ],
+                    1
+                  )
                 ],
                 1
               )
@@ -94689,7 +94721,17 @@ var render = function() {
                     _vm._v("Barra lateral")
                   ]),
                   _vm._v(" "),
-                  _c("el-main", [_vm._v("Principal")])
+                  _c(
+                    "el-container",
+                    [
+                      _c("el-header", [_vm._v("Cabecera")]),
+                      _vm._v(" "),
+                      _c("el-main", [_vm._v("Principal")]),
+                      _vm._v(" "),
+                      _c("el-footer", [_vm._v("Pie de página")])
+                    ],
+                    1
+                  )
                 ],
                 1
               )

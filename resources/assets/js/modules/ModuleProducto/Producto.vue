@@ -4,21 +4,33 @@
       <el-col :span="8">
         <el-container>
           <el-aside width="200px">Barra lateral</el-aside>
-          <el-main>Principal</el-main>
+          <el-container>
+            <el-header>Cabecera</el-header>
+            <el-main>Principal</el-main>
+            <el-footer>Pie de página</el-footer>
+          </el-container>
         </el-container>
       </el-col>
       <el-col :span="8">
         <el-container>
           <el-aside width="200px">Barra lateral</el-aside>
-          <el-main>Principal</el-main>
+          <el-container>
+            <el-header>Cabecera</el-header>
+            <el-main>Principal</el-main>
+            <el-footer>Pie de página</el-footer>
+          </el-container>
         </el-container>
       </el-col>
       <el-col :span="8">
         <el-container>
           <el-aside width="200px">Barra lateral</el-aside>
-          <el-main>Principal</el-main>
+          <el-container>
+            <el-header>Cabecera</el-header>
+            <el-main>Principal</el-main>
+            <el-footer>Pie de página</el-footer>
+          </el-container>
         </el-container>
-      </el-col>      
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -52,5 +64,13 @@ div :last-child {
 }
 body > .el-container {
   margin-bottom: 40px;
+}
+.el-header,
+.el-footer {
+  background-color: #b3c0d1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+  height: 10px;
 }
 </style>
