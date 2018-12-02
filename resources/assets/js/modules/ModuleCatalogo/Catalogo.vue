@@ -1,7 +1,7 @@
 <template> 
   <div class="container">
     <el-row :gutter="5" style="sticky;  top: 0;">
-      <el-col :span="16">&nbsp</el-col>
+      <el-col :span="16">&nbsp </el-col>
       <el-col :span="4">
         <el-input placeholder="buscar" prefix-icon="el-icon-search" v-model="input21"></el-input>
       </el-col>
