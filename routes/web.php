@@ -22,3 +22,5 @@ Route::get('dashboard/{any}', 'HomeController@index')->name('home');
 Route::resource('NuevaBicicleta','NuevaBicicletasController',[
     'except' => ['edit','show','store']
 ]);
+
+Route::post('formSubmit','nuevaBicicletaController@formSubmit');

@@ -93024,7 +93024,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.el-header[data-v-897bf68e]{\r\n    text-align: center;\r\n    font-size: 2em;\r\n    color: white;\r\n    background: #99a9bf;\n}\n.el-main[data-v-897bf68e]{\r\n    background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n    margin-bottom: 10px;\n&:last-child {\r\n      margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e]{\r\n    width: 100%;\n}\n.el-upload[data-v-897bf68e]{\r\n    width: 100%;\n}\n.el-button[data-v-897bf68e],.el-color-picker[data-v-897bf68e]{\r\n    width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-header[data-v-897bf68e] {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\n}\n.el-main[data-v-897bf68e] {\r\n  background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n  margin-bottom: 10px;\n&:last-child {\r\n    margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e] {\r\n  width: 100%;\n}\n.el-upload[data-v-897bf68e] {\r\n  width: 100%;\n}\n.el-button[data-v-897bf68e],\r\n.el-color-picker[data-v-897bf68e] {\r\n  width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -93179,107 +93179,101 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-function Crud(_ref) {
-    var id = _ref.id,
-        color = _ref.color,
-        name = _ref.name;
-
-    this.id = id;
-    this.color = color;
-    this.name = name;
-}
-
-//import CrudComponent from './CrudComponent.vue';
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "Bicicletas view",
+  mounted: function mounted() {
+    console.log("Component mounted.");
+  },
 
-    data: function data() {
-        return {
-            nombre: "blog",
-            color4: '#409EFF',
-            options: [{
-                value: 'Option1',
-                label: 'Option1'
-            }, {
-                value: 'Option2',
-                label: 'Option2'
-            }, {
-                value: 'Option3',
-                label: 'Option3'
-            }, {
-                value: 'Option4',
-                label: 'Option4'
-            }, {
-                value: 'Option5',
-                label: 'Option5'
-            }]
+  name: "Bicicletas view",
+  data: function data() {
+    return {
+      color: "#ff00ff",
+      marca: '',
+      modelo: '',
+      genero: '',
+      modalidad: '',
+      velocidad: '',
+      material: '',
+      rodada: '',
+      capacidad: '',
+      modelaje: '',
+      descripcion: '',
+      options: [{
+        value: "Option1",
+        label: "Option1"
+      }, {
+        value: "Option2",
+        label: "Option2"
+      }, {
+        value: "Option3",
+        label: "Option3"
+      }, {
+        value: "Option4",
+        label: "Option4"
+      }, {
+        value: "Option5",
+        label: "Option5"
+      }]
+    };
+  },
 
-        };
+  methods: {
+    /* ---Formulario de guardado de bicicletas ---*/
+    formSubmit: function formSubmit(e) {
+      e.preventDefault();
+      var currentObj = this;
+      axios.post("/formSubmit", {
+        color: this.color,
+        marca: this.marca,
+        modelo: this.modelo,
+        genero: this.genero,
+        modalidad: this.modalidad,
+        velocidad: this.velocidad,
+        material: this.material,
+        rodada: this.rodada,
+        capacidad: this.capacidad,
+        modelaje: this.modelaje,
+        descripcion: this.descripcion
+      }).then(function (response) {
+        alert("Guardado exitoso: " + response.data);
+      }).catch(function (error) {
+        alert("Error al guardar los cambios");
+      });
     },
 
-    methods: {
-        cambiarNombre: function cambiarNombre() {
-            this.nombre = "beto";
-        },
-        guardarMessage: function guardarMessage(boolianParameter) {
-            var _this = this;
+    /*-------------------------------------------*/
 
-            if (boolianParameter == 1) {
+    /*VENTANAS EMERGENTES PARA EL USUARIO*/
+    guardarMessage: function guardarMessage(boolianParameter) {
+      var _this = this;
 
-                this.$confirm('¿Desea guardar los datos?', '', {
-                    confirmButtonText: 'Si',
-                    cancelButtonText: 'No',
-                    type: 'warning'
-                }).then(function () {
-                    _this.$message({
-                        type: 'success',
-                        message: 'Datos guardados correctamente'
-
-                    });
-                }).catch(function () {
-                    _this.$message({
-                        type: 'info',
-                        message: 'Los datros no se han guardado'
-                    });
-                });
-            } else {
-                this.$confirm('¿Desea salir del formulario?', '', {
-                    confirmButtonText: 'Si',
-                    cancelButtonText: 'No',
-                    type: 'warning'
-                }).then(function () {
-                    _this.$router.push('home');
-                }).catch(function () {
-                    _this.$emit("clickItemView", "view-renta");
-                });
-            }
-        }
+      if (boolianParameter == 1) {
+        this.$confirm("¿Desea guardar los datos?", "", {
+          confirmButtonText: "Si",
+          cancelButtonText: "No",
+          type: "warning"
+        }).then(function () {
+          formSubmit;
+        }).catch(function () {
+          _this.$message({
+            type: "warning",
+            message: "Los datros no se han guardado"
+          });
+        });
+      } else {
+        this.$confirm("¿Desea salir del formulario?", "", {
+          confirmButtonText: "Si",
+          cancelButtonText: "No",
+          type: "warning"
+        }).then(function () {
+          _this.$router.push("home");
+        }).catch(function () {
+          _this.$emit("clickItemView", "view-renta");
+        });
+      }
     }
+  }
 });
 
 /***/ }),
@@ -93306,15 +93300,15 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Marca\r\n        "),
+                  _vm._v("Marca\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.input,
+                      value: _vm.marca,
                       callback: function($$v) {
-                        _vm.input = $$v
+                        _vm.marca = $$v
                       },
-                      expression: "input"
+                      expression: "marca"
                     }
                   })
                 ],
@@ -93325,7 +93319,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Select 1\r\n        "),
+                  _vm._v("Select 1\n        "),
                   _c(
                     "el-select",
                     {
@@ -93360,48 +93354,24 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Modelo\r\n        "),
+                  _vm._v("Modelo\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.input,
+                      value: _vm.modelo,
                       callback: function($$v) {
-                        _vm.input = $$v
+                        _vm.modelo = $$v
                       },
-                      expression: "input"
+                      expression: "modelo"
                     }
                   })
                 ],
                 1
               ),
               _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("\r\n        Select 2\r\n        "),
-                  _c(
-                    "el-select",
-                    {
-                      attrs: { placeholder: "Select" },
-                      model: {
-                        value: _vm.value,
-                        callback: function($$v) {
-                          _vm.value = $$v
-                        },
-                        expression: "value"
-                      }
-                    },
-                    _vm._l(_vm.options, function(item) {
-                      return _c("el-option", {
-                        key: item.value,
-                        attrs: { label: item.label, value: item.value }
-                      })
-                    })
-                  )
-                ],
-                1
-              )
+              _c("el-col", { attrs: { span: 12 } }, [
+                _vm._v("Select 2\n        ")
+              ])
             ],
             1
           ),
@@ -93414,48 +93384,24 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Género\r\n        "),
+                  _vm._v("Género\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.input,
+                      value: _vm.genero,
                       callback: function($$v) {
-                        _vm.input = $$v
+                        _vm.genero = $$v
                       },
-                      expression: "input"
+                      expression: "genero"
                     }
                   })
                 ],
                 1
               ),
               _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("\r\n        Select 3\r\n        "),
-                  _c(
-                    "el-select",
-                    {
-                      attrs: { placeholder: "Select" },
-                      model: {
-                        value: _vm.value,
-                        callback: function($$v) {
-                          _vm.value = $$v
-                        },
-                        expression: "value"
-                      }
-                    },
-                    _vm._l(_vm.options, function(item) {
-                      return _c("el-option", {
-                        key: item.value,
-                        attrs: { label: item.label, value: item.value }
-                      })
-                    })
-                  )
-                ],
-                1
-              )
+              _c("el-col", { attrs: { span: 12 } }, [
+                _vm._v("Select 3\n        ")
+              ])
             ],
             1
           ),
@@ -93468,15 +93414,15 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Modalidad\r\n        "),
+                  _vm._v("Modalidad\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.input,
+                      value: _vm.modalidad,
                       callback: function($$v) {
-                        _vm.input = $$v
+                        _vm.modalidad = $$v
                       },
-                      expression: "input"
+                      expression: "modalidad"
                     }
                   })
                 ],
@@ -93487,14 +93433,14 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Color\r\n        "),
+                  _vm._v("Color\n        "),
                   _c("el-color-picker", {
                     model: {
-                      value: _vm.color4,
+                      value: _vm.color,
                       callback: function($$v) {
-                        _vm.color4 = $$v
+                        _vm.color = $$v
                       },
-                      expression: "color4"
+                      expression: "color"
                     }
                   })
                 ],
@@ -93512,15 +93458,15 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Velocidad\r\n        "),
+                  _vm._v("Velocidad\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.input,
+                      value: _vm.velocidad,
                       callback: function($$v) {
-                        _vm.input = $$v
+                        _vm.velocidad = $$v
                       },
-                      expression: "input"
+                      expression: "velocidad"
                     }
                   })
                 ],
@@ -93540,15 +93486,15 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Material\r\n        "),
+                  _vm._v("Material\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.input,
+                      value: _vm.materia,
                       callback: function($$v) {
-                        _vm.input = $$v
+                        _vm.materia = $$v
                       },
-                      expression: "input"
+                      expression: "materia"
                     }
                   })
                 ],
@@ -93568,15 +93514,15 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Rodada\r\n        "),
+                  _vm._v("Rodada\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.input,
+                      value: _vm.rodada,
                       callback: function($$v) {
-                        _vm.input = $$v
+                        _vm.rodada = $$v
                       },
-                      expression: "input"
+                      expression: "rodada"
                     }
                   })
                 ],
@@ -93596,15 +93542,15 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Capacidad\r\n        "),
+                  _vm._v("Capacidad\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.input,
+                      value: _vm.capacidad,
                       callback: function($$v) {
-                        _vm.input = $$v
+                        _vm.capacidad = $$v
                       },
-                      expression: "input"
+                      expression: "capacidad"
                     }
                   })
                 ],
@@ -93624,15 +93570,15 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Modelaje\r\n        "),
+                  _vm._v("Modelaje\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.input,
+                      value: _vm.modelaje,
                       callback: function($$v) {
-                        _vm.input = $$v
+                        _vm.modelaje = $$v
                       },
-                      expression: "input"
+                      expression: "modelaje"
                     }
                   })
                 ],
@@ -93652,7 +93598,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Descripción\r\n        "),
+                  _vm._v("Descripción\n        "),
                   _c("el-input", {
                     attrs: {
                       type: "textarea",
@@ -93660,11 +93606,11 @@ var render = function() {
                       placeholder: "Please input"
                     },
                     model: {
-                      value: _vm.textarea,
+                      value: _vm.descripcion,
                       callback: function($$v) {
-                        _vm.textarea = $$v
+                        _vm.descripcion = $$v
                       },
-                      expression: "textarea"
+                      expression: "descripcion"
                     }
                   })
                 ],
@@ -93675,7 +93621,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("\r\n        Fotografias\r\n        "),
+                  _vm._v("Fotografias\n        "),
                   _c(
                     "el-upload",
                     {
@@ -93688,13 +93634,22 @@ var render = function() {
                         "on-remove": _vm.handleRemove,
                         "file-list": _vm.fileList,
                         multiple: ""
+                      },
+                      model: {
+                        value: _vm.fotos,
+                        callback: function($$v) {
+                          _vm.fotos = $$v
+                        },
+                        expression: "fotos"
                       }
                     },
                     [
                       _c("i", { staticClass: "el-icon-upload" }),
                       _vm._v(" "),
                       _c("div", { staticClass: "el-upload__text" }, [
-                        _vm._v("Suelta tu archivo aquí o "),
+                        _vm._v(
+                          "\n            Suelta tu archivo aquí o\n            "
+                        ),
                         _c("em", [_vm._v("haz clic para cargar")])
                       ]),
                       _vm._v(" "),
@@ -93724,13 +93679,9 @@ var render = function() {
             "el-row",
             { attrs: { gutter: 10 } },
             [
-              _c("el-col", { attrs: { span: 6 } }, [
-                _vm._v("\r\n     \r\n    ")
-              ]),
+              _c("el-col", { attrs: { span: 6 } }, [_vm._v(" ")]),
               _vm._v(" "),
-              _c("el-col", { attrs: { span: 6 } }, [
-                _vm._v("\r\n     \r\n    ")
-              ]),
+              _c("el-col", { attrs: { span: 6 } }, [_vm._v(" ")]),
               _vm._v(" "),
               _c(
                 "el-col",
@@ -93738,15 +93689,7 @@ var render = function() {
                 [
                   _c(
                     "el-button",
-                    {
-                      staticStyle: { color: "red" },
-                      attrs: { type: "text" },
-                      on: {
-                        click: function($event) {
-                          _vm.guardarMessage(0)
-                        }
-                      }
-                    },
+                    { staticStyle: { color: "red" }, attrs: { type: "text" } },
                     [_vm._v("Cancelar")]
                   ),
                   _vm._v(" "),
@@ -93763,11 +93706,7 @@ var render = function() {
                     "el-button",
                     {
                       attrs: { type: "success", plain: "" },
-                      on: {
-                        click: function($event) {
-                          _vm.guardarMessage(1)
-                        }
-                      }
+                      on: { click: _vm.formSubmit }
                     },
                     [_vm._v("Guardar")]
                   )
@@ -94093,7 +94032,7 @@ var render = function() {
         "el-row",
         { staticStyle: { top: "0" }, attrs: { gutter: 5 } },
         [
-          _c("el-col", { attrs: { span: 16 } }, [_vm._v(" ")]),
+          _c("el-col", { attrs: { span: 16 } }, [_vm._v("  ")]),
           _vm._v(" "),
           _c(
             "el-col",
