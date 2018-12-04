@@ -36,7 +36,7 @@ class BicicletaController extends Controller
      */
     public function store(BicicletaRequest $request)
     {
-       return BicicletaModel::create($request>all());
+    	return response()->json([$request->all()]);
     }
 
     /**

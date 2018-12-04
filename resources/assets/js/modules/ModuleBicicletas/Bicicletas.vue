@@ -191,7 +191,7 @@ export default {
       e.preventDefault();
       let currentObj = this;
       axios
-        .post("/formSubmit", {
+        .post("/bicicleta/create",{
           color: this.color,
           marca: this.marca,
           modelo: this.modelo,

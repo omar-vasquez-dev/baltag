@@ -93228,7 +93228,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     formSubmit: function formSubmit(e) {
       e.preventDefault();
       var currentObj = this;
-      axios.post("/formSubmit", {
+      axios.post("/bicicleta/create", {
         color: this.color,
         marca: this.marca,
         modelo: this.modelo,
