@@ -25,5 +25,4 @@ Route::prefix('bicicleta')->group(function () {
     Route::post('/create', 'ModuleBicicleta\BicicletaController@store');
     Route::get('/list', 'ModuleBicicleta\BicicletaController@show')->name('bicicleta.list');
     //Route::get('/nuevo', 'ModuleBicicleta\BicicletaController@create');
-    //C:\laragon\www\atgadev\app\Http\Controllers\ModuleBicicleta\BicicletaController.php
 });
