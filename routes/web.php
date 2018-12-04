@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\Routing\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +26,9 @@ Route::resource('NuevaBicicleta','NuevaBicicletasController',[
 ]);
 
 Route::post('formSubmit','nuevaBicicletaController@formSubmit');
+
+Route::prefix('bicicleta')->group(function () {
+    Route::post('/create', 'ModuloBicicleta\BicicletaController@store');
+    Route::get('/list', 'ModuleBicicleta\BicicletaController@show')->name('bicicleta.list');
+    //Route::get('/nuevo', 'ModuleBicicleta\BicicletaController@create');
+});

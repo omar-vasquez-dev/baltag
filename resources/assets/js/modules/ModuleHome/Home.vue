@@ -2,7 +2,7 @@
     <div>
        <el-row :gutter="24">
     <el-col :span="24"><div class="grid-content bg-purple">
-          Modulo 
+          {{ $routeLaravel('bicicleta.list') }}
         </div>
     </el-col>
  
@@ -18,7 +18,8 @@
             };
         },
         created(){
-          console.log('construct home');
+          console.log();
+          console.log(this.$routeLaravel('bicicleta.list'));
         }
     }
 </script>

@@ -92740,7 +92740,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     created: function created() {
-        console.log('construct home');
+        console.log();
+        console.log(this.$routeLaravel('bicicleta.list'));
     }
 });
 
@@ -92761,7 +92762,11 @@ var render = function() {
         [
           _c("el-col", { attrs: { span: 24 } }, [
             _c("div", { staticClass: "grid-content bg-purple" }, [
-              _vm._v("\n          Modulo \n        ")
+              _vm._v(
+                "\n          " +
+                  _vm._s(_vm.$routeLaravel("bicicleta.list")) +
+                  "\n        "
+              )
             ])
           ])
         ],
