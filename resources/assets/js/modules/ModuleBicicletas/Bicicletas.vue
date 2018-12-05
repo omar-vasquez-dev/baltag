@@ -8,7 +8,7 @@
           <el-input placeholder="Descripcion" v-model="marca"></el-input>
         </el-col>
         <el-col :span="12">Select 1
-          <el-select v-model="value" placeholder="Select">
+          <el-select v-model="medida_id" placeholder="Select">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -24,14 +24,14 @@
           <el-input placeholder="Descripcion" v-model="modelo"></el-input>
         </el-col>
         <el-col :span="12">Select 2
-          <!-- <el-select v-model="value" placeholder="Select">
+<el-select v-model="material_id" placeholder="Select">
             <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-            </el-option> 
-          </el-select>-->
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"              
+            ></el-option>
+          </el-select>
         </el-col>
       </el-row>
 
@@ -40,14 +40,14 @@
           <el-input placeholder="Descripcion" v-model="genero"></el-input>
         </el-col>
         <el-col :span="12">Select 3
-          <!-- <el-select v-model="value" placeholder="Select">
+<el-select v-model="modalidad_id" placeholder="Select">
             <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-            </el-option>
-          </el-select>-->
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"              
+            ></el-option>
+          </el-select>
         </el-col>
       </el-row>
 
@@ -68,7 +68,7 @@
 
       <el-row :gutter="10">
         <el-col :span="12">Material
-          <el-input placeholder="Descripcion" v-model="materia"></el-input>
+          <el-input placeholder="Descripcion" v-model="material"></el-input>
         </el-col>
         <el-col :span="12"></el-col>
       </el-row>
@@ -133,7 +133,7 @@
         </el-col>
         <el-col :span="6">
           <!-- el-button type="danger" plain @click="guardarMessage(0)">Cancelar</el-button  -->
-          <el-button type="success" plain @click="formSubmit">Guardar</el-button> 
+          <el-button type="success" plain @click="formSubmit">Guardar</el-button>
           <!-- <el-button type="success" @click="formSubmit">Guardar</el-button>  -->
         </el-col>
       </el-row>
@@ -150,39 +150,46 @@ export default {
   name: "Bicicletas view",
   data() {
     return {
-      color: "#ff00ff",
-      marca: '',
-      modelo: '',
-      genero: '',
-      modalidad: '',
-      velocidad: '',
-      material: '',
-      rodada: '',
-      capacidad: '',
-      modelaje: '',
-      descripcion: '',
+      color_id: "1",
+      marca: "",
+      modelo: "",
+      modalidad: "",
+      genero: "",
+      velocidad: "",
+      material: "",
+      rodada: "",
+      capacidad: "",
+      modelaje: "",
+      descripcion: "",
+      componente: "00000000",
+      publicacion: "00000000",
+      img_url_header: "000000000",
+      image_header: "000000000",
       options: [
         {
-          value: "Option1",
-          label: "Option1"
+          value: "1",
+          label: "Option 1"
         },
         {
-          value: "Option2",
-          label: "Option2"
+          value: "2",
+          label: "Option 2"
         },
         {
-          value: "Option3",
-          label: "Option3"
+          value: "3",
+          label: "Option 3"
         },
         {
-          value: "Option4",
-          label: "Option4"
+          value: "4",
+          label: "Option 4"
         },
         {
-          value: "Option5",
-          label: "Option5"
+          value: "5",
+          label: "Option 5"
         }
-      ]
+      ],
+      medida_id: "",
+      material_id: "",
+      modalidad_id: ""
     };
   },
   methods: {
@@ -191,8 +198,8 @@ export default {
       e.preventDefault();
       let currentObj = this;
       axios
-        .post("/bicicleta/create",{
-          color: this.color,
+        .post("/bicicleta/create", {
+          color_id: this.color_id,
           marca: this.marca,
           modelo: this.modelo,
           genero: this.genero,
@@ -202,18 +209,27 @@ export default {
           rodada: this.rodada,
           capacidad: this.capacidad,
           modelaje: this.modelaje,
-          descripcion: this.descripcion
+          descripcion: this.descripcion,
+          componente: "00000000",
+          publicacion: "00000000",
+          medida_id: this.medida_id,
+          material_id: this.material_id,
+          modalidad_id: this.modalidad_id,
+          img_url_header: "000000000",
+          image_header: "000000000"
         })
         .then(function(response) {
-            alert("Guardado exitoso: "+response.data);            
+          alert("Guardado exitoso: " + response.data);
+          console.log(response.data);
         })
         .catch(function(error) {
-            alert("Error al guardar los cambios");
+          alert("Error al guardar los cambios");
+          console.log(error.response);
         });
     },
     /*-------------------------------------------*/
 
-/*VENTANAS EMERGENTES PARA EL USUARIO*/
+    /*VENTANAS EMERGENTES PARA EL USUARIO*/
     guardarMessage(boolianParameter) {
       if (boolianParameter == 1) {
         this.$confirm("¿Desea guardar los datos?", "", {
@@ -244,8 +260,6 @@ export default {
           });
       }
     }
-
-
   }
 };
 </script>

@@ -93193,33 +93193,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: "Bicicletas view",
   data: function data() {
     return {
-      color: "#ff00ff",
-      marca: '',
-      modelo: '',
-      genero: '',
-      modalidad: '',
-      velocidad: '',
-      material: '',
-      rodada: '',
-      capacidad: '',
-      modelaje: '',
-      descripcion: '',
+      color_id: "1",
+      marca: "",
+      modelo: "",
+      modalidad: "",
+      genero: "",
+      velocidad: "",
+      material: "",
+      rodada: "",
+      capacidad: "",
+      modelaje: "",
+      descripcion: "",
+      componente: "00000000",
+      publicacion: "00000000",
+      img_url_header: "000000000",
+      image_header: "000000000",
       options: [{
-        value: "Option1",
-        label: "Option1"
+        value: "1",
+        label: "Option 1"
       }, {
-        value: "Option2",
-        label: "Option2"
+        value: "2",
+        label: "Option 2"
       }, {
-        value: "Option3",
-        label: "Option3"
+        value: "3",
+        label: "Option 3"
       }, {
-        value: "Option4",
-        label: "Option4"
+        value: "4",
+        label: "Option 4"
       }, {
-        value: "Option5",
-        label: "Option5"
-      }]
+        value: "5",
+        label: "Option 5"
+      }],
+      medida_id: "",
+      material_id: "",
+      modalidad_id: ""
     };
   },
 
@@ -93229,7 +93236,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       e.preventDefault();
       var currentObj = this;
       axios.post("/bicicleta/create", {
-        color: this.color,
+        color_id: this.color_id,
         marca: this.marca,
         modelo: this.modelo,
         genero: this.genero,
@@ -93239,11 +93246,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         rodada: this.rodada,
         capacidad: this.capacidad,
         modelaje: this.modelaje,
-        descripcion: this.descripcion
+        descripcion: this.descripcion,
+        componente: "00000000",
+        publicacion: "00000000",
+        medida_id: this.medida_id,
+        material_id: this.material_id,
+        modalidad_id: this.modalidad_id,
+        img_url_header: "000000000",
+        image_header: "000000000"
       }).then(function (response) {
         alert("Guardado exitoso: " + response.data);
+        console.log(response.data);
       }).catch(function (error) {
         alert("Error al guardar los cambios");
+        console.log(error.response);
       });
     },
 
@@ -93305,7 +93321,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Marca\n        "),
+                  _vm._v("Marca\n          "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93324,17 +93340,17 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Select 1\n        "),
+                  _vm._v("Select 1\n          "),
                   _c(
                     "el-select",
                     {
                       attrs: { placeholder: "Select" },
                       model: {
-                        value: _vm.value,
+                        value: _vm.medida_id,
                         callback: function($$v) {
-                          _vm.value = $$v
+                          _vm.medida_id = $$v
                         },
-                        expression: "value"
+                        expression: "medida_id"
                       }
                     },
                     _vm._l(_vm.options, function(item) {
@@ -93359,7 +93375,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Modelo\n        "),
+                  _vm._v("Modelo\n          "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93374,9 +93390,33 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } }, [
-                _vm._v("Select 2\n        ")
-              ])
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("Select 2\n"),
+                  _c(
+                    "el-select",
+                    {
+                      attrs: { placeholder: "Select" },
+                      model: {
+                        value: _vm.material_id,
+                        callback: function($$v) {
+                          _vm.material_id = $$v
+                        },
+                        expression: "material_id"
+                      }
+                    },
+                    _vm._l(_vm.options, function(item) {
+                      return _c("el-option", {
+                        key: item.value,
+                        attrs: { label: item.label, value: item.value }
+                      })
+                    })
+                  )
+                ],
+                1
+              )
             ],
             1
           ),
@@ -93389,7 +93429,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Género\n        "),
+                  _vm._v("Género\n          "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93404,9 +93444,33 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } }, [
-                _vm._v("Select 3\n        ")
-              ])
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("Select 3\n"),
+                  _c(
+                    "el-select",
+                    {
+                      attrs: { placeholder: "Select" },
+                      model: {
+                        value: _vm.modalidad_id,
+                        callback: function($$v) {
+                          _vm.modalidad_id = $$v
+                        },
+                        expression: "modalidad_id"
+                      }
+                    },
+                    _vm._l(_vm.options, function(item) {
+                      return _c("el-option", {
+                        key: item.value,
+                        attrs: { label: item.label, value: item.value }
+                      })
+                    })
+                  )
+                ],
+                1
+              )
             ],
             1
           ),
@@ -93419,7 +93483,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Modalidad\n        "),
+                  _vm._v("Modalidad\n          "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93438,7 +93502,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Color\n        "),
+                  _vm._v("Color\n          "),
                   _c("el-color-picker", {
                     model: {
                       value: _vm.color,
@@ -93463,7 +93527,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Velocidad\n        "),
+                  _vm._v("Velocidad\n          "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93491,15 +93555,15 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Material\n        "),
+                  _vm._v("Material\n          "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.materia,
+                      value: _vm.material,
                       callback: function($$v) {
-                        _vm.materia = $$v
+                        _vm.material = $$v
                       },
-                      expression: "materia"
+                      expression: "material"
                     }
                   })
                 ],
@@ -93519,7 +93583,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Rodada\n        "),
+                  _vm._v("Rodada\n          "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93547,7 +93611,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Capacidad\n        "),
+                  _vm._v("Capacidad\n          "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93575,7 +93639,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Modelaje\n        "),
+                  _vm._v("Modelaje\n          "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93603,7 +93667,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Descripción\n        "),
+                  _vm._v("Descripción\n          "),
                   _c("el-input", {
                     attrs: {
                       type: "textarea",
@@ -93626,7 +93690,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Fotografias\n        "),
+                  _vm._v("Fotografias\n          "),
                   _c(
                     "el-upload",
                     {
@@ -93653,7 +93717,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "el-upload__text" }, [
                         _vm._v(
-                          "\n            Suelta tu archivo aquí o\n            "
+                          "\n              Suelta tu archivo aquí o\n              "
                         ),
                         _c("em", [_vm._v("haz clic para cargar")])
                       ]),
