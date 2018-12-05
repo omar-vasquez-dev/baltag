@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MarcaModel extends Model
+class MedidasModel extends Model
 {
-    protected $table="ag_marcas";
+    protected $table="ag_medidas";
 
     /**
      * The attributes that are mass assignable.
@@ -14,6 +14,7 @@ class MarcaModel extends Model
      * @var array
      */
     protected $fillable = [
-        'marca'
+        'nombre',
+        'valor'
     ];
 }

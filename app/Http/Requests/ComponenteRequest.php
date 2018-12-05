@@ -24,7 +24,7 @@ class ComponenteRequest extends FormRequest
     public function rules()
     {
         return [
-            'componente'=>'required'
+            'componente' => 'required'
         ];
     }
 }

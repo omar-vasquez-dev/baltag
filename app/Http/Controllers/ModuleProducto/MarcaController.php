@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ModuleProducto;
 
 use App\Models\MarcaModel;
 use Illuminate\Http\Request;
@@ -39,13 +39,17 @@ class MarcaController extends Controller
     //BicicletaRequest
     public function store(MarcaRequest $MarcaRequest)
     {
-        //return response()->json([$BicicletaRequest->all()]);
+        //return response()->json([$MarcaRequest->all()]);
+        $Marca = new MarcaModel;
+        $Marca->marca = $MarcaRequest->marca;
+        $Marca->save();
+        return "Listo";
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BicicletaModel  $bicicletaModel
+     * @param  \App\Models\BicicletaModel  $MarcaRequest
      * @return \Illuminate\Http\Response
      */
     public function show(MarcaRequest $MarcaRequest)
@@ -56,7 +60,7 @@ class MarcaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BicicletaModel  $bicicletaModel
+     * @param  \App\Models\MarcaModel  $bicicletaModel
      * @return \Illuminate\Http\Response
      */
     public function edit(MarcaRequest $MarcaRequest)

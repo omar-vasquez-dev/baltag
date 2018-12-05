@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\ModuleProducto;
+namespace App\Http\Controllers\ModuleBicicleta;
 
-use App\Models\ComponenteModel;
+use App\Models\MaterialModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ComponenteRequest;
+use App\Http\Requests\MaterialRequest;
 
-class ComponenteController extends Controller
+class MaterialController extends Controller
 {
-    /**
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -26,7 +26,7 @@ class ComponenteController extends Controller
      */
     public function create()
     {
-
+        
     }
 
     /**
@@ -35,34 +35,29 @@ class ComponenteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //BicicletaRequest
-    public function store(ComponenteRequest $ComponenteRequest)
+    public function store(Request $request)
     {
-        //return response()->json([$ComponenteRequest->all()]);
-        $Componente = new ComponenteModel;
-        $Componente->componente = $ComponenteRequest->componente;
-        $Componente->save();
-        return "Listo";
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BicicletaModel  $bicicletaModel
+     * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function show(ComponenteRequest $ComponenteRequest)
+    public function show(ColorModel $colorModel)
     {
-        return $bicicletaModel->all();
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BicicletaModel  $bicicletaModel
+     * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(ComponenteRequest $ComponenteRequest)
+    public function edit(ColorModel $colorModel)
     {
         //
     }
@@ -71,10 +66,10 @@ class ComponenteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BicicletaModel  $bicicletaModel
+     * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ComponenteRequest $ComponenteRequest)
+    public function update(Request $request, ColorModel $colorModel)
     {
         //
     }
@@ -82,10 +77,10 @@ class ComponenteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BicicletaModel  $bicicletaModel
+     * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ComponenteRequest $ComponenteRequest)
+    public function destroy(ColorModel $colorModel)
     {
         //
     }

@@ -91918,7 +91918,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.el-menu[data-v-14a5ecf1]{\n    height: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.el-menu[data-v-14a5ecf1] {\r\n  height: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -91983,13 +91983,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MenuLateral",
 
   data: function data() {
     return {
-      key: "value"
+      key: "value",
+      marca: "",
+      componente: ""
     };
   },
 
@@ -92003,7 +92015,54 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     emitViewToParent: function emitViewToParent(StrinView) {
       this.$emit("clickItemView", StrinView);
+    },
+
+    /*--- ---- Formularios especiales para guardar marca y componentes ---- ---*/
+    NuevaMarca: function NuevaMarca() {
+      var _this = this;
+
+      this.$prompt("Por favor, agrega la nueva marca", "Nueva marca", {
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel"
+      }).then(function (_ref) {
+        var value = _ref.value;
+
+        var currentObj = _this;
+        axios.post("/marca/create", {
+          marca: value
+        }).then(function (response) {
+          alert("Nueva marca añadida");
+        }).catch(function (error) {
+          alert(error);
+        });
+      }).catch(function () {
+        _this.$message({
+          type: "info",
+          message: "No se registro la nueva marca"
+        });
+      });
+    },
+    NuevaComp: function NuevaComp() {
+      var _this2 = this;
+
+      this.$prompt("Por favor, agrega el nuevo componente", "Nuevo componente", {
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel"
+      }).then(function (_ref2) {
+        var value = _ref2.value;
+
+        var currentObj = _this2;
+        axios.post("/componente/create", {
+          componente: value
+        }).then(function (response) {
+          alert("Nuevo componente añadido");
+        }).catch(function (error) {
+          alert(error);
+        });
+      }).catch(function () {});
     }
+    /*-------------------------------------------------------------------------*/
+
   }
 });
 
@@ -92126,13 +92185,58 @@ var render = function() {
             "el-menu-item-group",
             { attrs: { title: "Opciones" } },
             [
-              _c("el-menu-item", { attrs: { index: "3-1" } }, [
+              _c("el-menu-item", { attrs: { index: "5-1" } }, [
                 _vm._v("Lista")
               ]),
               _vm._v(" "),
-              _c("el-menu-item", { attrs: { index: "3-2" } }, [
+              _c("el-menu-item", { attrs: { index: "5-2" } }, [
                 _vm._v("Agregar")
               ])
+            ],
+            1
+          )
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "el-submenu",
+        { attrs: { index: "6" } },
+        [
+          _c("template", { slot: "title" }, [
+            _c("i", { staticClass: "el-icon-setting" }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Configuraciones")])
+          ]),
+          _vm._v(" "),
+          _c(
+            "el-menu-item-group",
+            { attrs: { title: "Opciones" } },
+            [
+              _c(
+                "el-menu-item",
+                { attrs: { index: "6-1" }, on: { click: _vm.NuevaMarca } },
+                [
+                  _c("i", { staticClass: "el-icon-circle-plus" }),
+                  _vm._v("Nueva Marca\n      ")
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-menu-item",
+                {
+                  attrs: { index: "6-2" },
+                  on: {
+                    click: function($event) {
+                      _vm.NuevaComp()
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "el-icon-circle-plus" }),
+                  _vm._v("Nuevo Comp.\n      ")
+                ]
+              )
             ],
             1
           )
@@ -93030,7 +93134,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .el-header {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\r\n}\r\n.el-main {\r\n  background: #d3dce6;\r\n}\r\n.el-row {\r\n  margin-bottom: 10px;\r\n  &:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.el-select {\r\n  width: 100%;\r\n}\r\n.el-upload {\r\n  width: 100%;\r\n}\r\n.el-button,\r\n.el-color-picker {\r\n  width: 100%;\r\n} */\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .el-header {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\r\n}\r\n.el-main {\r\n  background: #d3dce6;\r\n}\r\n.el-row {\r\n  margin-bottom: 10px;\r\n  &:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.el-select {\r\n  width: 100%;\r\n}\r\n.el-upload {\r\n  width: 100%;\r\n}\r\n.el-button,\r\n.el-color-picker {\r\n  width: 100%;\r\n} */\r\n", ""]);
 
 // exports
 
@@ -93041,6 +93145,18 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -93227,7 +93343,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         alert("Guardado exitoso: " + response.data);
         console.log(response.data);
       }).catch(function (error) {
-        alert("Error al guardar los cambios");
+        alert("Error al guardar los cambios: " + error.response);
         console.log(error.response);
       });
     },
@@ -93311,7 +93427,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Marca\n          "),
+                  _vm._v("Marca\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion", size: "large" },
                     model: {
@@ -93330,17 +93446,71 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Select 1\n          "),
+                  _vm._v("Medida\n        "),
                   _c(
                     "el-select",
                     {
                       attrs: { placeholder: "Select" },
                       model: {
-                        value: _vm.value,
+                        value: _vm.medida_id,
                         callback: function($$v) {
-                          _vm.value = $$v
+                          _vm.medida_id = $$v
                         },
-                        expression: "value"
+                        expression: "medida_id"
+                      }
+                    },
+                    _vm._l(_vm.options, function(item) {
+                      return _c("el-option", {
+                        key: item.value,
+                        attrs: { label: item.label, value: item.value }
+                      })
+                    })
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-row",
+            { attrs: { gutter: 10 } },
+            [
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("Modelo\n        "),
+                  _c("el-input", {
+                    attrs: { placeholder: "Descripcion" },
+                    model: {
+                      value: _vm.modelo,
+                      callback: function($$v) {
+                        _vm.modelo = $$v
+                      },
+                      expression: "modelo"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("Material\n        "),
+                  _c(
+                    "el-select",
+                    {
+                      attrs: { placeholder: "Select" },
+                      model: {
+                        value: _vm.material_id,
+                        callback: function($$v) {
+                          _vm.material_id = $$v
+                        },
+                        expression: "material_id"
                       }
                     },
                     _vm._l(_vm.options, function(item) {
@@ -93384,7 +93554,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Select 3\n      "),
+                  _vm._v("Modalida\n        "),
                   _c(
                     "el-select",
                     {
@@ -93419,24 +93589,50 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Género\n            "),
+                  _vm._v("Modalidad\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
-                      value: _vm.genero,
+                      value: _vm.modalidad,
                       callback: function($$v) {
-                        _vm.genero = $$v
+                        _vm.modalidad = $$v
                       },
-                      expression: "genero"
+                      expression: "modalidad"
                     }
                   })
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } }, [
-                _vm._v("Select 3\n            ")
-              ])
+              _c("el-col", { attrs: { span: 12 } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-row",
+            { attrs: { gutter: 10 } },
+            [
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("Velocidad\n        "),
+                  _c("el-input", {
+                    attrs: { placeholder: "Descripcion" },
+                    model: {
+                      value: _vm.velocidad,
+                      callback: function($$v) {
+                        _vm.velocidad = $$v
+                      },
+                      expression: "velocidad"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("el-col", { attrs: { span: 12 } })
             ],
             1
           ),
@@ -93477,35 +93673,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Material\n            "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.materia,
-                      callback: function($$v) {
-                        _vm.materia = $$v
-                      },
-                      expression: "materia"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Rodada\n            "),
+                  _vm._v("Rodada\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93533,7 +93701,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Capacidad\n            "),
+                  _vm._v("Capacidad\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93561,7 +93729,7 @@ var render = function() {
                 "el-col",
                 { attrs: { span: 12 } },
                 [
-                  _vm._v("Modelaje\n            "),
+                  _vm._v("Modelaje\n        "),
                   _c("el-input", {
                     attrs: { placeholder: "Descripcion" },
                     model: {
@@ -93570,6 +93738,38 @@ var render = function() {
                         _vm.modelaje = $$v
                       },
                       expression: "modelaje"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("el-col", { attrs: { span: 12 } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-row",
+            { attrs: { gutter: 10 } },
+            [
+              _c(
+                "el-col",
+                { attrs: { span: 12 } },
+                [
+                  _vm._v("Descripcion\n        "),
+                  _c("el-input", {
+                    attrs: {
+                      type: "textarea",
+                      rows: 2,
+                      placeholder: "Please input"
+                    },
+                    model: {
+                      value: _vm.descripcion,
+                      callback: function($$v) {
+                        _vm.descripcion = $$v
+                      },
+                      expression: "descripcion"
                     }
                   })
                 ],
@@ -94442,8 +94642,10 @@ exports.push([module.i, "\n.el-row[data-v-2bbbd9d9] {\r\n  margin-bottom: 20px;\
 
 /***/ }),
 /* 238 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -94481,6 +94683,17 @@ exports.push([module.i, "\n.el-row[data-v-2bbbd9d9] {\r\n  margin-bottom: 20px;\
 //
 //
 //
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log("Component mounted.");
+  },
+
+  name: "Productos view",
+  data: function data() {},
+
+  methods: {}
+});
 
 /***/ }),
 /* 239 */

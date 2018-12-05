@@ -36,6 +36,18 @@
 </template>
 
 <script>
+export default {
+  mounted() {
+    console.log("Component mounted.");
+  },
+  name: "Productos view",
+  data() {
+
+  },
+  methods: {
+
+  }
+};
 </script>
 
 <style scoped>
