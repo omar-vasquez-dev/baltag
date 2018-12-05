@@ -35,7 +35,7 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MaterialRequest $MaterialRequest)
     {
         //
     }
@@ -46,7 +46,7 @@ class MaterialController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function show(ColorModel $colorModel)
+    public function show(MaterialRequest $MaterialRequest)
     {
         //
     }
@@ -57,7 +57,7 @@ class MaterialController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(ColorModel $colorModel)
+    public function edit(MaterialRequest $MaterialRequest)
     {
         //
     }
@@ -69,7 +69,7 @@ class MaterialController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ColorModel $colorModel)
+    public function update(Request $request, MaterialRequest $MaterialRequest)
     {
         //
     }
@@ -80,7 +80,7 @@ class MaterialController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ColorModel $colorModel)
+    public function destroy(MaterialRequest $MaterialRequest)
     {
         //
     }

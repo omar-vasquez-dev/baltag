@@ -35,7 +35,7 @@ class ModalidadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ModalidadRequest $ModalidadRequest)
     {
         //
     }
@@ -46,7 +46,7 @@ class ModalidadController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function show(ColorModel $colorModel)
+    public function show(ModalidadRequest $ModalidadRequest)
     {
         //
     }
@@ -57,7 +57,7 @@ class ModalidadController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(ColorModel $colorModel)
+    public function edit(ModalidadRequest $ModalidadRequest)
     {
         //
     }
@@ -69,7 +69,7 @@ class ModalidadController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ColorModel $colorModel)
+    public function update(Request $request, ModalidadRequest $ModalidadRequest)
     {
         //
     }
@@ -80,7 +80,7 @@ class ModalidadController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ColorModel $colorModel)
+    public function destroy(ModalidadRequest $ModalidadRequest)
     {
         //
     }
