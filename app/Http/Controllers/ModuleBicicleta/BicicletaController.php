@@ -34,9 +34,33 @@ class BicicletaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BicicletaRequest $request)
+    //BicicletaRequest
+    public function store(BicicletaRequest $BicicletaRequest)
     {
-       return BicicletaModel::create($request>all());
+        //return response()->json([$BicicletaRequest->all()]);
+        $Bicicleta = new BicicletaModel;
+
+        $Bicicleta->descripcion = $BicicletaRequest->descripcion;
+        $Bicicleta->componente = $BicicletaRequest->componente;
+        $Bicicleta->marca = $BicicletaRequest->marca;
+        $Bicicleta->modelo = $BicicletaRequest->modelo;
+        $Bicicleta->publicacion = $BicicletaRequest->publicacion;
+        $Bicicleta->capacidad = $BicicletaRequest->capacidad;
+        $Bicicleta->material = $BicicletaRequest->material;
+        $Bicicleta->rodada = $BicicletaRequest->rodada;
+        $Bicicleta->modelaje = $BicicletaRequest->modelaje;
+        $Bicicleta->genero = $BicicletaRequest->genero;
+        $Bicicleta->velocidad = $BicicletaRequest->velocidad;
+        $Bicicleta->color_id = $BicicletaRequest->color_id;
+        $Bicicleta->medida_id = $BicicletaRequest->medida_id;
+        $Bicicleta->material_id = $BicicletaRequest->material_id;
+        $Bicicleta->img_url_header = $BicicletaRequest->img_url_header;
+        $Bicicleta->modalidad_id = $BicicletaRequest->modalidad_id;
+
+        $Bicicleta->save();
+
+        return "Listo";
+
     }
 
     /**

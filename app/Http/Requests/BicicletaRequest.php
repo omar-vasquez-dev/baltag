@@ -23,7 +23,7 @@ class BicicletaRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+       return [
             'descripcion' => 'required',
             'componente' => 'required',
             'marca' => 'required',

@@ -21,14 +21,10 @@ Auth::routes();
 
 Route::get('dashboard/{any}', 'HomeController@index')->name('home');
 
-Route::resource('NuevaBicicleta','NuevaBicicletasController',[
-    'except' => ['edit','show','store']
-]);
-
 Route::post('formSubmit','nuevaBicicletaController@formSubmit');
 
 Route::prefix('bicicleta')->group(function () {
-    Route::post('/create', 'ModuloBicicleta\BicicletaController@store');
+    Route::post('/create', 'ModuleBicicleta\BicicletaController@store');
     Route::get('/list', 'ModuleBicicleta\BicicletaController@show')->name('bicicleta.list');
     //Route::get('/nuevo', 'ModuleBicicleta\BicicletaController@create');
 });

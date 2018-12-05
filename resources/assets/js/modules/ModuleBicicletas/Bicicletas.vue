@@ -1,45 +1,43 @@
 <template>
   <el-container>
-    <el-row type="flex" class="row-bg" justify="center">
 
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>Nueva Bicicleta</span>
         <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>
       </div>
-      <div> 
           <!-- form @submit="formSubmit" -->
-          <el-row :gutter="10">
-            <el-col :span="12">Marca
-              <el-input placeholder="Descripcion" size="large" v-model="marca"></el-input>
-            </el-col>
-            <el-col :span="12">Select 1
-              <el-select v-model="value" placeholder="Select">
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                ></el-option>
-              </el-select>
-            </el-col>
-          </el-row>
+        <el-row :gutter="10">
+          <el-col :span="12">Marca
+            <el-input placeholder="Descripcion" size="large" v-model="marca"></el-input>
+          </el-col>
+          <el-col :span="12">Select 1
+            <el-select v-model="value" placeholder="Select">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </el-col>
+        </el-row>
 
-          <el-row :gutter="10">
-            <el-col :span="12">Modelo
-              <el-input placeholder="Descripcion" v-model="modelo"></el-input>
-            </el-col>
-            <el-col :span="12">Select 2
-              <!-- <el-select v-model="value" placeholder="Select">
-                <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"GPSW3rCur10
-                    :value="item.value">
-                </el-option> 
-              </el-select>-->
-            </el-col>
-          </el-row>
+      <el-row :gutter="10">
+        <el-col :span="12">Género
+          <el-input placeholder="Descripcion" v-model="genero"></el-input>
+        </el-col>
+        <el-col :span="12">Select 3
+        <el-select v-model="modalidad_id" placeholder="Select">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"              
+            ></el-option>
+          </el-select>
+        </el-col>
+      </el-row>
 
           <el-row :gutter="10">
             <el-col :span="12">Género
@@ -57,20 +55,12 @@
             </el-col>
           </el-row>
 
-          <el-row :gutter="10">
-            <el-col :span="12">Modalidad
-              <el-input placeholder="Descripcion" v-model="modalidad"></el-input>
-            </el-col>
-            <el-col :span="12">Color
-              <el-color-picker v-model="color"></el-color-picker>
-            </el-col>
-          </el-row>
-          <el-row :gutter="10">
-            <el-col :span="12">Velocidad
-              <el-input placeholder="Descripcion" v-model="velocidad"></el-input>
-            </el-col>
-            <el-col :span="12"></el-col>
-          </el-row>
+      <el-row :gutter="10">
+        <el-col :span="12">Material
+          <el-input placeholder="Descripcion" v-model="material"></el-input>
+        </el-col>
+        <el-col :span="12"></el-col>
+      </el-row>
 
           <el-row :gutter="10">
             <el-col :span="12">Material
@@ -100,54 +90,23 @@
             <el-col :span="12"></el-col>
           </el-row>
 
-          <el-row :gutter="10">
-            <el-col :span="12">Descripción
-              <el-input type="textarea" :rows="8" placeholder="Please input" v-model="descripcion"></el-input>
-            </el-col>
-            <el-col :span="12">Fotografias
-              <el-upload
-                class="upload-demo"
-                style="width: 100%;"
-                drag
-                action="https://jsonplaceholder.typicode.com/posts/"
-                :on-preview="handlePreview"
-                :on-remove="handleRemove"
-                :file-list="fileList"
-                multiple
-                v-model="fotos"
-              >
-                <i class="el-icon-upload"></i>
-                <div class="el-upload__text">
-                  Suelta tu archivo aquí o
-                  <em>haz clic para cargar</em>
-                </div>
-                <div
-                  slot="tip"
-                  class="el-upload__tip"
-                >Solo archivos jpg/png con un tamaño menor de 500kb</div>
-              </el-upload>
-            </el-col>
-          </el-row>
-
-          <el-row :gutter="10">
-            <el-col :span="6">&nbsp</el-col>
-            <el-col :span="6">&nbsp</el-col>
-            <el-col :span="6">
-              <!-- el-button type="text" @click="guardarMessage(0)">Cancelar</el-button  -->
-              <el-button type="text" style="color:red;">Cancelar</el-button>
-              <div></div>
-            </el-col>
-            <el-col :span="6">
-              <!-- el-button type="danger" plain @click="guardarMessage(0)">Cancelar</el-button  -->
-              <el-button type="success" plain @click="formSubmit">Guardar</el-button> 
-              <!-- <el-button type="success" @click="formSubmit">Guardar</el-button>  -->
-            </el-col>
-          </el-row>
-          <!-- /form -->
-        </div>
+      <el-row :gutter="10">
+        <el-col :span="6">&nbsp</el-col>
+        <el-col :span="6">&nbsp</el-col>
+        <el-col :span="6">
+          <!-- el-button type="text" @click="guardarMessage(0)">Cancelar</el-button  -->
+          <el-button type="text" style="color:red;">Cancelar</el-button>
+          <div></div>
+        </el-col>
+        <el-col :span="6">
+          <!-- el-button type="danger" plain @click="guardarMessage(0)">Cancelar</el-button  -->
+          <el-button type="success" plain @click="formSubmit">Guardar</el-button>
+          <!-- <el-button type="success" @click="formSubmit">Guardar</el-button>  -->
+        </el-col>
+      </el-row>
+      <!-- /form -->
     </el-card>
-    
-    </el-row>
+
   </el-container>
 </template>
 
@@ -159,39 +118,46 @@ export default {
   name: "Bicicletas view",
   data() {
     return {
-      color: "#ff00ff",
-      marca: '',
-      modelo: '',
-      genero: '',
-      modalidad: '',
-      velocidad: '',
-      material: '',
-      rodada: '',
-      capacidad: '',
-      modelaje: '',
-      descripcion: '',
+      color_id: "1",
+      marca: "",
+      modelo: "",
+      modalidad: "",
+      genero: "",
+      velocidad: "",
+      material: "",
+      rodada: "",
+      capacidad: "",
+      modelaje: "",
+      descripcion: "",
+      componente: "00000000",
+      publicacion: "00000000",
+      img_url_header: "000000000",
+      image_header: "000000000",
       options: [
         {
-          value: "Option1",
-          label: "Option1"
+          value: "1",
+          label: "Option 1"
         },
         {
-          value: "Option2",
-          label: "Option2"
+          value: "2",
+          label: "Option 2"
         },
         {
-          value: "Option3",
-          label: "Option3"
+          value: "3",
+          label: "Option 3"
         },
         {
-          value: "Option4",
-          label: "Option4"
+          value: "4",
+          label: "Option 4"
         },
         {
-          value: "Option5",
-          label: "Option5"
+          value: "5",
+          label: "Option 5"
         }
-      ]
+      ],
+      medida_id: "",
+      material_id: "",
+      modalidad_id: ""
     };
   },
   methods: {
@@ -200,8 +166,8 @@ export default {
       e.preventDefault();
       let currentObj = this;
       axios
-        .post("/formSubmit", {
-          color: this.color,
+        .post("/bicicleta/create", {
+          color_id: this.color_id,
           marca: this.marca,
           modelo: this.modelo,
           genero: this.genero,
@@ -211,18 +177,27 @@ export default {
           rodada: this.rodada,
           capacidad: this.capacidad,
           modelaje: this.modelaje,
-          descripcion: this.descripcion
+          descripcion: this.descripcion,
+          componente: "00000000",
+          publicacion: "00000000",
+          medida_id: this.medida_id,
+          material_id: this.material_id,
+          modalidad_id: this.modalidad_id,
+          img_url_header: "000000000",
+          image_header: "000000000"
         })
         .then(function(response) {
-            alert("Guardado exitoso: "+response.data);            
+          alert("Guardado exitoso: " + response.data);
+          console.log(response.data);
         })
         .catch(function(error) {
-            alert("Error al guardar los cambios");
+          alert("Error al guardar los cambios");
+          console.log(error.response);
         });
     },
     /*-------------------------------------------*/
 
-/*VENTANAS EMERGENTES PARA EL USUARIO*/
+    /*VENTANAS EMERGENTES PARA EL USUARIO*/
     guardarMessage(boolianParameter) {
       if (boolianParameter == 1) {
         this.$confirm("¿Desea guardar los datos?", "", {
@@ -253,8 +228,6 @@ export default {
           });
       }
     }
-
-
   }
 };
 </script>
