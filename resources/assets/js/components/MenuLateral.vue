@@ -4,7 +4,7 @@
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      background-color="#4E568F"
+      background-color="#43425D"
       text-color="#fff"
       active-text-color="#ffd04b">
       

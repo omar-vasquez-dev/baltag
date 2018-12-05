@@ -89085,7 +89085,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.app-container[data-v-66ab2f82]{\n    height: 100vh;\n    padding: 0px !important;\n}\n.el-footer[data-v-66ab2f82]{\n    background: #EDEDED;\n}\n.shadowCard[data-v-66ab2f82]{\n    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n}\n.app-header[data-v-66ab2f82]{\n    /**background: #484F80; */\n    padding: 0px 0px;\n}\n", ""]);
+exports.push([module.i, "\n.app-container[data-v-66ab2f82]{\n    height: 100vh;\n    padding: 0px !important;\n}\n.el-footer[data-v-66ab2f82]{\n    background: #F6F8F9;\n}\n.shadowCard[data-v-66ab2f82]{\n    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n}\n.app-header[data-v-66ab2f82]{\n    /**background: #484F80; */\n    padding: 0px 0px;\n    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n}\n.el-main[data-v-66ab2f82]{\n    background: #F0F0F7;\n}\n", ""]);
 
 // exports
 
@@ -89137,6 +89137,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_HeaderMenu_vue__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_HeaderMenu_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_HeaderMenu_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config_js__ = __webpack_require__(208);
+//
 //
 //
 //
@@ -92020,7 +92021,7 @@ var render = function() {
       staticClass: "el-menu-vertical-demo",
       attrs: {
         "default-active": "2",
-        "background-color": "#4E568F",
+        "background-color": "#43425D",
         "text-color": "#fff",
         "active-text-color": "#ffd04b"
       },
@@ -93029,7 +93030,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.el-header[data-v-897bf68e] {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\n}\n.el-main[data-v-897bf68e] {\r\n  background: #d3dce6;\n}\n.el-row[data-v-897bf68e] {\r\n  margin-bottom: 10px;\n&:last-child {\r\n    margin-bottom: 0;\n}\n}\n.el-select[data-v-897bf68e] {\r\n  width: 100%;\n}\n.el-upload[data-v-897bf68e] {\r\n  width: 100%;\n}\n.el-button[data-v-897bf68e],\r\n.el-color-picker[data-v-897bf68e] {\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .el-header {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\r\n}\r\n.el-main {\r\n  background: #d3dce6;\r\n}\r\n.el-row {\r\n  margin-bottom: 10px;\r\n  &:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.el-select {\r\n  width: 100%;\r\n}\r\n.el-upload {\r\n  width: 100%;\r\n}\r\n.el-button,\r\n.el-color-picker {\r\n  width: 100%;\r\n} */\r\n", ""]);
 
 // exports
 
@@ -93040,6 +93041,15 @@ exports.push([module.i, "\n.el-header[data-v-897bf68e] {\r\n  text-align: center
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -93292,435 +93302,468 @@ var render = function() {
   return _c(
     "el-container",
     [
-      _c("el-header", [_vm._v("Nueva Bicicleta")]),
-      _vm._v(" "),
       _c(
-        "el-main",
+        "el-row",
+        { staticClass: "row-bg", attrs: { type: "flex", justify: "center" } },
         [
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Marca\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.marca,
-                      callback: function($$v) {
-                        _vm.marca = $$v
-                      },
-                      expression: "marca"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Select 1\n        "),
-                  _c(
-                    "el-select",
-                    {
-                      attrs: { placeholder: "Select" },
-                      model: {
-                        value: _vm.value,
-                        callback: function($$v) {
-                          _vm.value = $$v
-                        },
-                        expression: "value"
-                      }
-                    },
-                    _vm._l(_vm.options, function(item) {
-                      return _c("el-option", {
-                        key: item.value,
-                        attrs: { label: item.label, value: item.value }
-                      })
-                    })
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Modelo\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.modelo,
-                      callback: function($$v) {
-                        _vm.modelo = $$v
-                      },
-                      expression: "modelo"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } }, [
-                _vm._v("Select 2\n        ")
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Género\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.genero,
-                      callback: function($$v) {
-                        _vm.genero = $$v
-                      },
-                      expression: "genero"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } }, [
-                _vm._v("Select 3\n        ")
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Modalidad\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.modalidad,
-                      callback: function($$v) {
-                        _vm.modalidad = $$v
-                      },
-                      expression: "modalidad"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Color\n        "),
-                  _c("el-color-picker", {
-                    model: {
-                      value: _vm.color,
-                      callback: function($$v) {
-                        _vm.color = $$v
-                      },
-                      expression: "color"
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Velocidad\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.velocidad,
-                      callback: function($$v) {
-                        _vm.velocidad = $$v
-                      },
-                      expression: "velocidad"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Material\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.materia,
-                      callback: function($$v) {
-                        _vm.materia = $$v
-                      },
-                      expression: "materia"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Rodada\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.rodada,
-                      callback: function($$v) {
-                        _vm.rodada = $$v
-                      },
-                      expression: "rodada"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Capacidad\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.capacidad,
-                      callback: function($$v) {
-                        _vm.capacidad = $$v
-                      },
-                      expression: "capacidad"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Modelaje\n        "),
-                  _c("el-input", {
-                    attrs: { placeholder: "Descripcion" },
-                    model: {
-                      value: _vm.modelaje,
-                      callback: function($$v) {
-                        _vm.modelaje = $$v
-                      },
-                      expression: "modelaje"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 12 } })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Descripción\n        "),
-                  _c("el-input", {
-                    attrs: {
-                      type: "textarea",
-                      rows: 8,
-                      placeholder: "Please input"
-                    },
-                    model: {
-                      value: _vm.descripcion,
-                      callback: function($$v) {
-                        _vm.descripcion = $$v
-                      },
-                      expression: "descripcion"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 12 } },
-                [
-                  _vm._v("Fotografias\n        "),
-                  _c(
-                    "el-upload",
-                    {
-                      staticClass: "upload-demo",
-                      staticStyle: { width: "100%" },
-                      attrs: {
-                        drag: "",
-                        action: "https://jsonplaceholder.typicode.com/posts/",
-                        "on-preview": _vm.handlePreview,
-                        "on-remove": _vm.handleRemove,
-                        "file-list": _vm.fileList,
-                        multiple: ""
-                      },
-                      model: {
-                        value: _vm.fotos,
-                        callback: function($$v) {
-                          _vm.fotos = $$v
-                        },
-                        expression: "fotos"
-                      }
-                    },
-                    [
-                      _c("i", { staticClass: "el-icon-upload" }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "el-upload__text" }, [
-                        _vm._v(
-                          "\n            Suelta tu archivo aquí o\n            "
+          _c("el-card", { staticClass: "box-card" }, [
+            _c(
+              "div",
+              {
+                staticClass: "clearfix",
+                attrs: { slot: "header" },
+                slot: "header"
+              },
+              [
+                _c("span", [_vm._v("Nueva Bicicleta")]),
+                _vm._v(" "),
+                _c(
+                  "el-button",
+                  {
+                    staticStyle: { float: "right", padding: "3px 0" },
+                    attrs: { type: "text" }
+                  },
+                  [_vm._v("Operation button")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Marca\n            "),
+                        _c("el-input", {
+                          attrs: { placeholder: "Descripcion", size: "large" },
+                          model: {
+                            value: _vm.marca,
+                            callback: function($$v) {
+                              _vm.marca = $$v
+                            },
+                            expression: "marca"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Select 1\n            "),
+                        _c(
+                          "el-select",
+                          {
+                            attrs: { placeholder: "Select" },
+                            model: {
+                              value: _vm.value,
+                              callback: function($$v) {
+                                _vm.value = $$v
+                              },
+                              expression: "value"
+                            }
+                          },
+                          _vm._l(_vm.options, function(item) {
+                            return _c("el-option", {
+                              key: item.value,
+                              attrs: { label: item.label, value: item.value }
+                            })
+                          })
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Modelo\n            "),
+                        _c("el-input", {
+                          attrs: { placeholder: "Descripcion" },
+                          model: {
+                            value: _vm.modelo,
+                            callback: function($$v) {
+                              _vm.modelo = $$v
+                            },
+                            expression: "modelo"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 12 } }, [
+                      _vm._v("Select 2\n            ")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Género\n            "),
+                        _c("el-input", {
+                          attrs: { placeholder: "Descripcion" },
+                          model: {
+                            value: _vm.genero,
+                            callback: function($$v) {
+                              _vm.genero = $$v
+                            },
+                            expression: "genero"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 12 } }, [
+                      _vm._v("Select 3\n            ")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Modalidad\n            "),
+                        _c("el-input", {
+                          attrs: { placeholder: "Descripcion" },
+                          model: {
+                            value: _vm.modalidad,
+                            callback: function($$v) {
+                              _vm.modalidad = $$v
+                            },
+                            expression: "modalidad"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Color\n            "),
+                        _c("el-color-picker", {
+                          model: {
+                            value: _vm.color,
+                            callback: function($$v) {
+                              _vm.color = $$v
+                            },
+                            expression: "color"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Velocidad\n            "),
+                        _c("el-input", {
+                          attrs: { placeholder: "Descripcion" },
+                          model: {
+                            value: _vm.velocidad,
+                            callback: function($$v) {
+                              _vm.velocidad = $$v
+                            },
+                            expression: "velocidad"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 12 } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Material\n            "),
+                        _c("el-input", {
+                          attrs: { placeholder: "Descripcion" },
+                          model: {
+                            value: _vm.materia,
+                            callback: function($$v) {
+                              _vm.materia = $$v
+                            },
+                            expression: "materia"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 12 } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Rodada\n            "),
+                        _c("el-input", {
+                          attrs: { placeholder: "Descripcion" },
+                          model: {
+                            value: _vm.rodada,
+                            callback: function($$v) {
+                              _vm.rodada = $$v
+                            },
+                            expression: "rodada"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 12 } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Capacidad\n            "),
+                        _c("el-input", {
+                          attrs: { placeholder: "Descripcion" },
+                          model: {
+                            value: _vm.capacidad,
+                            callback: function($$v) {
+                              _vm.capacidad = $$v
+                            },
+                            expression: "capacidad"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 12 } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Modelaje\n            "),
+                        _c("el-input", {
+                          attrs: { placeholder: "Descripcion" },
+                          model: {
+                            value: _vm.modelaje,
+                            callback: function($$v) {
+                              _vm.modelaje = $$v
+                            },
+                            expression: "modelaje"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 12 } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Descripción\n            "),
+                        _c("el-input", {
+                          attrs: {
+                            type: "textarea",
+                            rows: 8,
+                            placeholder: "Please input"
+                          },
+                          model: {
+                            value: _vm.descripcion,
+                            callback: function($$v) {
+                              _vm.descripcion = $$v
+                            },
+                            expression: "descripcion"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "el-col",
+                      { attrs: { span: 12 } },
+                      [
+                        _vm._v("Fotografias\n            "),
+                        _c(
+                          "el-upload",
+                          {
+                            staticClass: "upload-demo",
+                            staticStyle: { width: "100%" },
+                            attrs: {
+                              drag: "",
+                              action:
+                                "https://jsonplaceholder.typicode.com/posts/",
+                              "on-preview": _vm.handlePreview,
+                              "on-remove": _vm.handleRemove,
+                              "file-list": _vm.fileList,
+                              multiple: ""
+                            },
+                            model: {
+                              value: _vm.fotos,
+                              callback: function($$v) {
+                                _vm.fotos = $$v
+                              },
+                              expression: "fotos"
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "el-icon-upload" }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "el-upload__text" }, [
+                              _vm._v(
+                                "\n                Suelta tu archivo aquí o\n                "
+                              ),
+                              _c("em", [_vm._v("haz clic para cargar")])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "el-upload__tip",
+                                attrs: { slot: "tip" },
+                                slot: "tip"
+                              },
+                              [
+                                _vm._v(
+                                  "Solo archivos jpg/png con un tamaño menor de 500kb"
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { gutter: 10 } },
+                  [
+                    _c("el-col", { attrs: { span: 6 } }, [_vm._v(" ")]),
+                    _vm._v(" "),
+                    _c("el-col", { attrs: { span: 6 } }, [_vm._v(" ")]),
+                    _vm._v(" "),
+                    _c(
+                      "el-col",
+                      { attrs: { span: 6 } },
+                      [
+                        _c(
+                          "el-button",
+                          {
+                            staticStyle: { color: "red" },
+                            attrs: { type: "text" }
+                          },
+                          [_vm._v("Cancelar")]
                         ),
-                        _c("em", [_vm._v("haz clic para cargar")])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "el-upload__tip",
-                          attrs: { slot: "tip" },
-                          slot: "tip"
-                        },
-                        [
-                          _vm._v(
-                            "Solo archivos jpg/png con un tamaño menor de 500kb"
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-row",
-            { attrs: { gutter: 10 } },
-            [
-              _c("el-col", { attrs: { span: 6 } }, [_vm._v(" ")]),
-              _vm._v(" "),
-              _c("el-col", { attrs: { span: 6 } }, [_vm._v(" ")]),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 6 } },
-                [
-                  _c(
-                    "el-button",
-                    { staticStyle: { color: "red" }, attrs: { type: "text" } },
-                    [_vm._v("Cancelar")]
-                  ),
-                  _vm._v(" "),
-                  _c("div")
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-col",
-                { attrs: { span: 6 } },
-                [
-                  _c(
-                    "el-button",
-                    {
-                      attrs: { type: "success", plain: "" },
-                      on: { click: _vm.formSubmit }
-                    },
-                    [_vm._v("Guardar")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
+                        _vm._v(" "),
+                        _c("div")
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "el-col",
+                      { attrs: { span: 6 } },
+                      [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { type: "success", plain: "" },
+                            on: { click: _vm.formSubmit }
+                          },
+                          [_vm._v("Guardar")]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ])
         ],
         1
       )
@@ -94712,13 +94755,6 @@ var render = function() {
     { staticClass: "app-container" },
     [
       _c(
-        "el-header",
-        { staticClass: "app-header shadowCard" },
-        [_c("header-menu")],
-        1
-      ),
-      _vm._v(" "),
-      _c(
         "el-container",
         [
           _c(
@@ -94731,9 +94767,14 @@ var render = function() {
           _c(
             "el-container",
             [
-              _c("el-main", [_c("router-view")], 1),
+              _c(
+                "el-header",
+                { staticClass: "app-header" },
+                [_c("header-menu")],
+                1
+              ),
               _vm._v(" "),
-              _c("el-footer")
+              _c("el-main", [_c("router-view")], 1)
             ],
             1
           )

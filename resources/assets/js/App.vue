@@ -1,19 +1,20 @@
 <template>
     <el-container class="app-container">
-    <el-header class="app-header shadowCard">
-        <header-menu/>
-    </el-header>
+    
     <el-container>
         <el-aside width="200px" class="aside-menu shadowCard">
             <menu-lateral @clickItemView = changeView />
         </el-aside>
         <el-container>
+            <el-header class="app-header">
+                <header-menu/>
+            </el-header>
             <el-main>
                 <router-view></router-view>
             </el-main>
+            <!-- 
             <el-footer>
-                
-            </el-footer>
+            </el-footer> -->
         </el-container>
     </el-container>
     </el-container>
@@ -70,7 +71,7 @@ Vue.use(VueRouter)
     }
     
     .el-footer{
-        background: #EDEDED;
+        background: #F6F8F9;
     }
 
     .shadowCard{
@@ -80,5 +81,10 @@ Vue.use(VueRouter)
     .app-header{
         /**background: #484F80; */
         padding: 0px 0px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    }
+
+    .el-main{
+        background: #F0F0F7;
     }
 </style>
