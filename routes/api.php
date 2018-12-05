@@ -26,3 +26,8 @@ Route::prefix('bicicleta')->group(function () {
     Route::get('/list', 'ModuleBicicleta\BicicletaController@show')->name('bicicleta.list');
     //Route::get('/nuevo', 'ModuleBicicleta\BicicletaController@create');
 });
+
+Route::prefix('producto')->group(function(){
+    Route::post('/create','ModuleProducto\ProductoController@store');
+    Route::get('/list','ModuleProducto\ProductoController@show')->name('producto.list');
+});
