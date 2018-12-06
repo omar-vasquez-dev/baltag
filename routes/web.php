@@ -42,7 +42,7 @@ Route::prefix('marca')->group(function(){
 
 Route::prefix('componente')->group(function(){
     Route::post('/create','ModuleProducto\ComponenteController@store');
-    Route::get('/list','ModuleProducto\ComponenteController@show')->name('marca.list');
+    Route::get('/list','ModuleProducto\ComponenteController@show')->name('componente.list');
 });
 
 Route::prefix('medidas')->group(function(){

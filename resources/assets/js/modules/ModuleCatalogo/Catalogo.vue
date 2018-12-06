@@ -184,20 +184,3 @@ export default {
   width: 100%;
 }
 </style>
-
-<script>
-export default {
-  name: "Renta view",
-
-  data() {
-    return {
-      nombre: "blog"
-    };
-  },
-
-  methods: {
-    cambiarNombre() {
-      this.nombre = "beto";
-    }
-  }
-};

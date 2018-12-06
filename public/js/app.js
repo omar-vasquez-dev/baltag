@@ -16292,8 +16292,8 @@ window.Vue.prototype.$routeLaravel = function () {
 var configRepository = {
     language_def: 'es',
     language: {
-        es: __webpack_require__(245),
-        en: __webpack_require__(246)
+        es: __webpack_require__(260),
+        en: __webpack_require__(261)
     }
 };
 
@@ -92024,61 +92024,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     emitViewToParent: function emitViewToParent(StrinView) {
       this.$emit("clickItemView", StrinView);
-    },
-
-    /*--- ---- Formularios especiales para guardar marca y componentes ---- ---*/
-    nuevaMarca: function nuevaMarca() {
-      var _this = this;
-
-      this.$prompt("Por favor, agrega la nueva marca", "Nueva marca", {
-        confirmButtonText: "OK",
-        cancelButtonText: "Cancel"
-      }).then(function (_ref) {
-        var value = _ref.value;
-
-        var currentObj = _this;
-        axios.post("/marca/create", {
-          marca: value
-        }).then(function (response) {
-          alert("Nueva marca añadida");
-        }).catch(function (error) {
-          alert(error);
-        });
-      }).catch(function () {
-        _this.$notify({
-          title: "Advertencia",
-          message: "El producto no se guardo",
-          type: "warning"
-        });
-      });
-    },
-    nuevaComp: function nuevaComp() {
-      var _this2 = this;
-
-      this.$prompt("Por favor, agrega el nuevo componente", "Nuevo componente", {
-        confirmButtonText: "OK",
-        cancelButtonText: "Cancel"
-      }).then(function (_ref2) {
-        var value = _ref2.value;
-
-        var currentObj = _this2;
-        axios.post("/componente/create", {
-          componente: value
-        }).then(function (response) {
-          alert("Nuevo componente añadido");
-        }).catch(function (error) {
-          alert(error);
-        });
-      }).catch(function () {
-        _this2.$notify({
-          title: "Advertencia",
-          message: "El producto no se guardo",
-          type: "warning"
-        });
-      });
     }
-    /*-------------------------------------------------------------------------*/
-
   }
 });
 
@@ -93563,8 +93509,10 @@ exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\
 
 /***/ }),
 /* 233 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -93682,76 +93630,23 @@ exports.push([module.i, "\n.el-row[data-v-eea51ace] {\r\n  margin-bottom: 10px;\
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Renta view",
+
+  data: function data() {
+    return {
+      nombre: "blog"
+    };
+  },
+
+
+  methods: {
+    cambiarNombre: function cambiarNombre() {
+      this.nombre = "beto";
+    }
+  }
+});
 
 /***/ }),
 /* 234 */
@@ -94449,17 +94344,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(262)
+}
 var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(241)
 /* template */
-var __vue_template__ = __webpack_require__(242)
+var __vue_template__ = __webpack_require__(264)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-33698f75"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -94529,13 +94428,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       tableData: [{
         date: "2016-05-03",
-        name: "Marca",
+        name: "Tom",
         address: "No. 189, Grove St, Los Angeles"
       }, {
         date: "2016-05-02",
@@ -94551,145 +94474,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         address: "No. 189, Grove St, Los Angeles"
       }]
     };
+  },
+
+  methods: {
+    handleEdit: function handleEdit(index, row) {
+      console.log(index, row);
+    },
+    handleDelete: function handleDelete(index, row) {
+      console.log(index, row);
+    },
+    nuevaMarca: function nuevaMarca() {
+      var _this = this;
+
+      this.$prompt("Por favor, agrega la nueva marca", "Nueva marca", {
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel"
+      }).then(function (_ref) {
+        var value = _ref.value;
+
+        var currentObj = _this;
+        axios.post("/marca/create", {
+          marca: value
+        }).then(function (response) {
+          alert("Nueva marca añadida");
+        }).catch(function (error) {
+          alert(error);
+        });
+      }).catch(function () {
+        _this.$notify({
+          title: "Advertencia",
+          message: "El producto no se guardo",
+          type: "warning"
+        });
+      });
+    }
   }
 });
 
 /***/ }),
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "el-row",
-        { staticStyle: { top: "0" }, attrs: { gutter: 5 } },
-        [
-          _c("el-col", { attrs: { span: 16 } }, [_vm._v(" ")]),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 4 } },
-            [
-              _c("el-input", {
-                attrs: {
-                  placeholder: "buscar",
-                  "prefix-icon": "el-icon-search"
-                },
-                model: {
-                  value: _vm.input21,
-                  callback: function($$v) {
-                    _vm.input21 = $$v
-                  },
-                  expression: "input21"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 2 } },
-            [
-              _c(
-                "el-dropdown",
-                { attrs: { "split-button": "", type: "primary" } },
-                [
-                  _vm._v("Filtro\n        "),
-                  _c(
-                    "el-dropdown-menu",
-                    { attrs: { slot: "dropdown" }, slot: "dropdown" },
-                    [
-                      _c("el-dropdown-item", [_vm._v("Action 1")]),
-                      _vm._v(" "),
-                      _c("el-dropdown-item", [_vm._v("Action 2")]),
-                      _vm._v(" "),
-                      _c("el-dropdown-item", [_vm._v("Action 3")]),
-                      _vm._v(" "),
-                      _c("el-dropdown-item", [_vm._v("Action 4")])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 2 } },
-            [
-              _c("el-button", {
-                attrs: { type: "success", icon: "el-icon-circle-plus" }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "el-row",
-        [
-          _c(
-            "el-table",
-            { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
-            [
-              _c("el-table-column", {
-                attrs: { prop: "date", label: "Fecha", width: "180" }
-              }),
-              _vm._v(" "),
-              _c("el-table-column", {
-                attrs: { prop: "name", label: "Nombre", width: "180" }
-              }),
-              _vm._v(" "),
-              _c("el-table-column", {
-                attrs: { prop: "address", label: "Dirección" }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-33698f75", module.exports)
-  }
-}
-
-/***/ }),
+/* 242 */,
 /* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(265)
+}
 var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(244)
 /* template */
-var __vue_template__ = __webpack_require__(245)
+var __vue_template__ = __webpack_require__(267)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-28a3259f"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -94748,67 +94590,102 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       tableData: [{
-        date: '2016-05-03',
-        name: 'Componente',
-        address: 'No. 189, Grove St, Los Angeles'
+        date: "2016-05-03",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
       }, {
-        date: '2016-05-02',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
+        date: "2016-05-02",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
       }, {
-        date: '2016-05-04',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
+        date: "2016-05-04",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
       }, {
-        date: '2016-05-01',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
+        date: "2016-05-01",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
       }]
     };
+  },
+
+  methods: {
+    handleEdit: function handleEdit(index, row) {
+      console.log(index, row);
+    },
+    handleDelete: function handleDelete(index, row) {
+      console.log(index, row);
+    },
+    nuevaComp: function nuevaComp() {
+      var _this = this;
+
+      this.$prompt("Por favor, agrega el nuevo componente", "Nuevo componente", {
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel"
+      }).then(function (_ref) {
+        var value = _ref.value;
+
+        var currentObj = _this;
+        axios.post("/componente/create", {
+          componente: value
+        }).then(function (response) {
+          alert("Nuevo componente añadido");
+        }).catch(function (error) {
+          alert(error);
+        });
+      }).catch(function () {
+        _this.$notify({
+          title: "Advertencia",
+          message: "El producto no se guardo",
+          type: "warning"
+        });
+      });
+    }
   }
 });
 
 /***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "el-table",
-    { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
-    [
-      _c("el-table-column", {
-        attrs: { prop: "date", label: "Fecha", width: "180" }
-      }),
-      _vm._v(" "),
-      _c("el-table-column", {
-        attrs: { prop: "name", label: "Nombre", width: "180" }
-      }),
-      _vm._v(" "),
-      _c("el-table-column", { attrs: { prop: "address", label: "Dirección" } })
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-28a3259f", module.exports)
-  }
-}
-
-/***/ }),
+/* 245 */,
 /* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -95438,17 +95315,513 @@ module.exports = VueRepo;
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 244 */,
-/* 245 */
+/* 259 */,
+/* 260 */
 /***/ (function(module, exports) {
 
-module.exports = {"hola":"hola"}
+module.exports = {"hola":"hola","advertencia":"Advertencia repo"}
 
 /***/ }),
-/* 246 */
+/* 261 */
 /***/ (function(module, exports) {
 
-module.exports = {"hola":"hola"}
+module.exports = {"hola":"hola","advertencia":"Warning"}
+
+/***/ }),
+/* 262 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(263);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("80bb95a6", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-33698f75\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Marca.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-33698f75\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Marca.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 263 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.el-row[data-v-33698f75] {\r\n  margin-bottom: 10px;\n}\n[row=\"titulo\"][data-v-33698f75] {\r\n  background-color: #f4f4f4;\r\n  text-align: center;\r\n  height: 45px;\r\n  line-height: 45px;\r\n  color: #282828;\r\n  margin-bottom: 0px;\n}\n.container[data-v-33698f75] :last-child {\r\n  margin-bottom: 0;\n}\n.el-col[data-v-33698f75] {\r\n  border-radius: 4px;\n}\r\n\r\n/* -----botones----- */\n.time[data-v-33698f75] {\r\n  font-size: 13px;\r\n  color: #999;\n}\n.bottom[data-v-33698f75] {\r\n  margin-top: 0px;\r\n  line-height: 12px;\n}\n.image[data-v-33698f75] {\r\n  width: 100%;\r\n  display: block;\r\n  margin-bottom: 25px;\n}\n.el-input[data-v-33698f75] {\r\n  width: 100%;\n}\n.el-dropdown[data-v-33698f75],\r\n.el-dropdown-menu[data-v-33698f75],\r\n.el-dropdown-item[data-v-33698f75] {\r\n  width: 100%;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 264 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c(
+        "el-row",
+        { staticStyle: { top: "0" }, attrs: { gutter: 5 } },
+        [
+          _c("el-col", { attrs: { span: 16 } }, [_vm._v(" ")]),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 4 } },
+            [
+              _c("el-input", {
+                attrs: {
+                  placeholder: "buscar",
+                  "prefix-icon": "el-icon-search"
+                },
+                model: {
+                  value: _vm.input21,
+                  callback: function($$v) {
+                    _vm.input21 = $$v
+                  },
+                  expression: "input21"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 2 } },
+            [
+              _c(
+                "el-dropdown",
+                { attrs: { "split-button": "", type: "primary" } },
+                [
+                  _vm._v("Filtro\n        "),
+                  _c(
+                    "el-dropdown-menu",
+                    { attrs: { slot: "dropdown" }, slot: "dropdown" },
+                    [
+                      _c("el-dropdown-item", [_vm._v("Action 1")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 2")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 3")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 4")])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 2 } },
+            [
+              _c("el-button", {
+                attrs: { type: "success", icon: "el-icon-circle-plus" },
+                on: { click: _vm.nuevaMarca }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-row",
+        { staticStyle: { top: "0" }, attrs: { gutter: 5 } },
+        [
+          _c(
+            "el-table",
+            { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
+            [
+              _c("el-table-column", {
+                attrs: { label: "Fecha", width: "180" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(scope) {
+                      return [
+                        _c("i", { staticClass: "el-icon-time" }),
+                        _vm._v(" "),
+                        _c("span", { staticStyle: { "margin-left": "10px" } }, [
+                          _vm._v(_vm._s(scope.row.date))
+                        ])
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { label: "Nombre", width: "180" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(scope) {
+                      return [
+                        _c(
+                          "el-popover",
+                          { attrs: { trigger: "hover", placement: "top" } },
+                          [
+                            _c("p", [
+                              _vm._v("Name: " + _vm._s(scope.row.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v("Addr: " + _vm._s(scope.row.address))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "name-wrapper",
+                                attrs: { slot: "reference" },
+                                slot: "reference"
+                              },
+                              [
+                                _c("el-tag", { attrs: { size: "medium" } }, [
+                                  _vm._v(_vm._s(scope.row.name))
+                                ])
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { label: "Operaciones" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(scope) {
+                      return [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleEdit(scope.$index, scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("Editar")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini", type: "danger" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleDelete(scope.$index, scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("Eliminar")]
+                        )
+                      ]
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-33698f75", module.exports)
+  }
+}
+
+/***/ }),
+/* 265 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(266);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("5057c792", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28a3259f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Componente.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28a3259f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Componente.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 266 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.el-row[data-v-28a3259f] {\r\n  margin-bottom: 10px;\n}\n[row=\"titulo\"][data-v-28a3259f] {\r\n  background-color: #f4f4f4;\r\n  text-align: center;\r\n  height: 45px;\r\n  line-height: 45px;\r\n  color: #282828;\r\n  margin-bottom: 0px;\n}\n.container[data-v-28a3259f] :last-child {\r\n  margin-bottom: 0;\n}\n.el-col[data-v-28a3259f] {\r\n  border-radius: 4px;\n}\r\n\r\n/* -----botones----- */\n.time[data-v-28a3259f] {\r\n  font-size: 13px;\r\n  color: #999;\n}\n.bottom[data-v-28a3259f] {\r\n  margin-top: 0px;\r\n  line-height: 12px;\n}\n.image[data-v-28a3259f] {\r\n  width: 100%;\r\n  display: block;\r\n  margin-bottom: 25px;\n}\n.el-input[data-v-28a3259f] {\r\n  width: 100%;\n}\n.el-dropdown[data-v-28a3259f],\r\n.el-dropdown-menu[data-v-28a3259f],\r\n.el-dropdown-item[data-v-28a3259f] {\r\n  width: 100%;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 267 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c(
+        "el-row",
+        { staticStyle: { top: "0" }, attrs: { gutter: 5 } },
+        [
+          _c("el-col", { attrs: { span: 16 } }, [_vm._v(" ")]),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 4 } },
+            [
+              _c("el-input", {
+                attrs: {
+                  placeholder: "buscar",
+                  "prefix-icon": "el-icon-search"
+                },
+                model: {
+                  value: _vm.input21,
+                  callback: function($$v) {
+                    _vm.input21 = $$v
+                  },
+                  expression: "input21"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 2 } },
+            [
+              _c(
+                "el-dropdown",
+                { attrs: { "split-button": "", type: "primary" } },
+                [
+                  _vm._v("Filtro\n        "),
+                  _c(
+                    "el-dropdown-menu",
+                    { attrs: { slot: "dropdown" }, slot: "dropdown" },
+                    [
+                      _c("el-dropdown-item", [_vm._v("Action 1")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 2")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 3")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 4")])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 2 } },
+            [
+              _c("el-button", {
+                attrs: { type: "success", icon: "el-icon-circle-plus" },
+                on: { click: _vm.nuevaComp }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-row",
+        { staticStyle: { top: "0" }, attrs: { gutter: 5 } },
+        [
+          _c(
+            "el-table",
+            { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
+            [
+              _c("el-table-column", {
+                attrs: { label: "Fecha", width: "180" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(scope) {
+                      return [
+                        _c("i", { staticClass: "el-icon-time" }),
+                        _vm._v(" "),
+                        _c("span", { staticStyle: { "margin-left": "10px" } }, [
+                          _vm._v(_vm._s(scope.row.date))
+                        ])
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { label: "Nombre", width: "180" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(scope) {
+                      return [
+                        _c(
+                          "el-popover",
+                          { attrs: { trigger: "hover", placement: "top" } },
+                          [
+                            _c("p", [
+                              _vm._v("Name: " + _vm._s(scope.row.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v("Addr: " + _vm._s(scope.row.address))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "name-wrapper",
+                                attrs: { slot: "reference" },
+                                slot: "reference"
+                              },
+                              [
+                                _c("el-tag", { attrs: { size: "medium" } }, [
+                                  _vm._v(_vm._s(scope.row.name))
+                                ])
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { label: "Operaciones" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(scope) {
+                      return [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleEdit(scope.$index, scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("Editar")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini", type: "danger" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleDelete(scope.$index, scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("Eliminar")]
+                        )
+                      ]
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-28a3259f", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

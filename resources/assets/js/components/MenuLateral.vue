@@ -97,64 +97,6 @@ export default {
     emitViewToParent(StrinView) {
       this.$emit("clickItemView", StrinView);
     },
-    /*--- ---- Formularios especiales para guardar marca y componentes ---- ---*/
-    nuevaMarca() {
-      this.$prompt("Por favor, agrega la nueva marca", "Nueva marca", {
-        confirmButtonText: "OK",
-        cancelButtonText: "Cancel"
-      })
-        .then(({ value }) => {
-          let currentObj = this;
-          axios
-            .post("/marca/create", {
-              marca: value
-            })
-            .then(function(response) {
-              alert("Nueva marca añadida");
-            })
-            .catch(function(error) {
-              alert(error);
-            });
-        })
-        .catch(() => {
-          this.$notify({
-            title: "Advertencia",
-            message: "El producto no se guardo",
-            type: "warning"
-          });
-        });
-    },
-    nuevaComp() {
-      this.$prompt(
-        "Por favor, agrega el nuevo componente",
-        "Nuevo componente",
-        {
-          confirmButtonText: "OK",
-          cancelButtonText: "Cancel"
-        }
-      )
-        .then(({ value }) => {
-          let currentObj = this;
-          axios
-            .post("/componente/create", {
-              componente: value
-            })
-            .then(function(response) {
-              alert("Nuevo componente añadido");
-            })
-            .catch(function(error) {
-              alert(error);
-            });
-        })
-        .catch(() => {
-          this.$notify({
-            title: "Advertencia",
-            message: "El producto no se guardo",
-            type: "warning"
-          });
-        });
-    }
-    /*-------------------------------------------------------------------------*/
   }
 };
 </script>
