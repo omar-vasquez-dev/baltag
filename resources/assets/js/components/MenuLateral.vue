@@ -50,24 +50,23 @@
         <i class="el-icon-setting"></i>
         <span>Configuraciones</span>
       </template>
-      <el-menu-item-group title="Opciones">
-        <el-menu-item index="6-1" @click="nuevaMarca">
+      <el-menu-item-group title="Productos">
+        <el-menu-item index="6-1" @click="emitViewToParent('view-marca')">
           <i class="el-icon-circle-plus"></i>Marca
         </el-menu-item>
-        <el-menu-item index="6-2" @click="nuevaComp">
+        <el-menu-item index="6-2" @click="emitViewToParent('view-componente')">
           <i class="el-icon-circle-plus"></i>Componente
         </el-menu-item>
-        <el-menu-item index="6-3" @click="NuevaComp()">
+      </el-menu-item-group>
+      <el-menu-item-group title="Bicicleta">
+        <el-menu-item index="6-3" @click="emitViewToParent('view-medidas')">
           <i class="el-icon-circle-plus"></i>Medida
         </el-menu-item>
-
-        <el-menu-item index="6-4" @click="NuevaComp()">
+        <el-menu-item index="6-4" @click="emitViewToParent('view-material')">
           <i class="el-icon-circle-plus"></i>Material
         </el-menu-item>
-
-
-        <el-menu-item index="6-5" @click="NuevaComp()">
-          <i class="el-icon-circle-plus"></i>Nueva Modalidad
+        <el-menu-item index="6-5" @click="emitViewToParent('view-modalidad')">
+          <i class="el-icon-circle-plus"></i>Modalidad
         </el-menu-item>
       </el-menu-item-group>
     </el-submenu>
