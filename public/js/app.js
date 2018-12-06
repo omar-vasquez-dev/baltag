@@ -95360,7 +95360,7 @@ module.exports = VueRepo;
 /* 260 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token < in JSON at position 24\n    at JSON.parse (<anonymous>)\n    at Object.module.exports (C:\\laragon\\www\\atgadev\\node_modules\\json-loader\\index.js:4:49)");
+module.exports = {"hola":"hola","advertencia":"Advertencia repo","bicicleta_step_title_select":"Características","bicicleta_step_title_techic":"Características técnicas","bicicleta_step_title_images":"Imagenes"}
 
 /***/ }),
 /* 261 */
