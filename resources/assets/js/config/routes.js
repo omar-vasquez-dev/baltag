@@ -5,6 +5,12 @@ import Bicicletas  from '../modules/ModuleBicicletas/Bicicletas.vue'
 import Catalogo from '../modules/ModuleCatalogo/Catalogo.vue'
 import Producto from '../modules/ModuleProducto/Producto.vue'
 
+import Marca from '../modules/ModuleConfig/Marca.vue'
+import Componente from '../modules/ModuleConfig/Componente.vue'
+import Medidas from '../modules/ModuleConfig/Medidas.vue'
+import Material from '../modules/ModuleConfig/Material.vue'
+import Modalidad from '../modules/ModuleConfig/Modalidad.vue'
+
 const prefix = "/dashboard/";
  
 export default  
@@ -41,5 +47,31 @@ export default
             path : prefix + "producto",
             name : "view-producto",
             component : Producto
+        },
+/*------------------------------------------------------------------------------------------------------------------------*/        
+        {
+            path : prefix + "marca",
+            name : "view-marca",
+            component : Marca
         },  
+        {
+            path : prefix + "componente",
+            name : "view-componente",
+            component : Componente
+        },  
+        {
+            path : prefix + "medidas",
+            name : "view-medidas",
+            component : Medidas
+        },
+        {
+            path : prefix + "material",
+            name : "view-material",
+            component : Material
+        },  
+        {
+            path : prefix + "modalidad",
+            name : "view-modalidad",
+            component : Modalidad
+        }        
 ];
