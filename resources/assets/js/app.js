@@ -54,17 +54,16 @@ window.Vue.prototype.$routeLaravel = function (nameRoute = '', params = {}) {
 
 
 //Configuracion del repositorio
-/** 
 const configRepository ={
     language_def: 'es',
     language:{
         es: require('./values/string/es/string.json'),
         en: require('./values/string/en/string.json')
     }
-}*/
+}
 
 
- //Vue.use(repo,configRepository)
+ Vue.use(repo,configRepository)
 
 
 // configure language

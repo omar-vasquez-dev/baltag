@@ -28,7 +28,7 @@ export default
             component: Renta
         },
         {
-            path : prefix + "bicicletas",
+            path : prefix + "bicicletas",   
             name : "view-bicicletas",
             component : Bicicletas
         },
