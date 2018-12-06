@@ -95366,7 +95366,7 @@ module.exports = {"hola":"hola","advertencia":"Advertencia repo","bicicleta_step
 /* 261 */
 /***/ (function(module, exports) {
 
-module.exports = {"hola":"hola","advertencia":"Warning"}
+module.exports = {"hola":"hola","advertencia":"Warning","bicicleta_step_title_select":"Características","bicicleta_step_title_techic":"Características técnicas","bicicleta_step_title_images":"Imagenes"}
 
 /***/ }),
 /* 262 */
