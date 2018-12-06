@@ -91993,6 +91993,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MenuLateral",
@@ -92018,7 +92030,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     /*--- ---- Formularios especiales para guardar marca y componentes ---- ---*/
-    NuevaMarca: function NuevaMarca() {
+    nuevaMarca: function nuevaMarca() {
       var _this = this;
 
       this.$prompt("Por favor, agrega la nueva marca", "Nueva marca", {
@@ -92036,13 +92048,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           alert(error);
         });
       }).catch(function () {
-        _this.$message({
-          type: "info",
-          message: "No se registro la nueva marca"
+        _this.$notify({
+          title: "Advertencia",
+          message: "El producto no se guardo",
+          type: "warning"
         });
       });
     },
-    NuevaComp: function NuevaComp() {
+    nuevaComp: function nuevaComp() {
       var _this2 = this;
 
       this.$prompt("Por favor, agrega el nuevo componente", "Nuevo componente", {
@@ -92059,7 +92072,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }).catch(function (error) {
           alert(error);
         });
-      }).catch(function () {});
+      }).catch(function () {
+        _this2.$notify({
+          title: "Advertencia",
+          message: "El producto no se guardo",
+          type: "warning"
+        });
+      });
     }
     /*-------------------------------------------------------------------------*/
 
@@ -92215,17 +92234,26 @@ var render = function() {
             [
               _c(
                 "el-menu-item",
-                { attrs: { index: "6-1" }, on: { click: _vm.NuevaMarca } },
+                { attrs: { index: "6-1" }, on: { click: _vm.nuevaMarca } },
                 [
                   _c("i", { staticClass: "el-icon-circle-plus" }),
-                  _vm._v("Nueva Marca\n      ")
+                  _vm._v("Marca\n      ")
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-menu-item",
+                { attrs: { index: "6-2" }, on: { click: _vm.nuevaComp } },
+                [
+                  _c("i", { staticClass: "el-icon-circle-plus" }),
+                  _vm._v("Componente\n      ")
                 ]
               ),
               _vm._v(" "),
               _c(
                 "el-menu-item",
                 {
-                  attrs: { index: "6-2" },
+                  attrs: { index: "6-3" },
                   on: {
                     click: function($event) {
                       _vm.NuevaComp()
@@ -92234,7 +92262,39 @@ var render = function() {
                 },
                 [
                   _c("i", { staticClass: "el-icon-circle-plus" }),
-                  _vm._v("Nuevo Comp.\n      ")
+                  _vm._v("Medida\n      ")
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-menu-item",
+                {
+                  attrs: { index: "6-4" },
+                  on: {
+                    click: function($event) {
+                      _vm.NuevaComp()
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "el-icon-circle-plus" }),
+                  _vm._v("Material\n      ")
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-menu-item",
+                {
+                  attrs: { index: "6-5" },
+                  on: {
+                    click: function($event) {
+                      _vm.NuevaComp()
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "el-icon-circle-plus" }),
+                  _vm._v("Nueva Modalidad\n      ")
                 ]
               )
             ],

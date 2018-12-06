@@ -51,11 +51,23 @@
         <span>Configuraciones</span>
       </template>
       <el-menu-item-group title="Opciones">
-        <el-menu-item index="6-1" @click="NuevaMarca">
-          <i class="el-icon-circle-plus"></i>Nueva Marca
+        <el-menu-item index="6-1" @click="nuevaMarca">
+          <i class="el-icon-circle-plus"></i>Marca
         </el-menu-item>
-        <el-menu-item index="6-2" @click="NuevaComp()">
-          <i class="el-icon-circle-plus"></i>Nuevo Comp.
+        <el-menu-item index="6-2" @click="nuevaComp">
+          <i class="el-icon-circle-plus"></i>Componente
+        </el-menu-item>
+        <el-menu-item index="6-3" @click="NuevaComp()">
+          <i class="el-icon-circle-plus"></i>Medida
+        </el-menu-item>
+
+        <el-menu-item index="6-4" @click="NuevaComp()">
+          <i class="el-icon-circle-plus"></i>Material
+        </el-menu-item>
+
+
+        <el-menu-item index="6-5" @click="NuevaComp()">
+          <i class="el-icon-circle-plus"></i>Nueva Modalidad
         </el-menu-item>
       </el-menu-item-group>
     </el-submenu>
@@ -87,7 +99,7 @@ export default {
       this.$emit("clickItemView", StrinView);
     },
     /*--- ---- Formularios especiales para guardar marca y componentes ---- ---*/
-    NuevaMarca() {
+    nuevaMarca() {
       this.$prompt("Por favor, agrega la nueva marca", "Nueva marca", {
         confirmButtonText: "OK",
         cancelButtonText: "Cancel"
@@ -106,13 +118,14 @@ export default {
             });
         })
         .catch(() => {
-          this.$message({
-            type: "info",
-            message: "No se registro la nueva marca"
+          this.$notify({
+            title: "Advertencia",
+            message: "El producto no se guardo",
+            type: "warning"
           });
         });
     },
-    NuevaComp() {
+    nuevaComp() {
       this.$prompt(
         "Por favor, agrega el nuevo componente",
         "Nuevo componente",
@@ -132,10 +145,14 @@ export default {
             })
             .catch(function(error) {
               alert(error);
-            }); 
+            });
         })
         .catch(() => {
-
+          this.$notify({
+            title: "Advertencia",
+            message: "El producto no se guardo",
+            type: "warning"
+          });
         });
     }
     /*-------------------------------------------------------------------------*/
