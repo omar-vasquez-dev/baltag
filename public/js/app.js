@@ -93196,7 +93196,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .el-header {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\r\n}\r\n.el-main {\r\n  background: #d3dce6;\r\n}\r\n.el-row {\r\n  margin-bottom: 10px;\r\n  &:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.el-select {\r\n  width: 100%;\r\n}\r\n.el-upload {\r\n  width: 100%;\r\n}\r\n.el-button,\r\n.el-color-picker {\r\n  width: 100%;\r\n} */\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .el-header {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\r\n}\r\n.el-main {\r\n  background: #d3dce6;\r\n}\r\n.el-row {\r\n  margin-bottom: 10px;\r\n  &:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.el-select {\r\n  width: 100%;\r\n}\r\n.el-upload {\r\n  width: 100%;\r\n}\r\n.el-button,\r\n.el-color-picker {\r\n  width: 100%;\r\n} */\r\n", ""]);
 
 // exports
 
@@ -93207,6 +93207,19 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -93230,7 +93243,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+
+  components: {
+    SelectForm: __WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue___default.a
+  },
+
   mounted: function mounted() {
     console.log("Component mounted.");
   },
@@ -93274,9 +93294,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       material_id: "",
       modalidad_id: ""
     };
-  },
-  updated: function updated() {
-    this.active = 0;
   },
 
 
@@ -93364,7 +93381,9 @@ var render = function() {
     "el-row",
     [
       _c("el-col", { attrs: { span: 24 } }, [
-        _c("p", [_vm._v("\r\n      Nueva bicicleta\r\n    ")])
+        _c("h1", { staticClass: "title-view" }, [
+          _vm._v("\r\n      Nueva bicicleta\r\n    ")
+        ])
       ]),
       _vm._v(" "),
       _c(
@@ -93379,14 +93398,36 @@ var render = function() {
                 "el-steps",
                 { attrs: { active: _vm.active, "finish-status": "success" } },
                 [
-                  _c("el-step", { attrs: { title: _vm.$getText("hola") } }),
+                  _c(
+                    "el-step",
+                    {
+                      attrs: {
+                        title: _vm.$getText("bicicleta_step_title_select")
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\r\n            hola mundo\r\n            \r\n          "
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("el-step", { attrs: { title: "Step 2" } }),
+                  _c("el-step", {
+                    attrs: {
+                      title: _vm.$getText("bicicleta_step_title_techic")
+                    }
+                  }),
                   _vm._v(" "),
-                  _c("el-step", { attrs: { title: "Step 3" } })
+                  _c("el-step", {
+                    attrs: {
+                      title: _vm.$getText("bicicleta_step_title_images")
+                    }
+                  })
                 ],
                 1
               ),
+              _vm._v(" "),
+              _vm.active === 1 ? _c("select-form") : _vm._e(),
               _vm._v(" "),
               _c(
                 "el-button",
@@ -95319,7 +95360,7 @@ module.exports = VueRepo;
 /* 260 */
 /***/ (function(module, exports) {
 
-module.exports = {"hola":"hola","advertencia":"Advertencia repo"}
+throw new Error("Module build failed: SyntaxError: Unexpected token < in JSON at position 24\n    at JSON.parse (<anonymous>)\n    at Object.module.exports (C:\\laragon\\www\\atgadev\\node_modules\\json-loader\\index.js:4:49)");
 
 /***/ }),
 /* 261 */
@@ -95820,6 +95861,281 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-28a3259f", module.exports)
+  }
+}
+
+/***/ }),
+/* 268 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(269)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(271)
+/* template */
+var __vue_template__ = __webpack_require__(272)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-2c169308"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/modules/ModuleBicicletas/CreateComponents/Selects.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2c169308", Component.options)
+  } else {
+    hotAPI.reload("data-v-2c169308", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 269 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(270);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("37f55634", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c169308\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Selects.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c169308\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Selects.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 270 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 271 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            labelPosition: 'top',
+            formLabelAlign: {
+                name: '',
+                region: '',
+                type: ''
+            },
+            options: [{
+                value: 'Option1',
+                label: 'Option1'
+            }, {
+                value: 'Option2',
+                label: 'Option2'
+            }, {
+                value: 'Option3',
+                label: 'Option3'
+            }, {
+                value: 'Option4',
+                label: 'Option4'
+            }, {
+                value: 'Option5',
+                label: 'Option5'
+            }],
+            value: ''
+        };
+    }
+});
+
+/***/ }),
+/* 272 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "el-form",
+    {
+      attrs: {
+        "label-position": _vm.labelPosition,
+        "label-width": "100px",
+        model: _vm.formLabelAlign
+      }
+    },
+    [
+      _c(
+        "el-form-item",
+        { attrs: { label: "Modalidad" } },
+        [
+          _c(
+            "el-select",
+            {
+              attrs: { placeholder: "Select" },
+              model: {
+                value: _vm.value,
+                callback: function($$v) {
+                  _vm.value = $$v
+                },
+                expression: "value"
+              }
+            },
+            _vm._l(_vm.options, function(item) {
+              return _c("el-option", {
+                key: item.value,
+                attrs: { label: item.label, value: item.value }
+              })
+            })
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        { attrs: { label: "Medida" } },
+        [
+          _c(
+            "el-select",
+            {
+              attrs: { placeholder: "Select" },
+              model: {
+                value: _vm.value,
+                callback: function($$v) {
+                  _vm.value = $$v
+                },
+                expression: "value"
+              }
+            },
+            _vm._l(_vm.options, function(item) {
+              return _c("el-option", {
+                key: item.value,
+                attrs: { label: item.label, value: item.value }
+              })
+            })
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        { attrs: { label: "Material" } },
+        [
+          _c(
+            "el-select",
+            {
+              attrs: { placeholder: "Select" },
+              model: {
+                value: _vm.value,
+                callback: function($$v) {
+                  _vm.value = $$v
+                },
+                expression: "value"
+              }
+            },
+            _vm._l(_vm.options, function(item) {
+              return _c("el-option", {
+                key: item.value,
+                attrs: { label: item.label, value: item.value }
+              })
+            })
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2c169308", module.exports)
   }
 }
 

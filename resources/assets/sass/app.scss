@@ -10,6 +10,13 @@ body {
 
 body{
     text-rendering: optimizeLegibility;
-    font-weight: 600;
+    font-weight: 700;
     font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    -moz-text-size-adjust: 9rem;
+    line-height: 1.6;
+}
+
+.title-view{
+    font-size: 1.4rem;
 }
