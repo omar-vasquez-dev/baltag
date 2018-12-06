@@ -2,26 +2,44 @@
 
 <el-row>
   <el-col :span="24">
-    <p>
+    <h1 class="title-view">
       Nueva bicicleta
-    </p>
+    </h1>
   </el-col>
   <el-col :span="24">
       <el-card class="box-card">
         <el-steps :active="active" finish-status="success">
-          <el-step :title= "$getText('hola')"  ></el-step>
-          <el-step title="Step 2"></el-step>
-          <el-step title="Step 3"></el-step>
+          <el-step :title= "$getText('bicicleta_step_title_select')">
+            hola mundo
+            
+          </el-step>
+          <el-step :title="$getText('bicicleta_step_title_techic')">
+
+          </el-step>
+          <el-step :title="$getText('bicicleta_step_title_images')">
+
+          </el-step>
         </el-steps>
+        <!-- formulario 1-->
+        <select-form v-if="active === 1"></select-form>
+
         <el-button style="margin-top: 12px;" @click="next">Next step</el-button>
       </el-card>
+
   </el-col>
 </el-row>
 
 </template>
 
 <script>
+import SelectForm from './CreateComponents/Selects.vue'
+
 export default {
+
+  components:{
+    SelectForm
+  },
+
   mounted() {
     console.log("Component mounted.");
   },
@@ -70,10 +88,6 @@ export default {
       material_id: "",
       modalidad_id: ""
     };
-  },
-
-  updated () {
-    this.active = 0
   },
 
   methods: {
