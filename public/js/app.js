@@ -95005,26 +95005,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       tableData: [{
-        date: '2016-05-03',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
+        date: "2016-05-03",
+        name: "Marca",
+        address: "No. 189, Grove St, Los Angeles"
       }, {
-        date: '2016-05-02',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
+        date: "2016-05-02",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
       }, {
-        date: '2016-05-04',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
+        date: "2016-05-04",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
       }, {
-        date: '2016-05-01',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
+        date: "2016-05-01",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
       }]
     };
   }
@@ -95039,18 +95050,103 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "el-table",
-    { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
+    "div",
     [
-      _c("el-table-column", {
-        attrs: { prop: "date", label: "Fecha", width: "180" }
-      }),
+      _c(
+        "el-row",
+        { staticStyle: { top: "0" }, attrs: { gutter: 5 } },
+        [
+          _c("el-col", { attrs: { span: 16 } }, [_vm._v(" ")]),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 4 } },
+            [
+              _c("el-input", {
+                attrs: {
+                  placeholder: "buscar",
+                  "prefix-icon": "el-icon-search"
+                },
+                model: {
+                  value: _vm.input21,
+                  callback: function($$v) {
+                    _vm.input21 = $$v
+                  },
+                  expression: "input21"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 2 } },
+            [
+              _c(
+                "el-dropdown",
+                { attrs: { "split-button": "", type: "primary" } },
+                [
+                  _vm._v("Filtro\n        "),
+                  _c(
+                    "el-dropdown-menu",
+                    { attrs: { slot: "dropdown" }, slot: "dropdown" },
+                    [
+                      _c("el-dropdown-item", [_vm._v("Action 1")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 2")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 3")]),
+                      _vm._v(" "),
+                      _c("el-dropdown-item", [_vm._v("Action 4")])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 2 } },
+            [
+              _c("el-button", {
+                attrs: { type: "success", icon: "el-icon-circle-plus" }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("el-table-column", {
-        attrs: { prop: "name", label: "Nombre", width: "180" }
-      }),
-      _vm._v(" "),
-      _c("el-table-column", { attrs: { prop: "address", label: "Dirección" } })
+      _c(
+        "el-row",
+        [
+          _c(
+            "el-table",
+            { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
+            [
+              _c("el-table-column", {
+                attrs: { prop: "date", label: "Fecha", width: "180" }
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { prop: "name", label: "Nombre", width: "180" }
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { prop: "address", label: "Dirección" }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -95145,7 +95241,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       tableData: [{
         date: '2016-05-03',
-        name: 'Tom',
+        name: 'Componente',
         address: 'No. 189, Grove St, Los Angeles'
       }, {
         date: '2016-05-02',
@@ -95279,7 +95375,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       tableData: [{
         date: '2016-05-03',
-        name: 'Tom',
+        name: 'Medidas',
         address: 'No. 189, Grove St, Los Angeles'
       }, {
         date: '2016-05-02',
@@ -95413,7 +95509,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       tableData: [{
         date: '2016-05-03',
-        name: 'Tom',
+        name: 'Material',
         address: 'No. 189, Grove St, Los Angeles'
       }, {
         date: '2016-05-02',
@@ -95547,7 +95643,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       tableData: [{
         date: '2016-05-03',
-        name: 'Tom',
+        name: 'Modalidad',
         address: 'No. 189, Grove St, Los Angeles'
       }, {
         date: '2016-05-02',
