@@ -1,6 +1,6 @@
 var VueRepo = {};
 
-VueRepo.install = function (Vue, config) {
+VueRepo.install = function (Vue, configRepository) {
 
     Vue.prototype.$getText = function (textIndex = '', params = {}) {
 
