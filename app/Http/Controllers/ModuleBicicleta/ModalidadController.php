@@ -40,7 +40,7 @@ class ModalidadController extends Controller
         $Modalidad = new ModalidadModel;
         $Modalidad->nombre = $ModalidadRequest->modalidad;
         $Modalidad->save();
-        return "Lsito";
+        return response()->json($Modalidad);
     }
     
     /**
@@ -51,14 +51,6 @@ class ModalidadController extends Controller
      */
     public function show()
     {
-            /*$Modalidad= ModalidadModel::all();
-            $data = [];
-            foreach($Modalidad as $key => $value){
-                $data[$key]=[
-                    'id' => $value->id,
-                    'nombre' => $value->nombre,
-                ];
-            }*/
         return response()->json(ModalidadModel::all());
     }
 

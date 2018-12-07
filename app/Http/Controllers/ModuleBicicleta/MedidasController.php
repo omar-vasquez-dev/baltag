@@ -37,11 +37,10 @@ class MedidasController extends Controller
      */
     public function store(Request $MedidasRequest)
     {
-        /*return response()->json([$MedidasRequest->all()]);*/
         $Medidas = new MedidasModel;
         $Medidas->nombre = $MedidasRequest->medidas;
         $Medidas->save();
-        return "Listo";
+        return response()->json($Medidas);
     }
 
     /**
@@ -52,14 +51,6 @@ class MedidasController extends Controller
      */
     public function show()
     {
-           /* $Medidas= MedidasModel::all();
-            $data = [];
-            foreach($Medidas as $key => $value){
-                $data[$key]=[
-                    'id' => $value->id,
-                    'nombre' => $value->nombre,
-                ];
-            }*/
         return response()->json(MedidasModel::all());
     }
 

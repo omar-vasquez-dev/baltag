@@ -95676,11 +95676,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (_ref) {
         var value = _ref.value;
 
-        var currentObj = _this2;
         axios.post("/medidas/create", {
           medidas: value
         }).then(function (response) {
-          alert("Nueva marca añadida");
+          _this2.successBox();
+          _this2.nuevaFila(response);
         }).catch(function (error) {
           alert(error);
         });
@@ -95690,6 +95690,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           message: "El dato no se registró",
           type: "warning"
         });
+      });
+    },
+
+    nuevaFila: function nuevaFila(response) {
+      if (response.status === 200 || response.status === 201) {
+        var position = null;
+
+        this.tableData.forEach(function (element, index) {
+          if (element.id == response.data.id) {
+            position = index;
+          }
+        });
+
+        if (position != null) {
+          Vue.set(this.tableData, position, response.data);
+        } else {
+          Vue.set(this.tableData, this.tableData.length, response.data);
+        }
+        this.loading = false;
+      }
+    },
+    successBox: function successBox() {
+      this.$notify({
+        title: "Listo",
+        message: "El dato se registró correctamente",
+        type: "success"
       });
     }
   }
@@ -96050,11 +96076,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (_ref) {
         var value = _ref.value;
 
-        var currentObj = _this2;
         axios.post("/material/create", {
           material: value
         }).then(function (response) {
-          alert("Nueva marca añadida");
+          _this2.successBox();
+          _this2.nuevaFila(response);
         }).catch(function (error) {
           alert(error);
         });
@@ -96064,6 +96090,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           message: "El dato no se registró",
           type: "warning"
         });
+      });
+    },
+
+    nuevaFila: function nuevaFila(response) {
+      if (response.status === 200 || response.status === 201) {
+        var position = null;
+
+        this.tableData.forEach(function (element, index) {
+          if (element.id == response.data.id) {
+            position = index;
+          }
+        });
+
+        if (position != null) {
+          Vue.set(this.tableData, position, response.data);
+        } else {
+          Vue.set(this.tableData, this.tableData.length, response.data);
+        }
+        this.loading = false;
+      }
+    },
+    successBox: function successBox() {
+      this.$notify({
+        title: "Listo",
+        message: "El dato se registró correctamente",
+        type: "success"
       });
     }
   }
@@ -96404,7 +96456,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var urlKeeps = "/modalidad/list";
     axios.get(urlKeeps).then(function (response) {
       _this.tableData = response.data;
-      console.log(response.data);
     });
   },
 
@@ -96424,11 +96475,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (_ref) {
         var value = _ref.value;
 
-        var currentObj = _this2;
         axios.post("/modalidad/create", {
           modalidad: value
         }).then(function (response) {
-          alert("Nueva marca añadida");
+          _this2.successBox();
+          _this2.nuevaFila(response);
         }).catch(function (error) {
           alert(error);
         });
@@ -96438,6 +96489,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           message: "El dato no se registró",
           type: "warning"
         });
+      });
+    },
+
+    nuevaFila: function nuevaFila(response) {
+      if (response.status === 200 || response.status === 201) {
+        var position = null;
+
+        this.tableData.forEach(function (element, index) {
+          if (element.id == response.data.id) {
+            position = index;
+          }
+        });
+
+        if (position != null) {
+          Vue.set(this.tableData, position, response.data);
+        } else {
+          Vue.set(this.tableData, this.tableData.length, response.data);
+        }
+        this.loading = false;
+      }
+    },
+    successBox: function successBox() {
+      this.$notify({
+        title: "Listo",
+        message: "El dato se registró correctamente",
+        type: "success"
       });
     }
   }
@@ -96469,13 +96546,6 @@ var render = function() {
                 attrs: {
                   placeholder: "buscar",
                   "prefix-icon": "el-icon-search"
-                },
-                model: {
-                  value: _vm.input21,
-                  callback: function($$v) {
-                    _vm.input21 = $$v
-                  },
-                  expression: "input21"
                 }
               })
             ],

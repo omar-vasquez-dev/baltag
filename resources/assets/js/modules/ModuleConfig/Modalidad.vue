@@ -3,7 +3,7 @@
     <el-row :gutter="5" style="sticky;  top: 0;">
       <el-col :span="16">&nbsp</el-col>
       <el-col :span="4">
-        <el-input placeholder="buscar" prefix-icon="el-icon-search" v-model="input21"></el-input>
+        <el-input placeholder="buscar" prefix-icon="el-icon-search"></el-input>
       </el-col>
       <el-col :span="2">
         <el-dropdown split-button type="primary">Filtro
@@ -55,11 +55,10 @@ export default {
       tableData: []
     };
   },
-    mounted() {
+  mounted() {
     var urlKeeps = "/modalidad/list";
     axios.get(urlKeeps).then(response => {
       this.tableData = response.data;
-      console.log(response.data);
     });
   },
   methods: {
@@ -75,15 +74,15 @@ export default {
         cancelButtonText: "Cancel"
       })
         .then(({ value }) => {
-          let currentObj = this;
           axios
             .post("/modalidad/create", {
               modalidad: value
             })
-            .then(function(response) {
-              alert("Nueva marca añadida");
+            .then(response =>  {
+              this.successBox();
+              this.nuevaFila(response);
             })
-            .catch(function(error) {
+            .catch(error => {
               alert(error);
             });
         })
@@ -94,6 +93,31 @@ export default {
             type: "warning"
           });
         });
+    },
+    nuevaFila:function(response) {
+      if (response.status === 200 || response.status === 201) {
+        let position = null;
+
+        this.tableData.forEach((element, index) => {
+          if (element.id == response.data.id) {
+            position = index;
+          }
+        });
+
+        if (position != null) {
+          Vue.set(this.tableData, position, response.data);
+        } else {
+          Vue.set(this.tableData, this.tableData.length, response.data);
+        }
+        this.loading = false;
+      }
+    },
+    successBox:function(){
+      this.$notify({
+        title: "Listo",
+        message: "El dato se registró correctamente",
+        type: "success"
+      }); 
     }
   }
 };

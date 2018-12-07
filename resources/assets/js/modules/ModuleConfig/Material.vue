@@ -75,15 +75,15 @@ export default {
         cancelButtonText: "Cancel"
       })
         .then(({ value }) => {
-          let currentObj = this;
           axios
             .post("/material/create", {
               material: value
             })
-            .then(function(response) {
-              alert("Nueva marca añadida");
+            .then(response => {
+              this.successBox();
+              this.nuevaFila(response);
             })
-            .catch(function(error) {
+            .catch(error => {
               alert(error);
             });
         })
@@ -94,6 +94,31 @@ export default {
             type: "warning"
           });
         });
+    },
+    nuevaFila:function(response) {
+      if (response.status === 200 || response.status === 201) {
+        let position = null;
+
+        this.tableData.forEach((element, index) => {
+          if (element.id == response.data.id) {
+            position = index;
+          }
+        });
+
+        if (position != null) {
+          Vue.set(this.tableData, position, response.data);
+        } else {
+          Vue.set(this.tableData, this.tableData.length, response.data);
+        }
+        this.loading = false;
+      }
+    },
+    successBox:function(){
+      this.$notify({
+        title: "Listo",
+        message: "El dato se registró correctamente",
+        type: "success"
+      }); 
     }
   }
 };

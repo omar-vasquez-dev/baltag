@@ -37,11 +37,10 @@ class MaterialController extends Controller
      */
     public function store(Request $MaterialRequest)
     {
-        //return response()->json([$MaterialRequest->all()]);
         $Material = new MaterialModel;
         $Material->nombre = $MaterialRequest->material;
         $Material->save();
-        return "listo";
+        return response()->json($Material);
     }
 
     /**
@@ -52,14 +51,6 @@ class MaterialController extends Controller
      */
     public function show()
     {
-        /*$Material= MaterialModel::all();
-        $data = [];
-        foreach($Material as $key => $value){
-            $data[$key]=[
-                'id' => $value->id,
-                'nombre' => $value->nombre,
-            ];
-        }*/
         return response()->json(MaterialModel::all());
     }
 
