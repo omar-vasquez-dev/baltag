@@ -1,7 +1,20 @@
 <template>
-    <el-form :label-position="labelPosition" label-width="100px" :model="formLabelAlign">
+    <el-form :label-position="labelPosition" label-width="150px" :model="formLabelAlign">
+
+    <el-form-item :label="$getText('bicicleta_description')" prop="desc" class="textAreaDescripcion">
+        <el-input type="textarea" v-model="value"></el-input>
+    </el-form-item>
+
+    <el-form-item label="Genero " prop="resource">
+        <el-radio-group v-model="genero">
+            <el-radio label="UNISEX"></el-radio>
+            <el-radio label="HOMBRE"></el-radio>
+            <el-radio label="MUJER"></el-radio>
+        </el-radio-group>
+    </el-form-item>
+
     <el-form-item label="Modalidad">
-        <el-select v-model="value" placeholder="Select">
+        <el-select v-model="value" placeholder="Select" class="inputSelects">
             <el-option
             v-for="item in options"
             :key="item.value"
@@ -11,7 +24,7 @@
         </el-select>
     </el-form-item>
     <el-form-item label="Medida">
-       <el-select v-model="value" placeholder="Select">
+       <el-select v-model="value" placeholder="Select" class="inputSelects">
             <el-option
             v-for="item in options"
             :key="item.value"
@@ -21,7 +34,7 @@
         </el-select>
     </el-form-item>
     <el-form-item label="Material">
-        <el-select v-model="value" placeholder="Select">
+        <el-select v-model="value" placeholder="Select" class="inputSelects">
             <el-option
             v-for="item in options"
             :key="item.value"
@@ -30,6 +43,8 @@
             </el-option>
         </el-select>
     </el-form-item>
+
+     
     </el-form>
 </template>
 
@@ -38,6 +53,7 @@
         data() {
             return {
                 labelPosition: 'top',
+                genero:"",
                 formLabelAlign: {
                 name: '',
                 region: '',
@@ -59,12 +75,22 @@
                     value: 'Option5',
                     label: 'Option5'
                 }],
-                    value: ''
+                value: ''
             }
         },
     }
 </script>
 
 <style scoped>
+  .el-radio{
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+  }
+  .textAreaDescripcion{
+      max-width: 400px;
+  }
 
-</style>
+  .inputSelects{
+      min-width: 400px;
+  }
+</style>    

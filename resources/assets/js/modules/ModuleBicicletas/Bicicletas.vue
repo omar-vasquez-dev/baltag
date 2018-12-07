@@ -1,35 +1,56 @@
 <template>
-
+<div>
 <el-row>
   <el-col :span="24">
     <h1 class="title-view">
       Nueva bicicleta
     </h1>
   </el-col>
-  <el-col :span="24">
-      <el-card class="box-card">
-        <el-steps :active="active" finish-status="success">
-          <el-step :title= "$getText('bicicleta_step_title_select')">
-            hola mundo
-            
-          </el-step>
-          <el-step :title="$getText('bicicleta_step_title_techic')">
-
-          </el-step>
-          <el-step :title="$getText('bicicleta_step_title_images')">
-
-          </el-step>
-        </el-steps>
-        <!-- formulario 1-->
-        
-        <select-form v-if="active === 1"></select-form>
-
-        <el-button style="margin-top: 12px;" @click="next">Next step</el-button>
-      </el-card>
-
-  </el-col>
 </el-row>
+<el-row type="flex" justify="space-between" class="row-bg">
 
+    <el-col :span="6" >
+       
+      <div class="content-step">
+
+          <el-steps :active="active" finish-status="success" direction="vertical">
+            <el-step :title= "$getText('bicicleta_step_title_select')">
+              hola mundo
+              
+            </el-step>
+            <el-step :title="$getText('bicicleta_step_title_techic')">
+
+            </el-step>
+            <el-step :title="$getText('bicicleta_step_title_images')">
+
+            </el-step>
+          </el-steps>
+          <!-- formulario 1-->
+
+
+      </div>
+
+    </el-col>
+
+     <el-col :span="18">
+
+       <el-row>
+         <el-col :span="24">
+            <h2>{{ $getText('bicicleta_step_title_select') }}</h2>
+            <select-form v-if="active === 1"></select-form>
+          </el-col> 
+       </el-row>
+
+       <el-row type="flex" justify="end" class="bottom-step">
+         <el-col :span="5" >
+            <el-button style="margin-top: 12px;" @click="next">Next step</el-button>
+         </el-col>
+       </el-row>
+
+    </el-col>
+
+  </el-row>
+</div>
 </template>
 
 <script>
@@ -47,7 +68,7 @@ export default {
   name: "bicicleta-view",
   data() {
     return {
-      active: 0,
+      active: 1,
       color_id: "1",
       marca: "",
       modelo: "",
@@ -194,4 +215,17 @@ export default {
 .el-color-picker {
   width: 100%;
 } */
+
+ .row-bg {
+    padding: 10px 10px;
+    border-radius: 4px;
+    background-color:white;
+    min-height: 400px;
+  }
+
+  .content-step{
+    height: 90%;
+    margin: 22px;
+  }
+
 </style>
