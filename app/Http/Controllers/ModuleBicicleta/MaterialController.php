@@ -35,9 +35,13 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MaterialRequest $MaterialRequest)
+    public function store(Request $MaterialRequest)
     {
-        //
+        //return response()->json([$MaterialRequest->all()]);
+        $Material = new MaterialModel;
+        $Material->nombre = $MaterialRequest->material;
+        $Material->save();
+        return "listo";
     }
 
     /**
@@ -46,9 +50,17 @@ class MaterialController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function show(MaterialRequest $MaterialRequest)
+    public function show()
     {
-        //
+        /*$Material= MaterialModel::all();
+        $data = [];
+        foreach($Material as $key => $value){
+            $data[$key]=[
+                'id' => $value->id,
+                'nombre' => $value->nombre,
+            ];
+        }*/
+        return response()->json(MaterialModel::all());
     }
 
     /**
