@@ -94948,38 +94948,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      tableData: [{
-        date: "2016-05-03",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles"
-      }, {
-        date: "2016-05-02",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles"
-      }, {
-        date: "2016-05-04",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles"
-      }, {
-        date: "2016-05-01",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles"
-      }]
+      tableData: [],
+      marca: ""
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    var urlKeeps = "/marca/list";
+    axios.get(urlKeeps).then(function (response) {
+      _this.tableData = response.data;
+      console.log(response.data);
+    });
   },
 
   methods: {
@@ -94990,7 +94974,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log(index, row);
     },
     nuevaMarca: function nuevaMarca() {
-      var _this = this;
+      var _this2 = this;
 
       this.$prompt("Por favor, agrega la nueva marca", "Nueva marca", {
         confirmButtonText: "OK",
@@ -94998,20 +94982,71 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (_ref) {
         var value = _ref.value;
 
-        var currentObj = _this;
         axios.post("/marca/create", {
           marca: value
         }).then(function (response) {
-          alert("Nueva marca añadida");
+          _this2.nuevaFila(response);
+          _this2.successBox();
         }).catch(function (error) {
           alert(error);
         });
       }).catch(function () {
-        _this.$notify({
+        _this2.$notify({
           title: "Advertencia",
           message: "El producto no se guardo",
           type: "warning"
         });
+      });
+    },
+
+    eliminarElemento: function eliminarElemento(element0) {
+      var _this3 = this;
+
+      this.$confirm("¿Esta seguro de eliminar este elemento permanentemente?", "Advertencia: ", {
+        confirmButtonText: "Continuar",
+        cancelButtonText: "Cancelar",
+        type: "warning"
+      }).then(function () {
+        axios.post("/marca/destroy", {
+          id: element0
+        }).then(function (response) {
+          _this3.quitarFila(response);
+          _this3.successBox();
+        }).catch(function (error) {
+          alert(error);
+        });
+      }).catch(function () {
+        _this3.$notify({
+          title: "Advertencia",
+          message: "El producto no se guardo",
+          type: "warning"
+        });
+      });
+    },
+    nuevaFila: function nuevaFila(response) {
+      if (response.status === 200 || response.status === 201) {
+        var position = null;
+
+        this.tableData.forEach(function (element, index) {
+          if (element.id == response.data.id) {
+            position = index;
+          }
+        });
+
+        if (position != null) {
+          Vue.set(this.tableData, position, response.data);
+        } else {
+          Vue.set(this.tableData, this.tableData.length, response.data);
+        }
+        this.loading = false;
+      }
+    },
+    quitarFila: function quitarFila(response) {},
+    successBox: function successBox() {
+      this.$notify({
+        title: "Listo",
+        message: "El dato se registró correctamente",
+        type: "success"
       });
     }
   }
@@ -95107,28 +95142,21 @@ var render = function() {
         [
           _c(
             "el-table",
-            { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
+            {
+              directives: [
+                {
+                  name: "loading",
+                  rawName: "v-loading",
+                  value: _vm.loading,
+                  expression: "loading"
+                }
+              ],
+              staticStyle: { width: "100%" },
+              attrs: { data: _vm.tableData }
+            },
             [
               _c("el-table-column", {
-                attrs: { label: "Fecha", width: "180" },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function(scope) {
-                      return [
-                        _c("i", { staticClass: "el-icon-time" }),
-                        _vm._v(" "),
-                        _c("span", { staticStyle: { "margin-left": "10px" } }, [
-                          _vm._v(_vm._s(scope.row.date))
-                        ])
-                      ]
-                    }
-                  }
-                ])
-              }),
-              _vm._v(" "),
-              _c("el-table-column", {
-                attrs: { label: "Nombre", width: "180" },
+                attrs: { label: "Material", width: "180" },
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -95138,12 +95166,10 @@ var render = function() {
                           "el-popover",
                           { attrs: { trigger: "hover", placement: "top" } },
                           [
-                            _c("p", [
-                              _vm._v("Name: " + _vm._s(scope.row.name))
-                            ]),
+                            _c("p", [_vm._v("Name: " + _vm._s(scope.row.id))]),
                             _vm._v(" "),
                             _c("p", [
-                              _vm._v("Addr: " + _vm._s(scope.row.address))
+                              _vm._v("Addr: " + _vm._s(scope.row.marca))
                             ]),
                             _vm._v(" "),
                             _c(
@@ -95155,7 +95181,7 @@ var render = function() {
                               },
                               [
                                 _c("el-tag", { attrs: { size: "medium" } }, [
-                                  _vm._v(_vm._s(scope.row.name))
+                                  _vm._v(_vm._s(scope.row.marca))
                                 ])
                               ],
                               1
@@ -95169,7 +95195,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("el-table-column", {
-                attrs: { label: "Operaciones" },
+                attrs: { label: "Editar" },
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -95178,23 +95204,10 @@ var render = function() {
                         _c(
                           "el-button",
                           {
-                            attrs: { size: "mini" },
-                            on: {
-                              click: function($event) {
-                                _vm.handleEdit(scope.$index, scope.row)
-                              }
-                            }
-                          },
-                          [_vm._v("Editar")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "el-button",
-                          {
                             attrs: { size: "mini", type: "danger" },
                             on: {
                               click: function($event) {
-                                _vm.handleDelete(scope.$index, scope.row)
+                                _vm.eliminarElemento(scope.row.id)
                               }
                             }
                           },
@@ -95368,38 +95381,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      tableData: [{
-        date: "2016-05-03",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles"
-      }, {
-        date: "2016-05-02",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles"
-      }, {
-        date: "2016-05-04",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles"
-      }, {
-        date: "2016-05-01",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles"
-      }]
+      tableData: []
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    var urlKeeps = "/componente/list";
+    axios.get(urlKeeps).then(function (response) {
+      _this.tableData = response.data;
+      console.log(response.data);
+    });
   },
 
   methods: {
@@ -95410,7 +95406,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log(index, row);
     },
     nuevaComp: function nuevaComp() {
-      var _this = this;
+      var _this2 = this;
 
       this.$prompt("Por favor, agrega el nuevo componente", "Nuevo componente", {
         confirmButtonText: "OK",
@@ -95418,20 +95414,72 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (_ref) {
         var value = _ref.value;
 
-        var currentObj = _this;
+        var currentObj = _this2;
         axios.post("/componente/create", {
           componente: value
         }).then(function (response) {
-          alert("Nuevo componente añadido");
+          _this2.nuevaFila(response);
+          _this2.successBox();
         }).catch(function (error) {
           alert(error);
         });
       }).catch(function () {
-        _this.$notify({
+        _this2.$notify({
           title: "Advertencia",
           message: "El producto no se guardo",
           type: "warning"
         });
+      });
+    },
+
+    eliminarElemento: function eliminarElemento(element0) {
+      var _this3 = this;
+
+      this.$confirm("¿Esta seguro de eliminar este elemento permanentemente?", "Advertencia: ", {
+        confirmButtonText: "Continuar",
+        cancelButtonText: "Cancelar",
+        type: "warning"
+      }).then(function () {
+        axios.post("/componente/destroy", {
+          id: element0
+        }).then(function (response) {
+          _this3.nuevaFila(response);
+          _this3.successBox();
+        }).catch(function (error) {
+          alert(error);
+        });
+      }).catch(function () {
+        _this3.$notify({
+          title: "Advertencia",
+          message: "El producto no se guardo",
+          type: "warning"
+        });
+      });
+    },
+    nuevaFila: function nuevaFila(response) {
+      if (response.status === 200 || response.status === 201) {
+        var position = null;
+
+        this.tableData.forEach(function (element, index) {
+          if (element.id == response.data.id) {
+            position = index;
+          }
+        });
+
+        if (position != null) {
+          Vue.set(this.tableData, position, response.data);
+        } else {
+          Vue.set(this.tableData, this.tableData.length, response.data);
+        }
+        this.loading = false;
+      }
+    },
+    quitarFila: function quitarFila(response) {},
+    successBox: function successBox() {
+      this.$notify({
+        title: "Listo",
+        message: "El dato se registró correctamente",
+        type: "success"
       });
     }
   }
@@ -95527,28 +95575,21 @@ var render = function() {
         [
           _c(
             "el-table",
-            { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
+            {
+              directives: [
+                {
+                  name: "loading",
+                  rawName: "v-loading",
+                  value: _vm.loading,
+                  expression: "loading"
+                }
+              ],
+              staticStyle: { width: "100%" },
+              attrs: { data: _vm.tableData }
+            },
             [
               _c("el-table-column", {
-                attrs: { label: "Fecha", width: "180" },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function(scope) {
-                      return [
-                        _c("i", { staticClass: "el-icon-time" }),
-                        _vm._v(" "),
-                        _c("span", { staticStyle: { "margin-left": "10px" } }, [
-                          _vm._v(_vm._s(scope.row.date))
-                        ])
-                      ]
-                    }
-                  }
-                ])
-              }),
-              _vm._v(" "),
-              _c("el-table-column", {
-                attrs: { label: "Nombre", width: "180" },
+                attrs: { label: "Material", width: "180" },
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -95558,12 +95599,10 @@ var render = function() {
                           "el-popover",
                           { attrs: { trigger: "hover", placement: "top" } },
                           [
-                            _c("p", [
-                              _vm._v("Name: " + _vm._s(scope.row.name))
-                            ]),
+                            _c("p", [_vm._v("Name: " + _vm._s(scope.row.id))]),
                             _vm._v(" "),
                             _c("p", [
-                              _vm._v("Addr: " + _vm._s(scope.row.address))
+                              _vm._v("Addr: " + _vm._s(scope.row.componente))
                             ]),
                             _vm._v(" "),
                             _c(
@@ -95575,7 +95614,7 @@ var render = function() {
                               },
                               [
                                 _c("el-tag", { attrs: { size: "medium" } }, [
-                                  _vm._v(_vm._s(scope.row.name))
+                                  _vm._v(_vm._s(scope.row.componente))
                                 ])
                               ],
                               1
@@ -95589,7 +95628,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("el-table-column", {
-                attrs: { label: "Operaciones" },
+                attrs: { label: "Editar" },
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -95598,23 +95637,10 @@ var render = function() {
                         _c(
                           "el-button",
                           {
-                            attrs: { size: "mini" },
-                            on: {
-                              click: function($event) {
-                                _vm.handleEdit(scope.$index, scope.row)
-                              }
-                            }
-                          },
-                          [_vm._v("Editar")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "el-button",
-                          {
                             attrs: { size: "mini", type: "danger" },
                             on: {
                               click: function($event) {
-                                _vm.handleDelete(scope.$index, scope.row)
+                                _vm.eliminarElemento(scope.row.id)
                               }
                             }
                           },
@@ -95788,10 +95814,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -95842,6 +95864,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
 
+    eliminarElemento: function eliminarElemento(element0) {
+      var _this3 = this;
+
+      this.$confirm("¿Esta seguro de eliminar este elemento permanentemente?", "Advertencia: ", {
+        confirmButtonText: "Continuar",
+        cancelButtonText: "Cancelar",
+        type: "warning"
+      }).then(function () {
+        axios.post("/medidas/destroy", {
+          id: element0
+        }).then(function (response) {
+          _this3.nuevaFila(response);
+          _this3.successBox();
+        }).catch(function (error) {
+          alert(error);
+        });
+      }).catch(function () {
+        _this3.$notify({
+          title: "Advertencia",
+          message: "El producto no se guardo",
+          type: "warning"
+        });
+      });
+    },
     nuevaFila: function nuevaFila(response) {
       if (response.status === 200 || response.status === 201) {
         var position = null;
@@ -95860,6 +95906,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.loading = false;
       }
     },
+    quitarFila: function quitarFila(response) {},
     successBox: function successBox() {
       this.$notify({
         title: "Listo",
@@ -95896,13 +95943,6 @@ var render = function() {
                 attrs: {
                   placeholder: "buscar",
                   "prefix-icon": "el-icon-search"
-                },
-                model: {
-                  value: _vm.input21,
-                  callback: function($$v) {
-                    _vm.input21 = $$v
-                  },
-                  expression: "input21"
                 }
               })
             ],
@@ -95960,7 +96000,18 @@ var render = function() {
         [
           _c(
             "el-table",
-            { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
+            {
+              directives: [
+                {
+                  name: "loading",
+                  rawName: "v-loading",
+                  value: _vm.loading,
+                  expression: "loading"
+                }
+              ],
+              staticStyle: { width: "100%" },
+              attrs: { data: _vm.tableData }
+            },
             [
               _c("el-table-column", {
                 attrs: { label: "Material", width: "180" },
@@ -96014,7 +96065,7 @@ var render = function() {
                             attrs: { size: "mini", type: "danger" },
                             on: {
                               click: function($event) {
-                                _vm.handleDelete(scope.row.id)
+                                _vm.eliminarElemento(scope.row.id)
                               }
                             }
                           },
@@ -96188,10 +96239,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -96242,6 +96289,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
 
+    eliminarElemento: function eliminarElemento(element0) {
+      var _this3 = this;
+
+      this.$confirm("¿Esta seguro de eliminar este elemento permanentemente?", "Advertencia: ", {
+        confirmButtonText: "Continuar",
+        cancelButtonText: "Cancelar",
+        type: "warning"
+      }).then(function () {
+        axios.post("/material/destroy", {
+          id: element0
+        }).then(function (response) {
+          _this3.nuevaFila(response);
+          _this3.successBox();
+        }).catch(function (error) {
+          alert(error);
+        });
+      }).catch(function () {
+        _this3.$notify({
+          title: "Advertencia",
+          message: "El producto no se guardo",
+          type: "warning"
+        });
+      });
+    },
     nuevaFila: function nuevaFila(response) {
       if (response.status === 200 || response.status === 201) {
         var position = null;
@@ -96260,6 +96331,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.loading = false;
       }
     },
+    quitarFila: function quitarFila(response) {},
     successBox: function successBox() {
       this.$notify({
         title: "Listo",
@@ -96296,13 +96368,6 @@ var render = function() {
                 attrs: {
                   placeholder: "buscar",
                   "prefix-icon": "el-icon-search"
-                },
-                model: {
-                  value: _vm.input21,
-                  callback: function($$v) {
-                    _vm.input21 = $$v
-                  },
-                  expression: "input21"
                 }
               })
             ],
@@ -96360,7 +96425,18 @@ var render = function() {
         [
           _c(
             "el-table",
-            { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
+            {
+              directives: [
+                {
+                  name: "loading",
+                  rawName: "v-loading",
+                  value: _vm.loading,
+                  expression: "loading"
+                }
+              ],
+              staticStyle: { width: "100%" },
+              attrs: { data: _vm.tableData }
+            },
             [
               _c("el-table-column", {
                 attrs: { label: "Material", width: "180" },
@@ -96414,7 +96490,7 @@ var render = function() {
                             attrs: { size: "mini", type: "danger" },
                             on: {
                               click: function($event) {
-                                _vm.handleDelete(scope.row.id)
+                                _vm.eliminarElemento(scope.row.id)
                               }
                             }
                           },
@@ -96588,10 +96664,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -96641,6 +96713,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
 
+    eliminarElemento: function eliminarElemento(element0) {
+      var _this3 = this;
+
+      this.$confirm("¿Esta seguro de eliminar este elemento permanentemente?", "Advertencia: ", {
+        confirmButtonText: "Continuar",
+        cancelButtonText: "Cancelar",
+        type: "warning"
+      }).then(function () {
+        axios.post("/modalidad/destroy", {
+          id: element0
+        }).then(function (response) {
+          _this3.nuevaFila(response);
+          _this3.successBox();
+        }).catch(function (error) {
+          alert(error);
+        });
+      }).catch(function () {
+        _this3.$notify({
+          title: "Advertencia",
+          message: "El producto no se guardo",
+          type: "warning"
+        });
+      });
+    },
     nuevaFila: function nuevaFila(response) {
       if (response.status === 200 || response.status === 201) {
         var position = null;
@@ -96659,6 +96755,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.loading = false;
       }
     },
+    quitarFila: function quitarFila(response) {},
     successBox: function successBox() {
       this.$notify({
         title: "Listo",
@@ -96752,7 +96849,18 @@ var render = function() {
         [
           _c(
             "el-table",
-            { staticStyle: { width: "100%" }, attrs: { data: _vm.tableData } },
+            {
+              directives: [
+                {
+                  name: "loading",
+                  rawName: "v-loading",
+                  value: _vm.loading,
+                  expression: "loading"
+                }
+              ],
+              staticStyle: { width: "100%" },
+              attrs: { data: _vm.tableData }
+            },
             [
               _c("el-table-column", {
                 attrs: { label: "Nombre", width: "180" },
@@ -96819,7 +96927,7 @@ var render = function() {
                             attrs: { size: "mini", type: "danger" },
                             on: {
                               click: function($event) {
-                                _vm.handleDelete(scope.$index, scope.row)
+                                _vm.eliminarElemento(scope.row.id)
                               }
                             }
                           },

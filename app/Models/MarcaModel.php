@@ -14,6 +14,7 @@ class MarcaModel extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'marca'
     ];
 }

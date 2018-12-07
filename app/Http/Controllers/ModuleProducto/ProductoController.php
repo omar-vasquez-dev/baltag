@@ -47,9 +47,9 @@ class ProductoController extends Controller
      * @param  \App\Models\BicicletaModel  $bicicletaModel
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductoRequest $ProductoRequest)
+    public function show()
     {
-        return $bicicletaModel->all();
+        return response()->json(MaterialModel::all());
     }
 
     /**

@@ -14,6 +14,7 @@ class MedidasModel extends Model
      * @var array
      */
     protected $fillable = [
+        'id',        
         'nombre',
         'valor'
     ];

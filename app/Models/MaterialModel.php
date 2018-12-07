@@ -14,6 +14,7 @@ class MaterialModel extends Model
      * @var array
      */
     protected $fillable = [
+        'id',        
         'nombre'
     ];
 }

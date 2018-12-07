@@ -21,7 +21,7 @@
     </el-row>
 
     <el-row :gutter="5" style="sticky;  top: 0;">
-      <el-table :data="tableData" style="width: 100%">
+      <el-table v-loading="loading" :data="tableData" style="width: 100%">
         <el-table-column label="Nombre" width="180">
           <template slot-scope="scope">
             <el-popover trigger="hover" placement="top">
@@ -36,11 +36,7 @@
         <el-table-column label="Operaciones">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.id)">Editar</el-button>
-            <el-button
-              size="mini"
-              type="danger"
-              @click="handleDelete(scope.$index, scope.row)"
-            >Eliminar</el-button>
+            <el-button size="mini" type="danger" @click="eliminarElemento(scope.row.id)">Eliminar</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -78,7 +74,7 @@ export default {
             .post("/modalidad/create", {
               modalidad: value
             })
-            .then(response =>  {
+            .then(response => {
               this.successBox();
               this.nuevaFila(response);
             })
@@ -94,7 +90,38 @@ export default {
           });
         });
     },
-    nuevaFila:function(response) {
+    eliminarElemento: function(element0) {
+      this.$confirm(
+        "¿Esta seguro de eliminar este elemento permanentemente?",
+        "Advertencia: ",
+        {
+          confirmButtonText: "Continuar",
+          cancelButtonText: "Cancelar",
+          type: "warning"
+        }
+      )
+        .then(() => {
+          axios
+            .post("/modalidad/destroy", {
+              id: element0
+            })
+            .then(response => {
+              this.nuevaFila(response);
+              this.successBox();
+            })
+            .catch(error => {
+              alert(error);
+            });
+        })
+        .catch(() => {
+          this.$notify({
+            title: "Advertencia",
+            message: "El producto no se guardo",
+            type: "warning"
+          });
+        });
+    },
+    nuevaFila: function(response) {
       if (response.status === 200 || response.status === 201) {
         let position = null;
 
@@ -112,12 +139,13 @@ export default {
         this.loading = false;
       }
     },
-    successBox:function(){
+    quitarFila: function(response) {},
+    successBox: function() {
       this.$notify({
         title: "Listo",
         message: "El dato se registró correctamente",
         type: "success"
-      }); 
+      });
     }
   }
 };

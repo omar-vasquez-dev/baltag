@@ -83,8 +83,9 @@ class ModalidadController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ModalidadRequest $ModalidadRequest)
+    public function destroy(Request $ModalidadRequest)
     {
-        //
+        ModalidadModel::destroy($ModalidadRequest->id);
+        return "eliminar";
     }
 }

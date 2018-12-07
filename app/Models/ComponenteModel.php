@@ -14,6 +14,7 @@ class ComponenteModel extends Model
      * @var array
      */
     protected $fillable = [
+        'id',        
         'componente'
     ];
 }

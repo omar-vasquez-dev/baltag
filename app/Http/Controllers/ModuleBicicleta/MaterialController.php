@@ -83,8 +83,9 @@ class MaterialController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MaterialRequest $MaterialRequest)
+    public function destroy(Request $MaterialRequest)
     {
-        //
+        MaterialModel::destroy($MaterialRequest->id);
+        return "Eliminado";
     }
 }

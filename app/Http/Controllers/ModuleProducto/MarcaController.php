@@ -39,11 +39,10 @@ class MarcaController extends Controller
     //BicicletaRequest
     public function store(MarcaRequest $MarcaRequest)
     {
-        //return response()->json([$MarcaRequest->all()]);
         $Marca = new MarcaModel;
         $Marca->marca = $MarcaRequest->marca;
         $Marca->save();
-        return "Listo";
+        return response()->json($Marca);
     }
 
     /**
@@ -52,9 +51,9 @@ class MarcaController extends Controller
      * @param  \App\Models\BicicletaModel  $MarcaRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(MarcaRequest $MarcaRequest)
+    public function show()
     {
-        return $MarcaRequest->all();
+        return response()->json(MarcaModel::all());
     }
 
     /**
@@ -86,8 +85,9 @@ class MarcaController extends Controller
      * @param  \App\Models\BicicletaModel  $bicicletaModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MarcaRequest $MarcaRequest)
+    public function destroy(Request $MarcaRequest)
     {
-        //
+        MarcaModel::destroy($MarcaRequest->id);
+        return "Eliminado";
     }
 }

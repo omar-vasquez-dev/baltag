@@ -83,8 +83,8 @@ class MedidasController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MedidasRequest $MedidasRequest)
+    public function destroy(Request $MedidasRequest)
     {
-        //
+        MedidasModel::destroy($MedidasRequest->id);
     }
 }

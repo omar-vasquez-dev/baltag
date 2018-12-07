@@ -38,11 +38,10 @@ class ComponenteController extends Controller
     //BicicletaRequest
     public function store(ComponenteRequest $ComponenteRequest)
     {
-        //return response()->json([$ComponenteRequest->all()]);
         $Componente = new ComponenteModel;
         $Componente->componente = $ComponenteRequest->componente;
         $Componente->save();
-        return "Listo";
+        return response()->json($Componente);
     }
 
     /**
@@ -51,9 +50,9 @@ class ComponenteController extends Controller
      * @param  \App\Models\BicicletaModel  $bicicletaModel
      * @return \Illuminate\Http\Response
      */
-    public function show(ComponenteRequest $ComponenteRequest)
+    public function show()
     {
-        return $bicicletaModel->all();
+        return response()->json(ComponenteModel::all());
     }
 
     /**
@@ -85,8 +84,9 @@ class ComponenteController extends Controller
      * @param  \App\Models\BicicletaModel  $bicicletaModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ComponenteRequest $ComponenteRequest)
+    public function destroy(Request $ComponenteRequest)
     {
-        //
+        ComponenteModel::destroy($ComponenteRequest->id);
+        return "Eliminado";
     }
 }
