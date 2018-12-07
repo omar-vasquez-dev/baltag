@@ -87,4 +87,7 @@ Vue.use(VueRouter)
     .el-main{
         background: #F0F0F7;
     }
+    .el-header{
+      border-bottom: 1px solid #e5e9f2;
+    }
 </style>

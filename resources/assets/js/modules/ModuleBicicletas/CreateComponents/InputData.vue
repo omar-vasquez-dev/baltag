@@ -124,7 +124,16 @@
 
 <script>
     export default {
-        
+        data() {
+          return {
+            key: value
+          }
+        },
+
+
+        created () {
+          
+        },
     }
 </script>
 

@@ -89083,7 +89083,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.app-container[data-v-66ab2f82]{\n    height: 100vh;\n    padding: 0px !important;\n}\n.el-footer[data-v-66ab2f82]{\n    background: #F6F8F9;\n}\n.shadowCard[data-v-66ab2f82]{\n    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n}\n.app-header[data-v-66ab2f82]{\n    /**background: #484F80; */\n    padding: 0px 0px;\n    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n}\n.el-main[data-v-66ab2f82]{\n    background: #F0F0F7;\n}\n", ""]);
+exports.push([module.i, "\n.app-container[data-v-66ab2f82]{\n    height: 100vh;\n    padding: 0px !important;\n}\n.el-footer[data-v-66ab2f82]{\n    background: #F6F8F9;\n}\n.shadowCard[data-v-66ab2f82]{\n    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n}\n.app-header[data-v-66ab2f82]{\n    /**background: #484F80; */\n    padding: 0px 0px;\n    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);\n}\n.el-main[data-v-66ab2f82]{\n    background: #F0F0F7;\n}\n.el-header[data-v-66ab2f82]{\n  border-bottom: 1px solid #e5e9f2;\n}\n", ""]);
 
 // exports
 
@@ -93196,7 +93196,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .el-header {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\r\n}\r\n.el-main {\r\n  background: #d3dce6;\r\n}\r\n.el-row {\r\n  margin-bottom: 10px;\r\n  &:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.el-select {\r\n  width: 100%;\r\n}\r\n.el-upload {\r\n  width: 100%;\r\n}\r\n.el-button,\r\n.el-color-picker {\r\n  width: 100%;\r\n} */\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .el-header {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\r\n}\r\n.el-main {\r\n  background: #d3dce6;\r\n}\r\n.el-row {\r\n  margin-bottom: 10px;\r\n  &:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.el-select {\r\n  width: 100%;\r\n}\r\n.el-upload {\r\n  width: 100%;\r\n}\r\n.el-button,\r\n.el-color-picker {\r\n  width: 100%;\r\n} */\n.row-bg[data-v-897bf68e] {\r\n    padding: 10px 10px;\r\n    border-radius: 4px;\r\n    background-color:white;\r\n    min-height: 400px;\n}\n.content-step[data-v-897bf68e]{\r\n    height: 90%;\r\n    margin: 22px;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -93209,6 +93209,27 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -93259,7 +93280,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: "bicicleta-view",
   data: function data() {
     return {
-      active: 0,
+      active: 1,
       color_id: "1",
       marca: "",
       modelo: "",
@@ -93456,7 +93477,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.el-radio[data-v-2c169308]{\n  font-weight: 600;\n  font-family: 'Nunito', sans-serif;\n}\n.textAreaDescripcion[data-v-2c169308]{\n    max-width: 400px;\n}\n.inputSelects[data-v-2c169308]{\n    min-width: 400px;\n}\n", ""]);
 
 // exports
 
@@ -93502,11 +93523,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             labelPosition: 'top',
+            genero: "",
             formLabelAlign: {
                 name: '',
                 region: '',
@@ -93546,11 +93583,60 @@ var render = function() {
     {
       attrs: {
         "label-position": _vm.labelPosition,
-        "label-width": "100px",
+        "label-width": "150px",
         model: _vm.formLabelAlign
       }
     },
     [
+      _c(
+        "el-form-item",
+        {
+          staticClass: "textAreaDescripcion",
+          attrs: { label: _vm.$getText("bicicleta_description"), prop: "desc" }
+        },
+        [
+          _c("el-input", {
+            attrs: { type: "textarea" },
+            model: {
+              value: _vm.value,
+              callback: function($$v) {
+                _vm.value = $$v
+              },
+              expression: "value"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        { attrs: { label: "Genero ", prop: "resource" } },
+        [
+          _c(
+            "el-radio-group",
+            {
+              model: {
+                value: _vm.genero,
+                callback: function($$v) {
+                  _vm.genero = $$v
+                },
+                expression: "genero"
+              }
+            },
+            [
+              _c("el-radio", { attrs: { label: "UNISEX" } }),
+              _vm._v(" "),
+              _c("el-radio", { attrs: { label: "HOMBRE" } }),
+              _vm._v(" "),
+              _c("el-radio", { attrs: { label: "MUJER" } })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
       _c(
         "el-form-item",
         { attrs: { label: "Modalidad" } },
@@ -93558,6 +93644,7 @@ var render = function() {
           _c(
             "el-select",
             {
+              staticClass: "inputSelects",
               attrs: { placeholder: "Select" },
               model: {
                 value: _vm.value,
@@ -93585,6 +93672,7 @@ var render = function() {
           _c(
             "el-select",
             {
+              staticClass: "inputSelects",
               attrs: { placeholder: "Select" },
               model: {
                 value: _vm.value,
@@ -93612,6 +93700,7 @@ var render = function() {
           _c(
             "el-select",
             {
+              staticClass: "inputSelects",
               attrs: { placeholder: "Select" },
               model: {
                 value: _vm.value,
@@ -93654,64 +93743,124 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "el-row",
+    "div",
     [
-      _c("el-col", { attrs: { span: 24 } }, [
-        _c("h1", { staticClass: "title-view" }, [
-          _vm._v("\r\n      Nueva bicicleta\r\n    ")
-        ])
-      ]),
+      _c(
+        "el-row",
+        [
+          _c("el-col", { attrs: { span: 24 } }, [
+            _c("h1", { staticClass: "title-view" }, [
+              _vm._v("\r\n      Nueva bicicleta\r\n    ")
+            ])
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
-        "el-col",
-        { attrs: { span: 24 } },
+        "el-row",
+        {
+          staticClass: "row-bg",
+          attrs: { type: "flex", justify: "space-between" }
+        },
         [
+          _c("el-col", { attrs: { span: 6 } }, [
+            _c(
+              "div",
+              { staticClass: "content-step" },
+              [
+                _c(
+                  "el-steps",
+                  {
+                    attrs: {
+                      active: _vm.active,
+                      "finish-status": "success",
+                      direction: "vertical"
+                    }
+                  },
+                  [
+                    _c(
+                      "el-step",
+                      {
+                        attrs: {
+                          title: _vm.$getText("bicicleta_step_title_select")
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n              hola mundo\r\n              \r\n            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("el-step", {
+                      attrs: {
+                        title: _vm.$getText("bicicleta_step_title_techic")
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("el-step", {
+                      attrs: {
+                        title: _vm.$getText("bicicleta_step_title_images")
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
           _c(
-            "el-card",
-            { staticClass: "box-card" },
+            "el-col",
+            { attrs: { span: 18 } },
             [
               _c(
-                "el-steps",
-                { attrs: { active: _vm.active, "finish-status": "success" } },
+                "el-row",
                 [
                   _c(
-                    "el-step",
-                    {
-                      attrs: {
-                        title: _vm.$getText("bicicleta_step_title_select")
-                      }
-                    },
+                    "el-col",
+                    { attrs: { span: 24 } },
                     [
-                      _vm._v(
-                        "\r\n            hola mundo\r\n            \r\n          "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("el-step", {
-                    attrs: {
-                      title: _vm.$getText("bicicleta_step_title_techic")
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("el-step", {
-                    attrs: {
-                      title: _vm.$getText("bicicleta_step_title_images")
-                    }
-                  })
+                      _c("h2", [
+                        _vm._v(
+                          _vm._s(_vm.$getText("bicicleta_step_title_select"))
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm.active === 1 ? _c("select-form") : _vm._e()
+                    ],
+                    1
+                  )
                 ],
                 1
               ),
               _vm._v(" "),
-              _vm.active === 1 ? _c("select-form") : _vm._e(),
-              _vm._v(" "),
               _c(
-                "el-button",
+                "el-row",
                 {
-                  staticStyle: { "margin-top": "12px" },
-                  on: { click: _vm.next }
+                  staticClass: "bottom-step",
+                  attrs: { type: "flex", justify: "end" }
                 },
-                [_vm._v("Next step")]
+                [
+                  _c(
+                    "el-col",
+                    { attrs: { span: 5 } },
+                    [
+                      _c(
+                        "el-button",
+                        {
+                          staticStyle: { "margin-top": "12px" },
+                          on: { click: _vm.next }
+                        },
+                        [_vm._v("Next step")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
               )
             ],
             1
@@ -96926,7 +97075,7 @@ module.exports = VueRepo;
 /* 273 */
 /***/ (function(module, exports) {
 
-module.exports = {"hola":"hola","advertencia":"Advertencia repo","bicicleta_step_title_select":"Características","bicicleta_step_title_techic":"Características técnicas","bicicleta_step_title_images":"Imagenes"}
+module.exports = {"hola":"hola","advertencia":"Advertencia repo","bicicleta_step_title_select":"Características","bicicleta_step_title_techic":"Características técnicas","bicicleta_step_title_images":"Imagenes","bicicleta_description":"Descripción"}
 
 /***/ }),
 /* 274 */
