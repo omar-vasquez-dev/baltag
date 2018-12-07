@@ -26,7 +26,7 @@ class ModalidadController extends Controller
      */
     public function create()
     {
-        
+//
     }
 
     /**
@@ -35,20 +35,31 @@ class ModalidadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ModalidadRequest $ModalidadRequest)
+    public function store(Request $ModalidadRequest)
     {
-        //
+        $Modalidad = new ModalidadModel;
+        $Modalidad->nombre = $ModalidadRequest->modalidad;
+        $Modalidad->save();
+        return "Lsito";
     }
-
+    
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function show(ModalidadRequest $ModalidadRequest)
+    public function show()
     {
-        //
+            /*$Modalidad= ModalidadModel::all();
+            $data = [];
+            foreach($Modalidad as $key => $value){
+                $data[$key]=[
+                    'id' => $value->id,
+                    'nombre' => $value->nombre,
+                ];
+            }*/
+        return response()->json(ModalidadModel::all());
     }
 
     /**

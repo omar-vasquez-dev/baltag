@@ -46,16 +46,16 @@ Route::prefix('componente')->group(function(){
 });
 
 Route::prefix('medidas')->group(function(){
-    Route::post('/create','ModuleProducto\MedidasController@store');
-    Route::get('/list','ModuleProducto\MedidasController@show')->name('medidas.list');
+    Route::post('/create','ModuleBicicleta\MedidasController@store');
+    Route::get('/list','ModuleBicicleta\MedidasController@show')->name('medidas.list');
 });
 
 Route::prefix('material')->group(function(){
-    Route::post('/create','ModuleProducto\MaterialController@store');
-    Route::get('/list','ModuleProducto\MaterialController@show')->name('material.list');
+    Route::post('/create','ModuleBicicleta\MaterialController@store');
+    Route::get('/list','ModuleBicicleta\MaterialController@show')->name('material.list');
 });
 
 Route::prefix('modalidad')->group(function(){
-    Route::post('/create','ModuleProducto\ModalidadController@store');
-    Route::get('/list','ModuleProducto\ModalidadController@show')->name('modalidad.list');
+    Route::post('/create','ModuleBicicleta\ModalidadController@store');
+    Route::get('/list','ModuleBicicleta\ModalidadController@show')->name('modalidad.list');
 });

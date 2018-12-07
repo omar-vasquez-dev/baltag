@@ -35,9 +35,13 @@ class MedidasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MedidasRequest $MedidasRequest)
+    public function store(Request $MedidasRequest)
     {
-        //
+        /*return response()->json([$MedidasRequest->all()]);*/
+        $Medidas = new MedidasModel;
+        $Medidas->nombre = $MedidasRequest->medidas;
+        $Medidas->save();
+        return "Listo";
     }
 
     /**
@@ -46,9 +50,17 @@ class MedidasController extends Controller
      * @param  \App\Models\ColorModel  $colorModel
      * @return \Illuminate\Http\Response
      */
-    public function show(MedidasRequest $MedidasRequest)
+    public function show()
     {
-        //
+           /* $Medidas= MedidasModel::all();
+            $data = [];
+            foreach($Medidas as $key => $value){
+                $data[$key]=[
+                    'id' => $value->id,
+                    'nombre' => $value->nombre,
+                ];
+            }*/
+        return response()->json(MedidasModel::all());
     }
 
     /**
