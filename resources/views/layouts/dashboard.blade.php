@@ -16,7 +16,7 @@
     <script>
        window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
-                //'routes' => Route::getRoutesList(),
+                'routes' => Route::routeList(),
                 'route_base' => $urlBase
         ]); ?>
     </script>
