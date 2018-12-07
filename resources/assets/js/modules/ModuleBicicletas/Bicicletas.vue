@@ -21,6 +21,7 @@
           </el-step>
         </el-steps>
         <!-- formulario 1-->
+        
         <select-form v-if="active === 1"></select-form>
 
         <el-button style="margin-top: 12px;" @click="next">Next step</el-button>

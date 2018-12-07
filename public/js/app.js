@@ -93196,7 +93196,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .el-header {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\r\n}\r\n.el-main {\r\n  background: #d3dce6;\r\n}\r\n.el-row {\r\n  margin-bottom: 10px;\r\n  &:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.el-select {\r\n  width: 100%;\r\n}\r\n.el-upload {\r\n  width: 100%;\r\n}\r\n.el-button,\r\n.el-color-picker {\r\n  width: 100%;\r\n} */\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .el-header {\r\n  text-align: center;\r\n  font-size: 2em;\r\n  color: white;\r\n  background: #99a9bf;\r\n}\r\n.el-main {\r\n  background: #d3dce6;\r\n}\r\n.el-row {\r\n  margin-bottom: 10px;\r\n  &:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.el-select {\r\n  width: 100%;\r\n}\r\n.el-upload {\r\n  width: 100%;\r\n}\r\n.el-button,\r\n.el-color-picker {\r\n  width: 100%;\r\n} */\r\n", ""]);
 
 // exports
 
@@ -93209,6 +93209,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__CreateComponents_Selects_vue__);
+//
 //
 //
 //
