@@ -21,7 +21,7 @@
     </el-row>
 
     <el-row :gutter="5" style="sticky;  top: 0;">
-      <el-table v-loading="loading" :data="tableData" style="width: 100%">
+      <el-table v-loading="loading" :data="tableData" style="width: 100%" >
         <el-table-column label="Material" width="180">
           <template slot-scope="scope">
             <el-popover trigger="hover" placement="top">
@@ -36,6 +36,7 @@
 
         <el-table-column label="Editar">
           <template slot-scope="scope">
+            <el-button size="mini" @click="handleEdit(scope.$index, scope.id)">Editar</el-button>
             <el-button size="mini" type="danger" @click="eliminarElemento(scope.row.id)">Eliminar</el-button>
           </template>
         </el-table-column>
@@ -108,7 +109,7 @@ export default {
               id: element0
             })
             .then(response => {
-              this.quitarFila(response);
+              this.quitarFila(element0);
               this.successBox();
             })
             .catch(error => {
@@ -141,7 +142,9 @@ export default {
         this.loading = false;
       }
     },
-    quitarFila: function(response) {},
+    quitarFila: function(index) {
+      this.tableData.splice(index, 1)      
+    },
     successBox: function() {
       this.$notify({
         title: "Listo",

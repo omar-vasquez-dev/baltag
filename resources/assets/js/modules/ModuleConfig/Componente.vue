@@ -36,6 +36,7 @@
 
         <el-table-column label="Editar">
           <template slot-scope="scope">
+            <el-button size="mini" @click="handleEdit(scope.$index, scope.id)">Editar</el-button>
             <el-button size="mini" type="danger" @click="eliminarElemento(scope.row.id)">Eliminar</el-button>
           </template>
         </el-table-column>

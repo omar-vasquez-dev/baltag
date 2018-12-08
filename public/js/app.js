@@ -94948,6 +94948,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -95010,7 +95011,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         axios.post("/marca/destroy", {
           id: element0
         }).then(function (response) {
-          _this3.quitarFila(response);
+          _this3.quitarFila(element0);
           _this3.successBox();
         }).catch(function (error) {
           alert(error);
@@ -95041,7 +95042,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.loading = false;
       }
     },
-    quitarFila: function quitarFila(response) {},
+    quitarFila: function quitarFila(index) {
+      this.tableData.splice(index, 1);
+    },
     successBox: function successBox() {
       this.$notify({
         title: "Listo",
@@ -95204,6 +95207,19 @@ var render = function() {
                         _c(
                           "el-button",
                           {
+                            attrs: { size: "mini" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleEdit(scope.$index, scope.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Editar")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "el-button",
+                          {
                             attrs: { size: "mini", type: "danger" },
                             on: {
                               click: function($event) {
@@ -95335,6 +95351,7 @@ exports.push([module.i, "\n.el-row[data-v-28a3259f] {\r\n  margin-bottom: 10px;\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -95637,6 +95654,19 @@ var render = function() {
                         _c(
                           "el-button",
                           {
+                            attrs: { size: "mini" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleEdit(scope.$index, scope.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Editar")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "el-button",
+                          {
                             attrs: { size: "mini", type: "danger" },
                             on: {
                               click: function($event) {
@@ -95768,6 +95798,7 @@ exports.push([module.i, "\n.el-row[data-v-1961e0d2] {\r\n  margin-bottom: 10px;\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -96062,6 +96093,19 @@ var render = function() {
                         _c(
                           "el-button",
                           {
+                            attrs: { size: "mini" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleEdit(scope.$index, scope.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Editar")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "el-button",
+                          {
                             attrs: { size: "mini", type: "danger" },
                             on: {
                               click: function($event) {
@@ -96193,6 +96237,7 @@ exports.push([module.i, "\n.el-row[data-v-263e5804] {\r\n  margin-bottom: 10px;\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -96484,6 +96529,19 @@ var render = function() {
                     key: "default",
                     fn: function(scope) {
                       return [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleEdit(scope.$index, scope.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Editar")]
+                        ),
+                        _vm._v(" "),
                         _c(
                           "el-button",
                           {
