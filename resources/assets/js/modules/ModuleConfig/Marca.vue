@@ -110,7 +110,7 @@ export default {
             })
             .then(response => {
               this.quitarFila(element0);
-              this.successBox();
+              this.successBox1();
             })
             .catch(error => {
               alert(error);
@@ -119,7 +119,7 @@ export default {
         .catch(() => {
           this.$notify({
             title: "Advertencia",
-            message: "El producto no se guardo",
+            message: "El elemento no se eliminó",
             type: "warning"
           });
         });
@@ -149,6 +149,13 @@ export default {
       this.$notify({
         title: "Listo",
         message: "El dato se registró correctamente",
+        type: "success"
+      });
+    },
+    successBox1: function() {
+      this.$notify({
+        title: "Listo",
+        message: "El dato se ha eliminado",
         type: "success"
       });
     }

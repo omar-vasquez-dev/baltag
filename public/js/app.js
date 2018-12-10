@@ -95012,14 +95012,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           id: element0
         }).then(function (response) {
           _this3.quitarFila(element0);
-          _this3.successBox();
+          _this3.successBox1();
         }).catch(function (error) {
           alert(error);
         });
       }).catch(function () {
         _this3.$notify({
           title: "Advertencia",
-          message: "El producto no se guardo",
+          message: "El elemento no se eliminó",
           type: "warning"
         });
       });
@@ -95049,6 +95049,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.$notify({
         title: "Listo",
         message: "El dato se registró correctamente",
+        type: "success"
+      });
+    },
+    successBox1: function successBox1() {
+      this.$notify({
+        title: "Listo",
+        message: "El dato se ha eliminado",
         type: "success"
       });
     }
